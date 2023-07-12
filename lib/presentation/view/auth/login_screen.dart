@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
@@ -7,16 +8,16 @@ import 'package:uni_hostel/core/utils/size_konfig.dart';
 import 'package:uni_hostel/core/widget/custom_button.dart';
 import 'package:uni_hostel/core/widget/custom_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
       body: Center(
         child: Container(
-          constraints: const BoxConstraints(maxWidth: 474),
-          padding: const EdgeInsets.all(24),
+          constraints: const BoxConstraints(maxWidth:474),
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -54,7 +55,10 @@ class LoginScreen extends StatelessWidget {
                           onTap: () {},
                           child: const Icon(Icons.remove_red_eye))),
                   SizedBox(height: he(30)),
-                  CustomButton(text: AppStrings.strAcces, onTap: () {})
+                  CustomButton(
+                      text: AppStrings.strAcces,
+                      onTap: () => Navigator.pushNamedAndRemoveUntil(
+                          context, RouteName.main.route, (route) => false))
                 ],
               ),
               const SizedBox(height: 15),

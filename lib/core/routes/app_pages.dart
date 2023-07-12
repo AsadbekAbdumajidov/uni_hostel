@@ -1,17 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:uni_hostel/core/routes/app_routes.dart';
+import 'package:uni_hostel/presentation/view/404/error.dart';
+import 'package:uni_hostel/presentation/view/auth/login_screen.dart';
+import 'package:uni_hostel/presentation/view/layout.dart';
+import 'package:uni_hostel/presentation/view/splash/splash_screen.dart';
 
-class RouteGenerate {
-  Route? generate(RouteSettings settings) {
-    // final args = settings.arguments;
-    switch (settings.name) {
-      /// PROJECT ///
-
-     
-     
-
+RouteFactory generateRoute() {
+  return (settings) {
+    final name = settings.name;
+    if (name == null) {
+      return MaterialPageRoute(builder: (_) => const SplashPage());
     }
-    return null;
-  }
+    final routeName = RouteName.find(name);
+    if (routeName == null) {
+      return MaterialPageRoute(builder: (_) => const SplashPage());
+    }
+    switch (routeName) {
+      case RouteName.main:
+        return _createPageRoute(const LayoutScreen(), routeName);
+      case RouteName.login:
+        return _createPageRoute(const LoginPage(), routeName);
+     case RouteName.splash:
+        return _createPageRoute(const SplashPage(), routeName);
+     case RouteName.notFound:
+        return _createPageRoute(PageNotFound(), routeName);
+     
+    }
+  };
+}
 
-  simpleRoute(Widget route) => MaterialPageRoute(builder: (context) => route);
+Route _createPageRoute(Widget page, RouteName routeName) {
+  return MaterialPageRoute(
+    builder: (_) => page,
+    settings: RouteSettings(name: routeName.name),
+  );
 }

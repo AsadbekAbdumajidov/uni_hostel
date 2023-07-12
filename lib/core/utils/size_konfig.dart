@@ -17,12 +17,10 @@ class SizeConfig {
 
 double he(double inputHeight) {
   double screenHeight = SizeConfig.screenHeight!;
-  // 896.0 designer ishlatgan height
   return (inputHeight / 896.0) * screenHeight;
 }
 
 double wi(double inputWidth) {
   double screenWidth = SizeConfig.screenWidth!;
-  // 343.0 designer ishlatgan width
-  return (inputWidth / 500.0) * screenWidth;
+  return (inputWidth / 1600.0) * screenWidth;
 }

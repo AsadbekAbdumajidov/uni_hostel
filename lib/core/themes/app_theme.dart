@@ -26,7 +26,7 @@ final appThemeData = ThemeData(
     displayMedium: TextStyle(
         fontSize: 30.0, fontWeight: FontWeight.w700, color: AppColors.blackColor),
     displaySmall: TextStyle(
-        fontSize: 17.0,
+        fontSize: 16.0,
         fontWeight: FontWeight.w400,
         color: AppColors.blackColor),
     headlineMedium: TextStyle(
