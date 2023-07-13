@@ -10,7 +10,9 @@ class AppColors {
   static const primaryColor = Color(0xFF2563EB);
   static const bodyTextColor = Color(0xFF3D3D3D);
   static const blueColor = Color(0xFF24242E);
- static const backgroundColour = Color(0xFFD9D9D9);
+ static const backgroundColour =Color(0xFFF2F2F2);
+ static const redColour = Colors.red;
+
 
 
 }

@@ -11,13 +11,16 @@ class CustomButton extends StatelessWidget {
       required this.onTap,
       this.textColor,
       this.isLoading = false,
-      this.bgColor})
+      this.bgColor,
+      this.width})
       : super(key: key);
 
   final String text;
   final Function() onTap;
   final Color? textColor;
   final bool isLoading;
+  final double? width;
+
   final Color? bgColor;
 
   @override
@@ -29,15 +32,12 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         onTap: onTap,
         child: Ink(
-          height: 50,
-          width: context.w,
+          height: he(40),
+          width: width ?? context.w,
           decoration: BoxDecoration(
-              color: bgColor,
-              borderRadius: BorderRadius.circular(5),
-              gradient: bgColor != null
-                  ? null
-                  : const LinearGradient(
-                      colors: [Color(0xFF3A75FF), Color(0xFF004CFD)])),
+            color: bgColor ?? AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(5),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -46,11 +46,11 @@ class CustomButton extends StatelessWidget {
                       height: he(30),
                       width: he(30),
                       child: const LoadingWidget())
-                  : Text(
-                      text,
+                  : Text(text,
                       style: Theme.of(context)
                           .textTheme
-                          .titleLarge?.copyWith(color: AppColors.whiteColor)),
+                          .titleSmall
+                          ?.copyWith(color: AppColors.whiteColor)),
             ],
           ),
         ),
@@ -59,3 +59,47 @@ class CustomButton extends StatelessWidget {
   }
 }
 
+class CustomOutlineButton extends StatelessWidget {
+  const CustomOutlineButton({
+    Key? key,
+    required this.text,
+    required this.onTap,
+    this.bgColor,
+    this.width,
+  }) : super(key: key);
+  final String text;
+  final double? width;
+  final Function() onTap;
+  final Color? bgColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: bgColor,
+      borderRadius: BorderRadius.circular(5),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(5),
+        onTap: onTap,
+        child: Ink(
+          height: he(40),
+          width: width ?? context.w,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(color: AppColors.primaryColor, width: wi(2)),
+              color: bgColor),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(text,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall
+                      ?.copyWith(color: AppColors.primaryColor)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

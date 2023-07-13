@@ -8,21 +8,21 @@ final appThemeData = ThemeData(
   colorScheme:
       ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
   appBarTheme: const AppBarTheme(
-    color: Colors.white,
+    color: AppColors.whiteColor,
     elevation: 0,
     iconTheme: IconThemeData(color: Colors.black),
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
+      statusBarColor: AppColors.whiteColor,
+      systemNavigationBarColor: AppColors.whiteColor,
+      statusBarIconBrightness: Brightness.light,
       statusBarBrightness: Brightness.light,
-      systemNavigationBarIconBrightness: Brightness.dark,
+      systemNavigationBarIconBrightness: Brightness.light,
     ),
     centerTitle: true,
   ),
   textTheme: const TextTheme(
     displayLarge: TextStyle(
-        fontSize: 22.0, fontWeight: FontWeight.normal, color: AppColors.blackColor),
+        fontSize: 60.0, fontWeight: FontWeight.bold, color: AppColors.blackColor),
     displayMedium: TextStyle(
         fontSize: 30.0, fontWeight: FontWeight.w700, color: AppColors.blackColor),
     displaySmall: TextStyle(
@@ -38,7 +38,7 @@ final appThemeData = ThemeData(
     titleMedium: TextStyle(
         fontSize: 26, fontWeight: FontWeight.w700, color: AppColors.blackColor),
     titleSmall: TextStyle(
-        fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.blackColor),
+        fontSize: 20, fontWeight: FontWeight.w400, color: AppColors.blackColor),
     bodyLarge: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w600,
@@ -47,6 +47,7 @@ final appThemeData = ThemeData(
         fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.blackColor),
   ),
   fontFamily: 'Inter',
+  scaffoldBackgroundColor: AppColors.whiteColor,
   cupertinoOverrideTheme: const CupertinoThemeData(brightness: Brightness.dark),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   primarySwatch: Colors.red,

@@ -1,7 +1,7 @@
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 enum RouteName {
-  main(route: "/main"),
+  home(route: "/bosh sahifa"),
   login(route: "/login"),
   notFound(route: "/404"),
   splash(route: "/splash"),

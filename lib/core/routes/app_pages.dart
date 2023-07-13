@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/presentation/view/404/error.dart';
 import 'package:uni_hostel/presentation/view/auth/login_screen.dart';
-import 'package:uni_hostel/presentation/view/layout.dart';
+import 'package:uni_hostel/presentation/view/home/home_screen.dart';
 import 'package:uni_hostel/presentation/view/splash/splash_screen.dart';
 
 RouteFactory generateRoute() {
@@ -16,8 +16,8 @@ RouteFactory generateRoute() {
       return MaterialPageRoute(builder: (_) => const SplashPage());
     }
     switch (routeName) {
-      case RouteName.main:
-        return _createPageRoute(const LayoutScreen(), routeName);
+      case RouteName.home:
+        return _createPageRoute(const HomeScreen(), routeName);
       case RouteName.login:
         return _createPageRoute(const LoginPage(), routeName);
      case RouteName.splash:

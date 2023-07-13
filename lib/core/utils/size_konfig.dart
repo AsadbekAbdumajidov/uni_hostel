@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uni_hostel/core/constants/constants.dart';
 
 class SizeConfig {
   static MediaQueryData? _mediaQueryData;
@@ -17,7 +18,7 @@ class SizeConfig {
 
 double he(double inputHeight) {
   double screenHeight = SizeConfig.screenHeight!;
-  return (inputHeight / 896.0) * screenHeight;
+  return (inputHeight / maxHeight) * screenHeight;
 }
 
 double wi(double inputWidth) {

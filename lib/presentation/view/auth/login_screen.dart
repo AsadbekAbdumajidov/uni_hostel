@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                   CustomButton(
                       text: AppStrings.strAcces,
                       onTap: () => Navigator.pushNamedAndRemoveUntil(
-                          context, RouteName.main.route, (route) => false))
+                          context, RouteName.home.route, (route) => false))
                 ],
               ),
               const SizedBox(height: 15),

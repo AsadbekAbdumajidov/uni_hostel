@@ -11,5 +11,12 @@ class AppStrings {
 
   static const strProfile = "Shaxsiy kabinet";
   static const strUzb = "Uzbek";
+  static const strMainFirst = "Talabalar turar joyidan joy \nolishga ";
+  static const strMainSecond = "qiynalyabsizmi?";
+  static const strWebsiteIsForYou = "Unda bu veb-sayt aynan siz uchun ... ";
+
+  static const strReservePlace = "Joyni band qilish";
+  static const strSignAccount = "Akkauntga kirish";
+  static const strUniversitiesThatTrustUs = "Bizga ishonch bildirgan universitetlar";
 
 }

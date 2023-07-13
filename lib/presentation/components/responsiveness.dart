@@ -32,11 +32,9 @@ class ResponsiveWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (context.w >= 1024) {
+    if (context.w >= mobileLargeSize ) {
       return desktop;
-    } else if (context.w >= mobileLargeSize && tablet != null) {
-      return tablet!;
-    } else if (context.w   >= mobileSize && mobileLarge != null) {
+    } else if (context.w >= mobileSize && mobileLarge != null) {
       return mobileLarge!;
     } else {
       return mobile;
