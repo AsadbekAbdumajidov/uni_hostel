@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         onTap: onTap,
         child: Ink(
-          height: he(40),
+          height: 40,
           width: width ?? context.w,
           decoration: BoxDecoration(
             color: bgColor ?? AppColors.primaryColor,
@@ -81,7 +81,7 @@ class CustomOutlineButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         onTap: onTap,
         child: Ink(
-          height: he(40),
+          height: 40,
           width: width ?? context.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),

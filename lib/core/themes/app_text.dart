@@ -18,5 +18,6 @@ class AppStrings {
   static const strReservePlace = "Joyni band qilish";
   static const strSignAccount = "Akkauntga kirish";
   static const strUniversitiesThatTrustUs = "Bizga ishonch bildirgan universitetlar";
+  static const strSubmitApplication = "Ariza yuborish";
 
 }

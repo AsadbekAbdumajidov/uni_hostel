@@ -2,6 +2,7 @@ import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 enum RouteName {
   home(route: "/bosh sahifa"),
+  payment(route: "/to'lov"),
   login(route: "/login"),
   notFound(route: "/404"),
   splash(route: "/splash"),
@@ -13,4 +14,11 @@ enum RouteName {
   const RouteName({required this.route});
 
   final String route;
+}
+
+
+abstract class AppRoutes {
+  static const homeFirst = '/homeFirst';
+  static const apartmentScreen = '/apartmentScreen';
+
 }
