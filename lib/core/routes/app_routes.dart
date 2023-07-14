@@ -20,7 +20,7 @@ enum RouteName {
 
 
 abstract class AppRoutes {
-  static const homeFirst = '/homeFirst';
+  static const homeScreen= '/homeScreen';
   static const apartmentScreen = '/apartmentScreen';
   static const applicationSenderScreen = '/applicationSenderScreen';
 

@@ -22,9 +22,9 @@ final appThemeData = ThemeData(
   ),
   textTheme: const TextTheme(
     displayLarge: TextStyle(
-        fontSize: 60.0, fontWeight: FontWeight.bold, color: AppColors.blackColor),
+        fontSize: 55.0, fontWeight: FontWeight.bold, color: AppColors.blackColor),
     displayMedium: TextStyle(
-        fontSize: 30.0, fontWeight: FontWeight.w700, color: AppColors.blackColor),
+        fontSize: 38.0, fontWeight: FontWeight.w700, color: AppColors.blackColor),
     displaySmall: TextStyle(
         fontSize: 16.0,
         fontWeight: FontWeight.w400,
@@ -36,7 +36,7 @@ final appThemeData = ThemeData(
     titleLarge: TextStyle(
         fontSize: 14.0, fontWeight: FontWeight.w600, color: AppColors.blackColor),
     titleMedium: TextStyle(
-        fontSize: 26, fontWeight: FontWeight.w700, color: AppColors.blackColor),
+        fontSize: 24, fontWeight: FontWeight.w700, color: AppColors.blackColor),
     titleSmall: TextStyle(
         fontSize: 20, fontWeight: FontWeight.w400, color: AppColors.blackColor),
     bodyLarge: TextStyle(

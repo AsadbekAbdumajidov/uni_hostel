@@ -90,8 +90,10 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                       currentIndex: state.currentIndex,
                       index: 0,
                       onTap: () {
-                        context.read<TopNavBarCubit>().changeIndex(0);
-                        Navigator.pushNamed(context, RouteName.home.route);
+                        if (state.currentIndex != 0) {
+                          context.read<TopNavBarCubit>().changeIndex(0);
+                          Navigator.pushNamed(context, RouteName.home.route);
+                        }
                       }),
                 ),
                 Padding(
@@ -101,21 +103,25 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                       currentIndex: state.currentIndex,
                       index: 1,
                       onTap: () {
-                        context.read<TopNavBarCubit>().changeIndex(1);
-                        Navigator.pushNamed(context, RouteName.payment.route);
+                        if (state.currentIndex != 1) {
+                          context.read<TopNavBarCubit>().changeIndex(1);
+                          Navigator.pushNamed(context, RouteName.payment.route);
+                        }
                       }),
                 ),
                 Flexible(
                   flex: 5,
                   child: TopTabItem(
-                    title: AppStrings.strNotification,
-                    currentIndex: state.currentIndex,
-                    index: 2,
-                    onTap: () {
-                        context.read<TopNavBarCubit>().changeIndex(2);
-                        Navigator.pushNamed(context, RouteName.notification.route);
-                      }),
-                ),
+                      title: AppStrings.strNotification,
+                      currentIndex: state.currentIndex,
+                      index: 2,
+                      onTap: () {
+                        if (state.currentIndex != 2) {
+                          context.read<TopNavBarCubit>().changeIndex(2);
+                          Navigator.pushNamed(
+                              context, RouteName.notification.route);
+                        }
+                      }),),
               ],
             ),
           ),

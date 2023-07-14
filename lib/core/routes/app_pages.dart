@@ -3,10 +3,10 @@ import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
 import 'package:uni_hostel/presentation/view/404/error.dart';
 import 'package:uni_hostel/presentation/view/auth/login_screen.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/home_screen.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/apartment_screen/apartment_screen.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/application_sender_screen.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/home_first/home_first_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/apartment_screen/apartment_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/application_sender/application_sender_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/home_screen/home_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/main_view.dart';
 import 'package:uni_hostel/presentation/view/tabs/notifications/notification_screen.dart';
 import 'package:uni_hostel/presentation/view/tabs/payment/payment_screen.dart';
 import 'package:uni_hostel/presentation/view/splash/splash_screen.dart';
@@ -23,7 +23,7 @@ RouteFactory generateRoute() {
     }
     switch (routeName) {
       case RouteName.home:
-        return _createPageRoute(const HomeScreen(), routeName);
+        return _createPageRoute(const MainView(), routeName);
       case RouteName.login:
         return _createPageRoute(const LoginPage(), routeName);
       case RouteName.splash:
@@ -40,9 +40,9 @@ RouteFactory generateRoute() {
 
 Route? innerNavigation(RouteSettings settings) {
   switch (settings.name) {
-    case AppRoutes.homeFirst:
+    case AppRoutes.homeScreen:
       return MaterialPageRoute(
-        builder: (context) => const HomeFirstScreen(),
+        builder: (context) => const HomeScreen(),
       );
     case AppRoutes.apartmentScreen:
       return MaterialPageRoute(

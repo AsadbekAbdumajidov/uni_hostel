@@ -4,9 +4,9 @@ import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/widget/custom_button.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/widget/down_buttons_widget.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/widget/filler_widget.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/widget/step_widget.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/application_sender/widget/down_buttons_widget.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/application_sender/widget/filler_widget.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/application_sender/widget/step_widget.dart';
 import 'widget/checkbox_list_widget.dart';
 
 class ApplicationSenderScreen extends StatelessWidget {

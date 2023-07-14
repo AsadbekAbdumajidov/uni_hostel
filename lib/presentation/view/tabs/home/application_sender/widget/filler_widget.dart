@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/widget/text_item_widget.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/application_sender/widget/text_item_widget.dart';
 
 class FillerWidget extends StatelessWidget {
   const FillerWidget({super.key});

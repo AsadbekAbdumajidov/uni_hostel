@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/view/custom_app_bar/custom_nav_bar.dart';
+import 'package:uni_hostel/presentation/view/custom_app_bar/custom_app_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

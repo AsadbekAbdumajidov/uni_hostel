@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/widget/checkbox_item_widget.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/application_sender/widget/checkbox_item_widget.dart';
 
 class CheckboxListWidget extends StatelessWidget {
   const CheckboxListWidget({

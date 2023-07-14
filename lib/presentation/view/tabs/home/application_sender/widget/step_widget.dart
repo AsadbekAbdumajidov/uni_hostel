@@ -3,7 +3,7 @@ import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/widget/step_item_widget.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/application_sender/widget/step_item_widget.dart';
 
 class StepWidget extends StatelessWidget {
   const StepWidget({super.key, required this.currentIndex});

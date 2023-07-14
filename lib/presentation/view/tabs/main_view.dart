@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/routes/app_pages.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/presentation/view/custom_app_bar/custom_nav_bar.dart';
+import 'package:uni_hostel/presentation/view/custom_app_bar/custom_app_bar.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+
+class MainView extends StatelessWidget {
+  const MainView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,5 +18,5 @@ class HomeScreen extends StatelessWidget {
 
 Widget _innerNavigationBody() => Navigator(
     key: navigatorKey,
-    initialRoute: AppRoutes.homeFirst,
+    initialRoute: AppRoutes.homeScreen,
     onGenerateRoute: innerNavigation);

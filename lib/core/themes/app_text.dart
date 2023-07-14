@@ -50,4 +50,7 @@ class AppStrings {
   static const strUploadFile = "Faylni yuklash";
   static const strCancellation = "Bekor qilish";
 
+  static const strNames = "Nomi:";
+  static const strTimes = "Vaqti:";
+
 }
