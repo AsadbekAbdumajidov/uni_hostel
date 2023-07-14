@@ -108,11 +108,13 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                 Flexible(
                   flex: 5,
                   child: TopTabItem(
-                    title: AppStrings.strProfile,
+                    title: AppStrings.strNotification,
                     currentIndex: state.currentIndex,
                     index: 2,
-                    onTap: () => context.read<TopNavBarCubit>().changeIndex(2),
-                  ),
+                    onTap: () {
+                        context.read<TopNavBarCubit>().changeIndex(2);
+                        Navigator.pushNamed(context, RouteName.notification.route);
+                      }),
                 ),
               ],
             ),
@@ -123,5 +125,5 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(80);
 }

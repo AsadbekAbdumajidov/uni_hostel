@@ -3,10 +3,12 @@ import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
 import 'package:uni_hostel/presentation/view/404/error.dart';
 import 'package:uni_hostel/presentation/view/auth/login_screen.dart';
-import 'package:uni_hostel/presentation/view/home/home_screen.dart';
-import 'package:uni_hostel/presentation/view/home/widget/apartment_screen/apartment_screen.dart';
-import 'package:uni_hostel/presentation/view/home/widget/home_first/home_first_screen.dart';
-import 'package:uni_hostel/presentation/view/payment/payment_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/home_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/widget/apartment_screen/apartment_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/widget/application_sender/application_sender_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/home/widget/home_first/home_first_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/notifications/notification_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/payment/payment_screen.dart';
 import 'package:uni_hostel/presentation/view/splash/splash_screen.dart';
 
 RouteFactory generateRoute() {
@@ -30,6 +32,8 @@ RouteFactory generateRoute() {
         return _createPageRoute(PageNotFound(), routeName);
       case RouteName.payment:
         return _createPageRoute(const PaymentScreen(), routeName);
+      case RouteName.notification:
+        return _createPageRoute(const NotificationScreen(), routeName);
     }
   };
 }
@@ -38,26 +42,27 @@ Route? innerNavigation(RouteSettings settings) {
   switch (settings.name) {
     case AppRoutes.homeFirst:
       return MaterialPageRoute(
-        builder: (context) =>  const HomeFirstScreen(),
+        builder: (context) => const HomeFirstScreen(),
       );
-      case AppRoutes.apartmentScreen:
+    case AppRoutes.apartmentScreen:
       return MaterialPageRoute(
-        builder: (context) =>  const ApartmentScreen(),
+        builder: (context) => const ApartmentScreen(),
+      );
+     case AppRoutes.applicationSenderScreen:
+      return MaterialPageRoute(
+        builder: (context) =>  ApplicationSenderScreen(),
       );
   }
   return null;
 }
 
 pushInnerNavigationOffAll(String routeName) {
-  return navigatorKey
-      .currentState!
+  return navigatorKey.currentState!
       .pushNamedAndRemoveUntil(routeName, ModalRoute.withName('/'));
 }
 
 pushInnerNavigation(String routeName, {args}) {
-  return navigatorKey
-      .currentState!
-      .pushNamed(routeName, arguments: args);
+  return navigatorKey.currentState!.pushNamed(routeName, arguments: args);
 }
 
 popInnerNavigation() {

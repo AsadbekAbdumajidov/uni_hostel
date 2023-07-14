@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
       this.textColor,
       this.isLoading = false,
       this.bgColor,
-      this.width})
+      this.width, this.radius, this.style})
       : super(key: key);
 
   final String text;
@@ -20,23 +20,25 @@ class CustomButton extends StatelessWidget {
   final Color? textColor;
   final bool isLoading;
   final double? width;
-
+  final double? radius;
   final Color? bgColor;
+  final TextStyle? style;
+
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: bgColor,
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(radius??5),
       child: InkWell(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(radius??5),
         onTap: onTap,
         child: Ink(
           height: 40,
           width: width ?? context.w,
           decoration: BoxDecoration(
             color: bgColor ?? AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(radius??5),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +49,7 @@ class CustomButton extends StatelessWidget {
                       width: he(30),
                       child: const LoadingWidget())
                   : Text(text,
-                      style: Theme.of(context)
+                      style:style ?? Theme.of(context)
                           .textTheme
                           .titleSmall
                           ?.copyWith(color: AppColors.whiteColor)),

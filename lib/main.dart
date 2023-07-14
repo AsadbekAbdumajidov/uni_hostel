@@ -3,11 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uni_hostel/core/routes/app_pages.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_theme.dart';
+import 'package:uni_hostel/di.dart';
 import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 import 'package:uni_hostel/presentation/view/404/error.dart';
 import 'package:uni_hostel/presentation/view/splash/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initDi();
   runApp(const MyApp());
 }
 
@@ -19,9 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<TopNavBarCubit>(
-          create: (BuildContext context) => TopNavBarCubit(),
-        ),
+        BlocProvider(create: (context) => inject<TopNavBarCubit>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -33,10 +34,22 @@ class MyApp extends StatelessWidget {
             builder: (context) => PageNotFound(),
           );
         },
+        builder: (context, child) {
+          return ScrollConfiguration(
+            behavior: MyBehavior(),
+            child: child!,
+          );
+        },
         initialRoute: RouteName.splash.route,
         home: const SplashPage(),
         theme: appThemeData,
       ),
     );
   }
+}
+
+class MyBehavior extends ScrollBehavior {
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) =>
+      const ClampingScrollPhysics();
 }

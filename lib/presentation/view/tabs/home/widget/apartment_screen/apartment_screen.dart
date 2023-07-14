@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/extension/for_context.dart';
+import 'package:uni_hostel/core/routes/app_pages.dart';
+import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/utils/size_konfig.dart';
@@ -46,8 +48,11 @@ class ApartmentScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    child:
-                        const Icon(CupertinoIcons.arrow_left_circle, size: 70),
+                    child: const Icon(
+                      CupertinoIcons.arrow_left_circle,
+                      size: 70,
+                      color: AppColors.bodyTextColor,
+                    ),
                     onTap: () {
                       scrollController.animateTo(500,
                           duration: const Duration(milliseconds: 500),
@@ -124,8 +129,11 @@ class ApartmentScreen extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    child:
-                        const Icon(CupertinoIcons.arrow_right_circle, size: 70),
+                    child: const Icon(
+                      CupertinoIcons.arrow_right_circle,
+                      size: 70,
+                      color: AppColors.bodyTextColor,
+                    ),
                     onTap: () {
                       scrollController.animateTo(0,
                           duration: const Duration(milliseconds: 500),
@@ -139,7 +147,8 @@ class ApartmentScreen extends StatelessWidget {
                 child: CustomButton(
                     width: 440,
                     text: AppStrings.strSubmitApplication,
-                    onTap: () {}),
+                    onTap: () =>
+                        pushInnerNavigation(AppRoutes.applicationSenderScreen)),
               )
             ],
           ),
