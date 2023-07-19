@@ -25,7 +25,7 @@ RouteFactory generateRoute() {
       case RouteName.home:
         return _createPageRoute( MainView(), routeName);
       case RouteName.login:
-        return _createPageRoute(const LoginPage(), routeName);
+        return _createPageRoute( LoginPage(), routeName);
       case RouteName.splash:
         return _createPageRoute(const SplashPage(), routeName);
       case RouteName.notFound:

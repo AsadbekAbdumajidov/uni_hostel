@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/core/utils/size_konfig.dart';
 import 'package:uni_hostel/presentation/view/tabs/notifications/widget/times_item_widget.dart';
 
 class NotificationWebScreen extends StatelessWidget {

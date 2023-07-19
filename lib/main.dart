@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:uni_hostel/core/routes/app_pages.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_theme.dart';
@@ -11,7 +10,7 @@ import 'package:uni_hostel/presentation/view/splash/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  usePathUrlStrategy();
+  // usePathUrlStrategy();
   await initDi();
   runApp(const MyApp());
 }

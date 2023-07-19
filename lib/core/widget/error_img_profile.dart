@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/utils/size_konfig.dart';
 
 class NetworkImageWidget extends StatelessWidget {
   const NetworkImageWidget({super.key, this.img = "", required this.size});
@@ -17,8 +16,8 @@ class NetworkImageWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: CachedNetworkImage(
           imageUrl: img??"",
-          height: he(size),
-          width: he(size),
+          height: size,
+          width:size,
           fit: BoxFit.cover,
           errorWidget: (_, __, ___) => const ErrorImageProfile(),
           placeholder: (_, __) => const ErrorImageProfile(),

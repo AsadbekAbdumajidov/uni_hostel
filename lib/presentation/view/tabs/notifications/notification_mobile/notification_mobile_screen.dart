@@ -70,38 +70,42 @@ class NotificationMobileScreen extends StatelessWidget {
                             DataCell(Text("To‘lov qilinganlik haqida",
                                 style:
                                     Theme.of(context).textTheme.displaySmall)),
-                            DataCell(Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-
-                                children: [
-                                  SvgPicture.asset(AppIcons.iconCalendar),
-                                  SizedBox(width: 5),
-                                  Text("06.07.2023",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineMedium
-                                          ?.copyWith(fontSize: 18)),
-                                ],
-                              ),
-                              SizedBox(width: 12),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SvgPicture.asset(AppIcons.iconTime),
-                                  SizedBox(width: 5),
-                                  Text(
-                                    "16:48",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium
-                                        ?.copyWith(fontSize: 18),
-                                  ),
-                                ],
-                              )
-                            ]).paddingOnly(bottom: 4)),
+                            DataCell(Padding(
+                              padding: const EdgeInsets.only(top: 12),
+                              child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SvgPicture.asset(AppIcons.iconCalendar),
+                                        SizedBox(width: 5),
+                                        Text("06.07.2023",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineMedium
+                                                ?.copyWith(fontSize: 18)),
+                                      ],
+                                    ),
+                                    SizedBox(width: 12),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SvgPicture.asset(AppIcons.iconTime),
+                                        SizedBox(width: 5),
+                                        Text(
+                                          "16:48",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineMedium
+                                              ?.copyWith(fontSize: 18),
+                                        ),
+                                      ],
+                                    )
+                                  ]).paddingOnly(bottom: 4),
+                            )),
                           ],
                         )),
               ),

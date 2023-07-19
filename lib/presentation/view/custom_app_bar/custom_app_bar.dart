@@ -13,8 +13,9 @@ import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 import 'package:uni_hostel/presentation/view/custom_app_bar/widget/hover_tab_bar.dart';
 
 class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomNavBar({Key? key,  this.onTapDrawer, required this.buildContext}) : super(key: key);
-  final Function() ? onTapDrawer;
+  const CustomNavBar({Key? key, this.onTapDrawer, required this.buildContext})
+      : super(key: key);
+  final Function()? onTapDrawer;
 
   final BuildContext buildContext;
   @override
@@ -41,18 +42,15 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                             ?.copyWith(color: AppColors.bodyTextColor)),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: wi(30)),
-                    child: SvgPicture.asset(AppIcons.iconNotification,
-                        height: he(24), width: wi(24)),
-                  ),
-
-               GestureDetector(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: GestureDetector(
                       onTap: onTapDrawer,
                       child: const NetworkImageWidget(
-                          size: 50,
+                          size: 40,
                           img:
                               "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"),
                     ),
+                  ),
                   ResponsiveWidget.isMobileLarge(context)
                       ? const SizedBox.shrink()
                       : Padding(
