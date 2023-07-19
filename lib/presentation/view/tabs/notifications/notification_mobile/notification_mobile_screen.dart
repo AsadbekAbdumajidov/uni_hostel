@@ -2,13 +2,11 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/utils/size_konfig.dart';
 
 import '../../../../../core/constants/constants.dart';
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_icons.dart';
 import '../../../../../core/themes/app_text.dart';
-import '../widget/times_item_widget.dart';
 
 class NotificationMobileScreen extends StatelessWidget {
   const NotificationMobileScreen({super.key});
