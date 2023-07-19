@@ -7,6 +7,7 @@ import 'package:uni_hostel/data/domain/repository/main.dart';
 import 'package:uni_hostel/data/domain/usecases/login.dart';
 import 'package:uni_hostel/data/repository/main.dart';
 import 'package:uni_hostel/presentation/cubit/login/login_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/payment/payment_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 
 final inject = GetIt.instance;
@@ -14,6 +15,8 @@ final inject = GetIt.instance;
 Future<void> initDi() async {
   // cubits need register
   inject.registerFactory(() => TopNavBarCubit());
+  inject.registerFactory(() => PaymentCubit());
+
   inject.registerFactory(() => LoginCubit(inject()));
 
   // use case need to register

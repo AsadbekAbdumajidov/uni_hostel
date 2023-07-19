@@ -12,7 +12,9 @@ class CustomButton extends StatelessWidget {
       this.textColor,
       this.isLoading = false,
       this.bgColor,
-      this.width, this.radius, this.style})
+      this.width,
+      this.radius,
+      this.style, this.icon})
       : super(key: key);
 
   final String text;
@@ -22,37 +24,39 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final double? radius;
   final Color? bgColor;
+  final Widget? icon;
   final TextStyle? style;
-
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: bgColor,
-      borderRadius: BorderRadius.circular(radius??5),
+      borderRadius: BorderRadius.circular(radius ?? 5),
       child: InkWell(
-        borderRadius: BorderRadius.circular(radius??5),
+        borderRadius: BorderRadius.circular(radius ?? 5),
         onTap: onTap,
         child: Ink(
           height: 40,
           width: width ?? context.w,
           decoration: BoxDecoration(
             color: bgColor ?? AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(radius??5),
+            borderRadius: BorderRadius.circular(radius ?? 5),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              icon ?? SizedBox.shrink(),
               isLoading
                   ? SizedBox(
                       height: he(30),
                       width: he(30),
                       child: const LoadingWidget())
-                  : Text(text,
-                      style:style ?? Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(color: AppColors.whiteColor)),
+                  :  Text(text,
+                      style: style ??
+                          Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(color: AppColors.whiteColor)),
             ],
           ),
         ),

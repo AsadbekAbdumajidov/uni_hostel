@@ -5,6 +5,7 @@ import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:uni_hostel/presentation/view/tabs/payment/widget/check_alert_dialog.dart';
 
 class PaymentStoryCard extends StatelessWidget {
   const PaymentStoryCard({super.key});
@@ -25,7 +26,7 @@ class PaymentStoryCard extends StatelessWidget {
           SizedBox(height: 20),
           Container(
             height: 500,
-            width: 500,
+            width:ResponsiveWidget.isMobileLarge(context) ? context.w : 500,
             decoration: BoxDecoration(
                 color: AppColors.whiteColor,
                 borderRadius: BorderRadius.circular(10)),
@@ -57,63 +58,74 @@ class PaymentStoryCard extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: 6,
                     itemBuilder: (_, __) {
-                      return Container(
-                        width: context.w,
-                        decoration: BoxDecoration(
-                            color: __.isEven
-                                ? AppColors.backgroundColour
-                                : AppColors.whiteColor,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "1-oy",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium
-                                      ?.copyWith(fontWeight: FontWeight.w400),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  "06.07.2023",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall
-                                      ?.copyWith(
-                                          fontSize:
-                                              ResponsiveWidget.isTablet(context)
-                                                  ? 14
-                                                  : 16),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "200 000 so'm",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall
-                                      ?.copyWith(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize:
-                                              ResponsiveWidget.isTablet(context)
-                                                  ? 14
-                                                  : 16),
-                                ),
-                                SizedBox(width: 4),
-                                Icon(
-                                  CupertinoIcons.check_mark_circled,
-                                  color: AppColors.greenColour,
-                                )
-                              ],
-                            ),
-                          ],
-                        ).paddingAll(12),
+                      return InkWell(
+                        onTap: (){
+                          showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return CheckAlertDialog(
+                              
+                            );
+                          });
+                        },
+                        child: Container(
+                          width: context.w,
+                          decoration: BoxDecoration(
+                              color: __.isEven
+                                  ? AppColors.backgroundColour
+                                  : AppColors.whiteColor,
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "1-oy",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium
+                                        ?.copyWith(fontWeight: FontWeight.w400),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "06.07.2023",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall
+                                        ?.copyWith(
+                                            fontSize:
+                                                ResponsiveWidget.isTablet(context)
+                                                    ? 14
+                                                    : 16),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "200 000 so'm",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall
+                                        ?.copyWith(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize:
+                                                ResponsiveWidget.isTablet(context)
+                                                    ? 14
+                                                    : 16),
+                                  ),
+                                  SizedBox(width: 4),
+                                  Icon(
+                                    CupertinoIcons.check_mark_circled,
+                                    color: AppColors.greenColour,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ).paddingAll(12),
+                        ),
                       );
                     },
                   ),

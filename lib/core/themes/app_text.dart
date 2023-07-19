@@ -9,15 +9,15 @@ class AppStrings {
   static const strHome = "Bosh sahifa";
   static const strPayment = "To'lov";
   static const strValidateStudentId = "Id bo'sh qoldirmang";
-  static const strValidatePassportSeries = "Passport seriyangizni bo'sh qoldirmang";
-
+  static const strValidatePassportSeries =
+      "Passport seriyangizni bo'sh qoldirmang";
 
   static const strNotification = "Bildirishnomalar";
   static const strUzb = "Uzbek";
   static const strMainFirst = "Talabalar turar joyidan joy \nolishga ";
   static const strMainSecond = "qiynalyabsizmi?";
   static const strWebsiteIsForYou = "Unda bu veb-sayt aynan siz uchun ... ";
-  
+
   static const strReservePlace = "Joyni band qilish";
   static const strSignAccount = "Akkauntga kirish";
   static const strUniversitiesThatTrustUs =
@@ -68,7 +68,17 @@ class AppStrings {
   static const strPaymentDate = "To‘lov sanasi:";
   static const strAmountPayment = "To‘lov miqdori:";
 
+  static const strPaymentType = "To'lov turi";
+  static const strPaymentCheck = "To'lov cheki";
 
+  static const strPaymentQuantity = "To‘lov miqdori";
+  static const strCardDate = "Karta ma‘lumotlari";
+  static const strEnterCardDate = "Karta ma‘lumotlarini kiriting";
+  static const strValidityPeriod = "Amal qilish muddati";
+  static const strSuccessPayment = "To‘lov muvaffaqiyatli amalga oshildi";
 
-
+  static const strPaymentId = "To’lov ID si";
+  static const strDatePaid = "To’longan sana";
+  static const strDownload = "Yuklab olish";
+  static const strFiskalChekNumber = "Fiskal chek raqami";
 }

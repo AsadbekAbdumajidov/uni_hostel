@@ -16,7 +16,7 @@ class NotificationMobileScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Container(
-        height: 800,
+        height: 700,
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
@@ -48,7 +48,7 @@ class NotificationMobileScreen extends StatelessWidget {
               child: DataTable2(
                 horizontalMargin: 0,
                 columnSpacing: 20,
-                dataRowHeight: 70,
+                dataRowHeight: 80,
                 columns: [
                   DataColumn2(
                       size: ColumnSize.L,
@@ -108,7 +108,7 @@ class NotificationMobileScreen extends StatelessWidget {
                                                     fontSize: ResponsiveWidget
                                                             .isMobileLarge(
                                                                 context)
-                                                        ? 16
+                                                        ? 15
                                                         : 18)),
                                       ],
                                     ),
@@ -128,7 +128,7 @@ class NotificationMobileScreen extends StatelessWidget {
                                                   fontSize: ResponsiveWidget
                                                           .isMobileLarge(
                                                               context)
-                                                      ? 16
+                                                      ? 15
                                                       : 18),
                                         ),
                                       ],

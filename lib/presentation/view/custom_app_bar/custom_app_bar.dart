@@ -114,7 +114,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                         })
                     .paddingSymmetric(
                         horizontal:
-                            ResponsiveWidget.isTablet(context) ? 20 : 50),
+                            ResponsiveWidget.isTablet(context) ? 20 : 40),
                 Flexible(
                   flex: 5,
                   child: TopTabItem(

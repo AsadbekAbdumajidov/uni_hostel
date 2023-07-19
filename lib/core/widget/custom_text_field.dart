@@ -25,7 +25,7 @@ class CustomTextField extends StatelessWidget {
       this.textColor,this.readOnly = false,
       this.errorText,
       this.keyboardType,
-      this.textInputFormatter})
+      this.textInputFormatter, this.maxLength})
       : super(key: key);
 
   final TextEditingController? textEditingController;
@@ -46,8 +46,10 @@ class CustomTextField extends StatelessWidget {
   final Color? hintTextColor;
   final Color? textColor;
   final String? errorText;
+  final int? maxLength;
+
   final TextInputType? keyboardType;
-  final TextInputFormatter? textInputFormatter;
+  final List<TextInputFormatter>? textInputFormatter;
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +62,9 @@ class CustomTextField extends StatelessWidget {
       autofocus: autoFocus ?? false,
       focusNode: focusNode,
       readOnly: readOnly,
+      maxLength: maxLength,
       inputFormatters:
-          textInputFormatter != null ? [textInputFormatter!] : null,
+          textInputFormatter != null ? textInputFormatter! : null,
       initialValue: initialValue,
       controller: textEditingController,
       keyboardType: keyboardType,
@@ -85,7 +88,7 @@ class CustomTextField extends StatelessWidget {
             ?.copyWith(color: labelColor, fontSize: 15),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         fillColor: fillColor,
-        contentPadding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+        contentPadding: const EdgeInsets.fromLTRB(16, 6, 6, 16),
         border:  OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
           borderSide: BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
