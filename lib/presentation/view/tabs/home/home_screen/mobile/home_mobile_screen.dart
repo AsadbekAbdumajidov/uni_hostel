@@ -45,13 +45,11 @@ class HomeMobileScreen extends StatelessWidget {
                     text: AppStrings.strReservePlace,
                     onTap: () =>
                         pushInnerNavigation(AppRoutes.apartmentScreen)),
-                SizedBox(width: wi(20)),
-                CustomOutlineButton(
-                    width: 200, text: AppStrings.strSignAccount, onTap: () {})
-              ],
+                ],
             ),
           ],
         ),
+        SizedBox(height: he(120)),
         Column(
           children: [
             Text(AppStrings.strUniversitiesThatTrustUs,

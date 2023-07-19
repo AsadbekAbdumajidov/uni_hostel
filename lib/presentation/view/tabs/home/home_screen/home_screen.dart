@@ -11,19 +11,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const BottomContainer(),
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
         child: Center(
           child: Container(
             constraints: const BoxConstraints(
-                maxWidth: maxWidth, maxHeight: maxHeight - 120),
+                maxWidth: maxWidth),
             child: ResponsiveWidget(
               mobile:HomeMobileScreen(),
               desktop: HomeWebScreen()
             ),
+
           ),
-        ),
       ),
     );
   }

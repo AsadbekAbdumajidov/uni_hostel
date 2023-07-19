@@ -13,10 +13,12 @@ import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 import 'package:uni_hostel/presentation/view/custom_app_bar/widget/hover_tab_bar.dart';
 
 class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomNavBar({Key? key}) : super(key: key);
+  const CustomNavBar({Key? key,  this.onTapDrawer, required this.buildContext}) : super(key: key);
+  final Function() ? onTapDrawer;
 
+  final BuildContext buildContext;
   @override
-  Widget build(BuildContext context) {
+  Widget build(buildContextt) {
     return BlocBuilder<TopNavBarCubit, TopNavBarState>(
         builder: (context, state) {
       return Center(
@@ -43,10 +45,14 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                     child: SvgPicture.asset(AppIcons.iconNotification,
                         height: he(24), width: wi(24)),
                   ),
-                  const NetworkImageWidget(
-                      size: 42,
-                      img:
-                          "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"),
+
+               GestureDetector(
+                      onTap: onTapDrawer,
+                      child: const NetworkImageWidget(
+                          size: 50,
+                          img:
+                              "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"),
+                    ),
                   ResponsiveWidget.isMobileLarge(context)
                       ? const SizedBox.shrink()
                       : Padding(
@@ -59,7 +65,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                                   style: Theme.of(context)
                                       .textTheme
                                       .displaySmall
-                                      ?.copyWith(fontWeight: FontWeight.w600)),
+                                      ?.copyWith(fontWeight: FontWeight.w500)),
                               Text("7b - guruh",
                                   style: Theme.of(context)
                                       .textTheme
@@ -121,7 +127,8 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                           Navigator.pushNamed(
                               context, RouteName.notification.route);
                         }
-                      }),),
+                      }),
+                ),
               ],
             ),
           ),
@@ -131,5 +138,5 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(80);
+  Size get preferredSize => const Size.fromHeight(100);
 }

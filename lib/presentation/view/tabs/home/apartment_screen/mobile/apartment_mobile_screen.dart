@@ -13,7 +13,7 @@ class ApartmentMobileCreen extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 2000,
+          height: 1200,
           child: ListView.separated(
             padding: EdgeInsets.only(right: 20,left: 20,top: 20,bottom: 90),
             itemCount: 4,

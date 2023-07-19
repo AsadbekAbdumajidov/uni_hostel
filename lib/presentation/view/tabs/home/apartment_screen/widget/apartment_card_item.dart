@@ -15,7 +15,6 @@ class ApartmentCardItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: wi(20)),
       child: Container(
-        height: 342,
         width: 320,
         decoration: BoxDecoration(
             color: AppColors.primaryColor,

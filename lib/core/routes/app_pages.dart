@@ -23,7 +23,7 @@ RouteFactory generateRoute() {
     }
     switch (routeName) {
       case RouteName.home:
-        return _createPageRoute(const MainView(), routeName);
+        return _createPageRoute( MainView(), routeName);
       case RouteName.login:
         return _createPageRoute(const LoginPage(), routeName);
       case RouteName.splash:
@@ -31,9 +31,9 @@ RouteFactory generateRoute() {
       case RouteName.notFound:
         return _createPageRoute(PageNotFound(), routeName);
       case RouteName.payment:
-        return _createPageRoute(const PaymentScreen(), routeName);
+        return _createPageRoute( PaymentScreen(), routeName);
       case RouteName.notification:
-        return _createPageRoute(const NotificationScreen(), routeName);
+        return _createPageRoute( NotificationScreen(), routeName);
     }
   };
 }

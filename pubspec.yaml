@@ -31,9 +31,11 @@ dependencies:
   data_table_2: ^2.5.3
   #
   auto_size_text: ^3.0.0
-
+  #
+  flutter_web_plugins:
+    sdk: flutter
 dev_dependencies:
-  
+
   flutter_test:
     sdk: flutter
 

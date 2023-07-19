@@ -15,7 +15,7 @@ class ApartmentScreen extends StatelessWidget {
         child: Center(
       child: Container(
         constraints: const BoxConstraints(
-            maxWidth: maxWidth, maxHeight: maxHeight),
+            maxWidth: maxWidth),
         child: ResponsiveWidget(
           mobile: ApartmentMobileCreen(),
           desktop: ApartmentWebScreen()

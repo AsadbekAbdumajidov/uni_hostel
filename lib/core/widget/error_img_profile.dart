@@ -12,9 +12,9 @@ class NetworkImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
-      borderRadius: BorderRadius.circular(30),
+      borderRadius: BorderRadius.circular(20),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(20),
         child: CachedNetworkImage(
           imageUrl: img??"",
           height: he(size),
@@ -38,7 +38,7 @@ class ErrorImageProfile extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             color: AppColors.primaryColor.withOpacity(.5),
-            borderRadius: BorderRadius.circular(30)),
+            borderRadius: BorderRadius.circular(20)),
         child: Container(
           padding: const EdgeInsets.all(1),
           margin: const EdgeInsets.all(1),
