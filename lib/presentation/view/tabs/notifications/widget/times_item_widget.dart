@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
+import 'package:uni_hostel/presentation/components/responsiveness.dart';
 
 class TimeItemWidget extends StatelessWidget {
   const TimeItemWidget({super.key, required this.data, required this.time});
@@ -15,14 +16,14 @@ class TimeItemWidget extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .headlineMedium
-              ?.copyWith(fontSize: 18)),
+              ?.copyWith(fontSize:ResponsiveWidget.isMobileLarge(context) ? 16 : 18)),
       SizedBox(width: 20),
       SvgPicture.asset(AppIcons.iconTime),
       SizedBox(width: 5),
       Text(
         time,
         style:
-            Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18),
+            Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize:ResponsiveWidget.isMobileLarge(context) ? 16: 18),
       ),
     ]);
   }

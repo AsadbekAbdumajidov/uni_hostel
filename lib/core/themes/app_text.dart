@@ -56,4 +56,19 @@ class AppStrings {
   static const strNames = "Nomi:";
   static const strTimes = "Vaqti:";
 
+  static const strPaymentStory = "To‘lovlar tarixi";
+  static const strNoCheck = "Sizda cheklar mavjud emas";
+  static const strPaymentIs = "To‘lov qilish";
+  static const strThreeMonthPay = "Uch oylik uchun to’lash";
+
+  static const strOneYearPay = "Bir yillik uchun to’lash";
+  static const strCheackPayDate = "To‘lov muddatini tanlash";
+  static const strPay = "To'lash";
+
+  static const strPaymentDate = "To‘lov sanasi:";
+  static const strAmountPayment = "To‘lov miqdori:";
+
+
+
+
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
@@ -86,7 +87,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 SvgPicture.asset(AppIcons.iconLogo,
                     height: he(53), width: wi(53)),
-                SizedBox(width: wi(40)),
+                SizedBox(width: ResponsiveWidget.isDesktop(context) ? 30 : 20),
                 Flexible(
                   flex: 5,
                   child: TopTabItem(
@@ -100,19 +101,20 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                         }
                       }),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: wi(30)),
-                  child: TopTabItem(
-                      title: AppStrings.strPayment,
-                      currentIndex: state.currentIndex,
-                      index: 1,
-                      onTap: () {
-                        if (state.currentIndex != 1) {
-                          context.read<TopNavBarCubit>().changeIndex(1);
-                          Navigator.pushNamed(context, RouteName.payment.route);
-                        }
-                      }),
-                ),
+                TopTabItem(
+                        title: AppStrings.strPayment,
+                        currentIndex: state.currentIndex,
+                        index: 1,
+                        onTap: () {
+                          if (state.currentIndex != 1) {
+                            context.read<TopNavBarCubit>().changeIndex(1);
+                            Navigator.pushNamed(
+                                context, RouteName.payment.route);
+                          }
+                        })
+                    .paddingSymmetric(
+                        horizontal:
+                            ResponsiveWidget.isTablet(context) ? 20 : 50),
                 Flexible(
                   flex: 5,
                   child: TopTabItem(

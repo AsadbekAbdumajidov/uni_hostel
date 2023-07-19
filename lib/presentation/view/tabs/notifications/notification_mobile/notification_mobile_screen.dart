@@ -2,8 +2,8 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
+import 'package:uni_hostel/presentation/components/responsiveness.dart';
 
-import '../../../../../core/constants/constants.dart';
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_icons.dart';
 import '../../../../../core/themes/app_text.dart';
@@ -16,7 +16,7 @@ class NotificationMobileScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Container(
-        height: maxHeight,
+        height: 800,
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
@@ -51,12 +51,14 @@ class NotificationMobileScreen extends StatelessWidget {
                 dataRowHeight: 70,
                 columns: [
                   DataColumn2(
+                      size: ColumnSize.L,
                       label: Text(AppStrings.strNames,
                           style: Theme.of(context)
                               .textTheme
                               .headlineMedium
                               ?.copyWith(fontSize: 18))),
-                  DataColumn(
+                  DataColumn2(
+                    size: ColumnSize.S,
                       label: Text(AppStrings.strTimes,
                           style: Theme.of(context)
                               .textTheme
@@ -67,15 +69,32 @@ class NotificationMobileScreen extends StatelessWidget {
                     15,
                     (index) => DataRow(
                           cells: [
-                            DataCell(Text("To‘lov qilinganlik haqida",
-                                style:
-                                    Theme.of(context).textTheme.displaySmall)),
+                            DataCell(Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("To‘lov qilinganlik haqida",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall),
+                                SizedBox(height: 4),
+                                Flexible(
+                                  flex: 5,
+                                  child: Text(
+                                      "Yotoqxonadan joy oldingiz va 5-sentabrdan joylashishingiz mumkin",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium
+                                          ?.copyWith(fontSize: 12)),
+                                ),
+                              ],
+                            ).paddingSymmetric(vertical: 8)),
                             DataCell(Padding(
                               padding: const EdgeInsets.only(top: 12),
-                              child: Row(
+                              child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Column(
+                                    Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
@@ -85,11 +104,16 @@ class NotificationMobileScreen extends StatelessWidget {
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .headlineMedium
-                                                ?.copyWith(fontSize: 18)),
+                                                ?.copyWith(
+                                                    fontSize: ResponsiveWidget
+                                                            .isMobileLarge(
+                                                                context)
+                                                        ? 16
+                                                        : 18)),
                                       ],
                                     ),
-                                    SizedBox(width: 12),
-                                    Column(
+                                    SizedBox(height: 6),
+                                    Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
@@ -100,7 +124,12 @@ class NotificationMobileScreen extends StatelessWidget {
                                           style: Theme.of(context)
                                               .textTheme
                                               .headlineMedium
-                                              ?.copyWith(fontSize: 18),
+                                              ?.copyWith(
+                                                  fontSize: ResponsiveWidget
+                                                          .isMobileLarge(
+                                                              context)
+                                                      ? 16
+                                                      : 18),
                                         ),
                                       ],
                                     )
@@ -111,7 +140,7 @@ class NotificationMobileScreen extends StatelessWidget {
               ),
             ),
           ),
-        ]),
+        ]).paddingAll(12),
       ),
     );
   }
