@@ -9,16 +9,20 @@ class CheckboxItemWidget extends StatelessWidget {
   final Function(bool? v)? onChange;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Checkbox(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-            activeColor: AppColors.primaryColor,
-            value: value,
-            onChanged: onChange),
-        Text(title, style: Theme.of(context).textTheme.displaySmall),
-      ],
+    return  Row(
+          children: [
+            Checkbox(
+                shape:
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                activeColor: AppColors.primaryColor,
+                value: value,
+                onChanged: onChange),
+            Expanded(
+              child: Text(title, 
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.displaySmall),
+            ),
+          ],
     );
   }
 }

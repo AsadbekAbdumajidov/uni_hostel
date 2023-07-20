@@ -28,7 +28,8 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
         constraints: const BoxConstraints(maxWidth: maxWidth),
         child: AppBar(
           automaticallyImplyLeading: false,
-          toolbarHeight: 100,
+          toolbarHeight: 90,
+          centerTitle: false,
           actions: [
             Padding(
               padding: EdgeInsets.only(top: 16),
@@ -80,7 +81,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             )
           ],
-          title: Row(
+          title:ResponsiveWidget.isMobile(context) ? SvgPicture.asset(AppIcons.iconLogo, height: 53, width: 53) : Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SvgPicture.asset(AppIcons.iconLogo, height: 53, width: 53),
@@ -128,7 +129,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
               Flexible(
                 flex: 5,
                 child: TopTabItem(
-                    title: AppStrings.strPaymentIs,
+                    title: AppStrings.strSubmitApplication,
                     currentIndex: state.currentIndex,
                     index: 3,
                     onTap: () {

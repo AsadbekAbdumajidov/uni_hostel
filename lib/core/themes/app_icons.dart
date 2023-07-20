@@ -13,7 +13,9 @@ class AppIcons {
   static const String iconArrowLeft = 'assets/icons/ic_arrow_left.svg';
   static const String iconArrowRight = 'assets/icons/ic_arrow_right.svg';
 
-
+  static const iconRejected= "assets/icons/ic_rejected.svg";
+  static const iconSuccess = "assets/icons/ic_success.svg";
+  static const iconExpertise = "assets/icons/ic_expertise.svg";
 
   
 }

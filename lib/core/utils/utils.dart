@@ -9,4 +9,6 @@ const REFRESH_TOKEN = 'refresh-token';
 
 enum Status { LOADING, UNKNOWN, SUCCESS, ERROR }
 
+
+
  final GlobalKey<NavigatorState> navigatorKey = GlobalKey();

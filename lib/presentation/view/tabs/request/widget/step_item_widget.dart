@@ -46,7 +46,6 @@ class StepItemWidget extends StatelessWidget {
         ResponsiveWidget.isMobileLarge(context)
             ? SizedBox.shrink()
             : Container(
-                width: 80,
                 child: Text(title,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)

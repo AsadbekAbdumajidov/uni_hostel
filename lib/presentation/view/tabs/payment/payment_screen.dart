@@ -15,6 +15,7 @@ class PaymentScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundColour,
       appBar: CustomNavBar(buildContext: context),
+      // bottomNavigationBar:ResponsiveWidget.isMobile(context) ? CustomBottomBar() : null,
       body: BlocBuilder<PaymentCubit, PaymentState>(builder: (context, state) {
         return Center(
           child: Container(
@@ -30,6 +31,7 @@ class PaymentScreen extends StatelessWidget {
                         PaymentToCard(currentIndex: state.currentIndex),
                         SizedBox(height: 30),
                         PaymentStoryCard(),
+                        SizedBox(height: 20),
                       ],
                     )
                   : Row(

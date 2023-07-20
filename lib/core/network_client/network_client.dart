@@ -22,9 +22,6 @@ class NetworkClient {
           options.headers['Access-Control-Allow-Origin'] = '*';
           options.headers['Access-Control-Allow-Methods'] =
               'POST, GET, OPTIONS, PUT, DELETE, HEAD';
-          options.headers['Access-Control-Allow-Headers'] =
-              "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token";
-              options.headers['Access-Control-Allow-Credentials'] = true;
         }
         return handler.next(options);
       },

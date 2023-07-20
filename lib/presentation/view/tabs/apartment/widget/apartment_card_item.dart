@@ -88,6 +88,6 @@ class ApartmentCardItem extends StatelessWidget {
             ],
           ),
         ),
-    ).paddingSymmetric(horizontal: 20);
+    ).paddingSymmetric(horizontal: 12);
   }
 }

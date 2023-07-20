@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/presentation/view/tabs/apartment/widget/apartment_card_item.dart';
 
 class CardListMobile extends StatelessWidget {
@@ -47,8 +46,8 @@ class CardListMobile extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 80),
+        SizedBox(height: 40),
       ],
-    ).paddingSymmetric(horizontal: 16);
+    );
   }
 }

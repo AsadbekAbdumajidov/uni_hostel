@@ -30,11 +30,9 @@ class AppStrings {
   static const strInformationYourself = "Shaxsiy ma‘lumotlar";
   static const strYourself =
       "O’zingiz haqingizdagi barcha ma’lumotlarni to‘ldiring";
-  static const strSurname = "Familiya";
-  static const strName = "Ismi";
+  static const strFullName = "F.I.O";
   static const strEnter = "kiriting";
 
-  static const strFatherName = "Sharif";
   static const strPassportSeries = "Pasport seriyasi va raqami";
   static const strJSH = "JSH SHIR";
   static const strDateOfBirth = "Tug‘ilgan sana";
@@ -85,4 +83,8 @@ class AppStrings {
   static const strDatePaid = "To’longan sana";
   static const strDownload = "Yuklab olish";
   static const strFiskalChekNumber = "Fiskal chek raqami";
+  static const strExpertiseAbout = "Sizning arizangiz ko'rib chiqilmoqda. \n Iltimos ariza javobini kuting.";
+  static const strsuccessAbout = "Sizning arizangiz ko‘rib chiqildi. Yotoqxona uchun 3 oylik ijara to‘lovini to‘lagandan so‘ng, sizni platforma avtomatik tarzda xonalarga joylashtiradi.";
+  static const strRejectedAbout = "Sizning arizangiz ko'rib chiqildi. Yotoqxonaga joylashish haqidagi arizangiz qabul qilinmadi.";
+
 }

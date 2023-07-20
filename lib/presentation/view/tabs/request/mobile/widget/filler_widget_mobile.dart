@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
+import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/text_item_widget.dart';
 
 class FillerMobileWidget extends StatelessWidget {
-  const FillerMobileWidget({super.key});
-
+  const FillerMobileWidget({super.key, required this.response});
+  final StudentInfoResponseModel? response;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,23 +15,8 @@ class FillerMobileWidget extends StatelessWidget {
           children: [
             TextItemWidget(
               flex: 5,
-              hintText: AppStrings.strSurname,
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            TextItemWidget(
-              flex: 4,
-              hintText: AppStrings.strName,
-            ),
-          ],
-        ).paddingSymmetric(vertical: 20),
-        Row(
-          children: [
-            TextItemWidget(
-              flex: 4,
-              hintText: AppStrings.strFatherName,
+              hintText: AppStrings.strFullName,
+              initialValue: response?.fullName ?? "-",
             ),
           ],
         ),
@@ -39,6 +25,8 @@ class FillerMobileWidget extends StatelessWidget {
             TextItemWidget(
               flex: 5,
               hintText: AppStrings.strPassportSeries,
+              initialValue: response?.passportSeries ?? "-",
+
             ),
           ],
         ).paddingSymmetric(vertical: 20),
@@ -47,6 +35,8 @@ class FillerMobileWidget extends StatelessWidget {
             TextItemWidget(
               flex: 5,
               hintText: AppStrings.strJSH,
+              initialValue: response?.jshir ?? "-",
+
             ),
           ],
         ),
@@ -55,6 +45,8 @@ class FillerMobileWidget extends StatelessWidget {
             TextItemWidget(
               flex: 4,
               hintText: AppStrings.strDateOfBirth,
+              initialValue: response?.dateOfBirth ?? "-",
+
             ),
           ],
         ).paddingSymmetric(vertical: 20),
@@ -64,7 +56,8 @@ class FillerMobileWidget extends StatelessWidget {
               flex: 4,
               isReadOnly: true,
               hintText: AppStrings.strProvince,
-              suffixOnTap: () {},
+              initialValue: response?.region ?? "-",
+
             ),
           ],
         ),
@@ -74,7 +67,8 @@ class FillerMobileWidget extends StatelessWidget {
               flex: 4,
               isReadOnly: true,
               hintText: AppStrings.strDistrict,
-              suffixOnTap: () {},
+              initialValue: response?.district ?? "-",
+
             ),
           ],
         ).paddingSymmetric(vertical: 20),
@@ -82,6 +76,7 @@ class FillerMobileWidget extends StatelessWidget {
           children: [
             TextItemWidget(
               flex: 5,
+              initialValue: response?.neighborhood ?? "-",
               hintText: AppStrings.strStreetAndHouseNumber,
             ),
           ],
@@ -90,6 +85,7 @@ class FillerMobileWidget extends StatelessWidget {
           children: [
             TextItemWidget(
               flex: 3,
+              initialValue: response?.faculty ?? "-",
               hintText: AppStrings.strFaculty,
             ),
           ],
@@ -98,6 +94,7 @@ class FillerMobileWidget extends StatelessWidget {
           children: [
             TextItemWidget(
               flex: 3,
+              initialValue: response?.course ?? "-",
               hintText: AppStrings.strCourse,
             ),
           ],
@@ -106,6 +103,7 @@ class FillerMobileWidget extends StatelessWidget {
           children: [
             TextItemWidget(
               flex: 4,
+              initialValue: response?.group ?? "-",
               hintText: AppStrings.strGroup,
             ),
           ],

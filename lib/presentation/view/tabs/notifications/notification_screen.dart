@@ -14,6 +14,7 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomNavBar(buildContext: context),
+        // bottomNavigationBar:ResponsiveWidget.isMobile(context) ? CustomBottomBar() : null,
         body: SingleChildScrollView(
           child: Center(
             child: Container(

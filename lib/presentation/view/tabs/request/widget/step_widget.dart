@@ -9,6 +9,7 @@ import 'package:uni_hostel/presentation/view/tabs/request/widget/step_item_widge
 class StepWidget extends StatelessWidget {
   const StepWidget({super.key, required this.currentIndex});
   final int currentIndex;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,7 +40,7 @@ class StepWidget extends StatelessWidget {
               Flexible(
                   flex: 5,
                   child: StepItemWidget(
-                    title: AppStrings.strSent,
+                    title: AppStrings.strExpertise,
                     currentIndex: currentIndex,
                     index: 2,
                   )),
@@ -47,17 +48,9 @@ class StepWidget extends StatelessWidget {
               Flexible(
                   flex: 5,
                   child: StepItemWidget(
-                    title: AppStrings.strExpertise,
-                    currentIndex: currentIndex,
-                    index: 3,
-                  )),
-              Image.asset(AppIcons.iconArrow),
-              Flexible(
-                  flex: 5,
-                  child: StepItemWidget(
                     title: AppStrings.strReviewed,
                     currentIndex: currentIndex,
-                    index: 4,
+                    index: 3,
                   )),
             ],
           )),

@@ -19,8 +19,8 @@ class _MainViewState extends State<MainView> {
     return Scaffold(
         key: _scaffoldKey,
         drawer: Drawer(),
+        // bottomNavigationBar:ResponsiveWidget.isMobile(context) ? CustomBottomBar() : null,
         appBar: CustomNavBar(buildContext: context),
-
         body: _innerNavigationBody());
   }
 }
