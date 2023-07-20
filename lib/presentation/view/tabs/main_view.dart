@@ -27,5 +27,5 @@ class _MainViewState extends State<MainView> {
 
 Widget _innerNavigationBody() => Navigator(
     key: navigatorKey,
-    initialRoute: AppRoutes.homeScreen,
+    initialRoute: AppRoutes.apartmentScreen,
     onGenerateRoute: innerNavigation);

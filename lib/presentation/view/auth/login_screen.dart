@@ -91,9 +91,7 @@ class LoginPage extends StatelessWidget {
                             text: AppStrings.strAcces,
                             onTap: () {
                               if (formGlobalKey.currentState!.validate()) {
-                                // context.read<LoginCubit>().login();
-                                Navigator.pushNamedAndRemoveUntil(context,
-                                    RouteName.home.route, (route) => false);
+                                context.read<LoginCubit>().login();
                               }
                             })
                       ],

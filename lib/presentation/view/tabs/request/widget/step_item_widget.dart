@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
+import 'package:uni_hostel/presentation/components/responsiveness.dart';
 
 class StepItemWidget extends StatelessWidget {
   const StepItemWidget(
@@ -13,7 +15,10 @@ class StepItemWidget extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
+    double textSize = ResponsiveWidget.isTablet(context) ? 14 : 16;
+
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           height: 40,
@@ -25,23 +30,30 @@ class StepItemWidget extends StatelessWidget {
               border: Border.all(color: AppColors.primaryColor),
               borderRadius: const BorderRadius.all(Radius.circular(20))),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(4),
             child: Center(
               child: currentIndex == index
-                  ? const Icon(CupertinoIcons.check_mark,
-                      color: AppColors.whiteColor)
+                  ? Icon(CupertinoIcons.check_mark,
+                      color: AppColors.whiteColor, size: textSize + 4)
                   : Text(
                       index.toString(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .displaySmall
-                          ?.copyWith(color: AppColors.primaryColor),
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                          color: AppColors.primaryColor, fontSize: textSize),
                     ),
             ),
           ),
         ),
-        SizedBox(width: 10),
-        Text(title, style: Theme.of(context).textTheme.displaySmall),
+        ResponsiveWidget.isMobileLarge(context)
+            ? SizedBox.shrink()
+            : Container(
+                width: 80,
+                child: Text(title,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.copyWith(fontSize: textSize)),
+              ).paddingOnly(left: 10),
       ],
     );
   }

@@ -34,7 +34,7 @@ class ResponsiveWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     if (context.w >= mobileLargeSize ) {
       return desktop;
-    } else if (context.w >= mobileSize && mobileLarge != null) {
+    } else if (context.w <= mobileSize && mobileLarge != null) {
       return mobileLarge!;
     } else {
       return mobile;

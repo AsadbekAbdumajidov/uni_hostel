@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
-
 import '../../../core/widget/error_img_profile.dart';
 
 class CustomDrawer extends StatelessWidget {

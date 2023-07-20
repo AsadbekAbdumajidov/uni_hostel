@@ -1,10 +1,11 @@
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:uni_hostel/core/themes/app_text.dart';
 
 enum RouteName {
   home(route: "/bosh sahifa"),
   payment(route: "/to'lov"),
   notification(route: "/bildirishnomalar"),
-
+  request(route: "/${AppStrings.strPaymentIs}"),
   login(route: "/login"),
   notFound(route: "/404"),
   splash(route: "/splash"),
@@ -20,7 +21,6 @@ enum RouteName {
 
 
 abstract class AppRoutes {
-  static const homeScreen= '/homeScreen';
   static const apartmentScreen = '/apartmentScreen';
   static const applicationSenderScreen = '/applicationSenderScreen';
 

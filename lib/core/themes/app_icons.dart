@@ -10,6 +10,10 @@ class AppIcons {
   static const String iconPaymentDate = 'assets/icons/ic_payment_date.svg';
   static const String iconPouch = 'assets/icons/ic_pouch.svg';
 
+  static const String iconArrowLeft = 'assets/icons/ic_arrow_left.svg';
+  static const String iconArrowRight = 'assets/icons/ic_arrow_right.svg';
+
+
 
   
 }

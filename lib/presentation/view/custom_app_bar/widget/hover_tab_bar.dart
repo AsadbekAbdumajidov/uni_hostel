@@ -33,6 +33,7 @@ class TopTabItem extends StatelessWidget {
               ),
             )
           : Text(title,
+          overflow: TextOverflow.ellipsis,
               style: Theme.of(context)
                   .textTheme
                   .displaySmall

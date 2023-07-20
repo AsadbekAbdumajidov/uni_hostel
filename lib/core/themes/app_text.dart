@@ -50,8 +50,12 @@ class AppStrings {
   static const strFosterCareHome = "Mehribonlik uyi tarbiyalanuvchisi";
   static const strParentsDead = "Chin yetim";
   static const strOneParentsDead = "Otasi yoki onasidan biri vafot etgan";
+
   static const strUploadFile = "Faylni yuklash";
   static const strCancellation = "Bekor qilish";
+
+  static const strDisabledGroup = "1-2 guruh nogironi";
+  static const strGiftedStudent = "Iqtiorli talaba";
 
   static const strNames = "Nomi:";
   static const strTimes = "Vaqti:";

@@ -52,7 +52,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                               "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"),
                     ),
                   ),
-                  ResponsiveWidget.isMobileLarge(context)
+                  ResponsiveWidget.isTablet(context)
                       ? const SizedBox.shrink()
                       : Padding(
                           padding: EdgeInsets.symmetric(horizontal: wi(16)),
@@ -114,7 +114,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                         })
                     .paddingSymmetric(
                         horizontal:
-                            ResponsiveWidget.isTablet(context) ? 20 : 40),
+                            ResponsiveWidget.isTablet(context) ? 20 : 30),
                 Flexible(
                   flex: 5,
                   child: TopTabItem(
@@ -126,6 +126,21 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                           context.read<TopNavBarCubit>().changeIndex(2);
                           Navigator.pushNamed(
                               context, RouteName.notification.route);
+                        }
+                      }),
+                ),
+                SizedBox(width:ResponsiveWidget.isTablet(context) ? 20 : 30),
+                Flexible(
+                  flex: 5,
+                  child: TopTabItem(
+                      title: AppStrings.strPaymentIs,
+                      currentIndex: state.currentIndex,
+                      index: 3,
+                      onTap: () {
+                        if (state.currentIndex != 3) {
+                          context.read<TopNavBarCubit>().changeIndex(3);
+                          Navigator.pushNamed(
+                              context, RouteName.request.route);
                         }
                       }),
                 ),
