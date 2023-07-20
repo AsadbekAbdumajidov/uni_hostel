@@ -11,9 +11,9 @@ class NetworkClient {
 
   Future<Dio> init(SharedPreferences preferences) async {
     api = Dio();
-
     api.interceptors.add(InterceptorsWrapper(
       /// onRequest
+      
       onRequest: (options, handler) async {
         _token = preferences.getString(ACCESS_TOKEN) ?? '';
         debugPrint(_token);
@@ -23,8 +23,8 @@ class NetworkClient {
           options.headers['Access-Control-Allow-Methods'] =
               'POST, GET, OPTIONS, PUT, DELETE, HEAD';
           options.headers['Access-Control-Allow-Headers'] =
-              'Origin, X-Requested-With, Content-Type, Accept';
-
+              "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token";
+              options.headers['Access-Control-Allow-Credentials'] = true;
         }
         return handler.next(options);
       },

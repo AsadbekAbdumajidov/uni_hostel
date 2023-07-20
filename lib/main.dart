@@ -4,6 +4,7 @@ import 'package:uni_hostel/core/routes/app_pages.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_theme.dart';
 import 'package:uni_hostel/di.dart';
+import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/payment/payment_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 import 'package:uni_hostel/presentation/view/404/error.dart';
@@ -25,7 +26,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => inject<TopNavBarCubit>()),
-         BlocProvider(create: (context) => inject<PaymentCubit>()),
+        BlocProvider(create: (context) => inject<PaymentCubit>()),
+        BlocProvider(
+            create: (context) => inject<AuthCubit>()..checkUserToAuth()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

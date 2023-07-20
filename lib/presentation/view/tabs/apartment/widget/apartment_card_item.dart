@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/utils/size_konfig.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
 
 class ApartmentCardItem extends StatelessWidget {
@@ -20,9 +20,7 @@ class ApartmentCardItem extends StatelessWidget {
   final double? height;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: wi(20)),
-      child: InkWell(
+    return  InkWell(
         onTap: () {},
         highlightColor: AppColors.transparent,
         splashFactory: NoSplash.splashFactory,
@@ -90,7 +88,6 @@ class ApartmentCardItem extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+    ).paddingSymmetric(horizontal: 20);
   }
 }

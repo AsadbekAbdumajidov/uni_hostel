@@ -28,10 +28,10 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
         constraints: const BoxConstraints(maxWidth: maxWidth),
         child: AppBar(
           automaticallyImplyLeading: false,
-          toolbarHeight: he(100),
+          toolbarHeight: 100,
           actions: [
             Padding(
-              padding: EdgeInsets.only(top: he(16)),
+              padding: EdgeInsets.only(top: 16),
               child: Row(
                 children: [
                   TextButton(
@@ -55,7 +55,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                   ResponsiveWidget.isTablet(context)
                       ? const SizedBox.shrink()
                       : Padding(
-                          padding: EdgeInsets.symmetric(horizontal: wi(16)),
+                          padding: EdgeInsets.symmetric(horizontal: 16),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,78 +75,71 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                             ],
                           ),
                         ),
-                  SizedBox(width: wi(20))
+                  SizedBox(width: 20)
                 ],
               ),
             )
           ],
-          title: Padding(
-            padding: EdgeInsets.only(top: he(16)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SvgPicture.asset(AppIcons.iconLogo,
-                    height: he(53), width: wi(53)),
-                SizedBox(width: ResponsiveWidget.isDesktop(context) ? 30 : 20),
-                Flexible(
-                  flex: 5,
-                  child: TopTabItem(
-                      title: AppStrings.strHome,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SvgPicture.asset(AppIcons.iconLogo, height: 53, width: 53),
+              SizedBox(width: ResponsiveWidget.isDesktop(context) ? 30 : 20),
+              Flexible(
+                flex: 5,
+                child: TopTabItem(
+                    title: AppStrings.strHome,
+                    currentIndex: state.currentIndex,
+                    index: 0,
+                    onTap: () {
+                      if (state.currentIndex != 0) {
+                        context.read<TopNavBarCubit>().changeIndex(0);
+                        Navigator.pushNamed(context, RouteName.home.route);
+                      }
+                    }),
+              ),
+              TopTabItem(
+                      title: AppStrings.strPayment,
                       currentIndex: state.currentIndex,
-                      index: 0,
+                      index: 1,
                       onTap: () {
-                        if (state.currentIndex != 0) {
-                          context.read<TopNavBarCubit>().changeIndex(0);
-                          Navigator.pushNamed(context, RouteName.home.route);
+                        if (state.currentIndex != 1) {
+                          context.read<TopNavBarCubit>().changeIndex(1);
+                          Navigator.pushNamed(context, RouteName.payment.route);
                         }
-                      }),
-                ),
-                TopTabItem(
-                        title: AppStrings.strPayment,
-                        currentIndex: state.currentIndex,
-                        index: 1,
-                        onTap: () {
-                          if (state.currentIndex != 1) {
-                            context.read<TopNavBarCubit>().changeIndex(1);
-                            Navigator.pushNamed(
-                                context, RouteName.payment.route);
-                          }
-                        })
-                    .paddingSymmetric(
-                        horizontal:
-                            ResponsiveWidget.isTablet(context) ? 20 : 30),
-                Flexible(
-                  flex: 5,
-                  child: TopTabItem(
-                      title: AppStrings.strNotification,
-                      currentIndex: state.currentIndex,
-                      index: 2,
-                      onTap: () {
-                        if (state.currentIndex != 2) {
-                          context.read<TopNavBarCubit>().changeIndex(2);
-                          Navigator.pushNamed(
-                              context, RouteName.notification.route);
-                        }
-                      }),
-                ),
-                SizedBox(width:ResponsiveWidget.isTablet(context) ? 20 : 30),
-                Flexible(
-                  flex: 5,
-                  child: TopTabItem(
-                      title: AppStrings.strPaymentIs,
-                      currentIndex: state.currentIndex,
-                      index: 3,
-                      onTap: () {
-                        if (state.currentIndex != 3) {
-                          context.read<TopNavBarCubit>().changeIndex(3);
-                          Navigator.pushNamed(
-                              context, RouteName.request.route);
-                        }
-                      }),
-                ),
-              ],
-            ),
-          ),
+                      })
+                  .paddingSymmetric(
+                      horizontal: ResponsiveWidget.isTablet(context) ? 20 : 30),
+              Flexible(
+                flex: 5,
+                child: TopTabItem(
+                    title: AppStrings.strNotification,
+                    currentIndex: state.currentIndex,
+                    index: 2,
+                    onTap: () {
+                      if (state.currentIndex != 2) {
+                        context.read<TopNavBarCubit>().changeIndex(2);
+                        Navigator.pushNamed(
+                            context, RouteName.notification.route);
+                      }
+                    }),
+              ),
+              SizedBox(width: ResponsiveWidget.isTablet(context) ? 20 : 30),
+              Flexible(
+                flex: 5,
+                child: TopTabItem(
+                    title: AppStrings.strPaymentIs,
+                    currentIndex: state.currentIndex,
+                    index: 3,
+                    onTap: () {
+                      if (state.currentIndex != 3) {
+                        context.read<TopNavBarCubit>().changeIndex(3);
+                        Navigator.pushNamed(context, RouteName.request.route);
+                      }
+                    }),
+              ),
+            ],
+          ).paddingOnly(top: he(16)),
         ),
       ));
     });

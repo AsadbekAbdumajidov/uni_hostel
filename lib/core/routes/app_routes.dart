@@ -1,12 +1,11 @@
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
 
 enum RouteName {
   home(route: "/bosh sahifa"),
   payment(route: "/to'lov"),
   notification(route: "/bildirishnomalar"),
-  request(route: "/${AppStrings.strPaymentIs}"),
-  login(route: "/login"),
+  request(route: "/to‘lov qilish"),
+  login(route: "/kirish"),
   notFound(route: "/404"),
   splash(route: "/splash"),
   ;

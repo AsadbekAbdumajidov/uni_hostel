@@ -62,43 +62,6 @@ class GeneralFailure extends Failure {
   String getLocalizedMessage(BuildContext context) => error;
 }
 
-class UserExistFailure extends Failure {
-  const UserExistFailure() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) =>
-      'User already exists with this email';
-}
-
-class EmailExistFailure extends Failure {
-  const EmailExistFailure() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) =>
-      'This is email has already been taken';
-}
-
-class OldPasswordFailure extends Failure {
-  const OldPasswordFailure() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) =>
-      'Old password is incorrect';
-}
-
-class UnAuthorizationFailure extends Failure {
-  const UnAuthorizationFailure() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) => 'UnAuthorization failure';
-}
-
-class EmailPasswordWrongFailure extends Failure {
-  const EmailPasswordWrongFailure() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) => 'Password is wrong';
-}
 
 class UserNotFoundFailure extends Failure {
   const UserNotFoundFailure() : super();
@@ -112,34 +75,13 @@ class UserNotFound extends Failure {
   const UserNotFound() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => 'User not found';
+  String getLocalizedMessage(BuildContext context) => 'Foydalanuvchi topilmadi';
 }
 
-class JudoGiNotFound extends Failure {
-  const JudoGiNotFound() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) =>
-      'JudoGi was not found with this chip';
-}
-
-class InvalidEmailFailure extends Failure {
-  const InvalidEmailFailure() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) => 'Email is invalid';
-}
-
-class WrongCodeFailure extends Failure {
-  const WrongCodeFailure() : super();
-
-  @override
-  String getLocalizedMessage(BuildContext context) => 'Wrong code';
-}
 
 class CacheFailure extends Failure {
   const CacheFailure() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => 'Cache failure';
+  String getLocalizedMessage(BuildContext context) => 'Kesh xatosi';
 }

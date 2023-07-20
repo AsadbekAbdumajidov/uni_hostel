@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uni_hostel/core/error/error.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/data/domain/usecases/login.dart';
+import 'package:uni_hostel/data/domain/usecases/auth/login.dart';
 import 'package:uni_hostel/data/models/login/request/login_request_model.dart';
 import 'package:uni_hostel/data/models/login/response/login_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

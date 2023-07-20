@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
   final formGlobalKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    
     return BlocProvider(
       create: (context) => inject<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
