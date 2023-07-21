@@ -8,13 +8,13 @@ part 'student_info_response_model.g.dart';
 class StudentInfoResponseModel with _$StudentInfoResponseModel {
   const factory StudentInfoResponseModel({
     int? id,
-    String? type,
     @JsonKey(name: 'first_name') String? firstName,
     @JsonKey(name: 'last_name') String? lastName,
     @JsonKey(name: 'fathers_name') String? fathersName,
     @JsonKey(name: 'full_name') String? fullName,
     @JsonKey(name: 'passport_series') String? passportSeries,
     @JsonKey(name: 'date_of_birth') String? dateOfBirth,
+    @JsonKey(name: 'is_ordered') String? isOrdered,
     String? jshir,
     String? region,
     String? district,

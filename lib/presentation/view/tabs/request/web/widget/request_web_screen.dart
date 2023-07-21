@@ -8,8 +8,16 @@ import 'package:uni_hostel/presentation/view/tabs/request/widget/checkbox_list_w
 import 'package:uni_hostel/presentation/view/tabs/request/widget/down_buttons_widget.dart';
 
 class RequestWebScreen extends StatelessWidget {
-  const RequestWebScreen({super.key, this.infoResponse});
-final StudentInfoResponseModel? infoResponse;
+  const RequestWebScreen(
+      {super.key,
+      this.infoResponse,
+      required this.checkBoxIndex,
+      required this.fileOnTap, required this.onTapNext});
+  final StudentInfoResponseModel? infoResponse;
+  final int checkBoxIndex;
+  final Function() fileOnTap;
+  final Function() onTapNext;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,23 +38,24 @@ final StudentInfoResponseModel? infoResponse;
           ),
         ),
         FillerWidget(response: infoResponse),
-        CheckboxListWidget(),
+        CheckboxListWidget(index: checkBoxIndex),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: CustomButton(
-              radius: 30,
-              width: 180,
-              text: AppStrings.strUploadFile,
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall
-                  ?.copyWith(color: AppColors.whiteColor),
-              onTap: () {}),
+            radius: 30,
+            width: 180,
+            text: AppStrings.strUploadFile,
+            style: Theme.of(context)
+                .textTheme
+                .displaySmall
+                ?.copyWith(color: AppColors.whiteColor),
+            onTap: fileOnTap,
+          ),
         ),
         Divider(color: AppColors.bodyTextColor),
         DownButtonsWidget(
-          onTapBack: () => Navigator.pop(context),
-          onTapNext: () {},
+          onTapBack: () {},
+          onTapNext:onTapNext
         ),
       ],
     );

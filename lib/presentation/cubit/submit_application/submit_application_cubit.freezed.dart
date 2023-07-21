@@ -20,6 +20,10 @@ mixin _$SubmitApplicationState {
   Failure get failure => throw _privateConstructorUsedError;
   StudentInfoResponseModel? get infoResponse =>
       throw _privateConstructorUsedError;
+  PetitionResponseModel? get petitionResponse =>
+      throw _privateConstructorUsedError;
+  int? get checkBoxIndex => throw _privateConstructorUsedError;
+  File? get file => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -37,9 +41,13 @@ abstract class $SubmitApplicationStateCopyWith<$Res> {
       {Status status,
       Failure failure,
       StudentInfoResponseModel? infoResponse,
+      PetitionResponseModel? petitionResponse,
+      int? checkBoxIndex,
+      File? file,
       int currentIndex});
 
   $StudentInfoResponseModelCopyWith<$Res>? get infoResponse;
+  $PetitionResponseModelCopyWith<$Res>? get petitionResponse;
 }
 
 /// @nodoc
@@ -59,6 +67,9 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
     Object? status = null,
     Object? failure = null,
     Object? infoResponse = freezed,
+    Object? petitionResponse = freezed,
+    Object? checkBoxIndex = freezed,
+    Object? file = freezed,
     Object? currentIndex = null,
   }) {
     return _then(_value.copyWith(
@@ -74,6 +85,18 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
           ? _value.infoResponse
           : infoResponse // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponseModel?,
+      petitionResponse: freezed == petitionResponse
+          ? _value.petitionResponse
+          : petitionResponse // ignore: cast_nullable_to_non_nullable
+              as PetitionResponseModel?,
+      checkBoxIndex: freezed == checkBoxIndex
+          ? _value.checkBoxIndex
+          : checkBoxIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File?,
       currentIndex: null == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
@@ -93,6 +116,19 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
       return _then(_value.copyWith(infoResponse: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PetitionResponseModelCopyWith<$Res>? get petitionResponse {
+    if (_value.petitionResponse == null) {
+      return null;
+    }
+
+    return $PetitionResponseModelCopyWith<$Res>(_value.petitionResponse!,
+        (value) {
+      return _then(_value.copyWith(petitionResponse: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -107,10 +143,15 @@ abstract class _$$_SubmitApplicationStateCopyWith<$Res>
       {Status status,
       Failure failure,
       StudentInfoResponseModel? infoResponse,
+      PetitionResponseModel? petitionResponse,
+      int? checkBoxIndex,
+      File? file,
       int currentIndex});
 
   @override
   $StudentInfoResponseModelCopyWith<$Res>? get infoResponse;
+  @override
+  $PetitionResponseModelCopyWith<$Res>? get petitionResponse;
 }
 
 /// @nodoc
@@ -128,6 +169,9 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
     Object? status = null,
     Object? failure = null,
     Object? infoResponse = freezed,
+    Object? petitionResponse = freezed,
+    Object? checkBoxIndex = freezed,
+    Object? file = freezed,
     Object? currentIndex = null,
   }) {
     return _then(_$_SubmitApplicationState(
@@ -143,6 +187,18 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
           ? _value.infoResponse
           : infoResponse // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponseModel?,
+      petitionResponse: freezed == petitionResponse
+          ? _value.petitionResponse
+          : petitionResponse // ignore: cast_nullable_to_non_nullable
+              as PetitionResponseModel?,
+      checkBoxIndex: freezed == checkBoxIndex
+          ? _value.checkBoxIndex
+          : checkBoxIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File?,
       currentIndex: null == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
@@ -153,11 +209,16 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SubmitApplicationState implements _SubmitApplicationState {
+class _$_SubmitApplicationState
+    with DiagnosticableTreeMixin
+    implements _SubmitApplicationState {
   const _$_SubmitApplicationState(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.infoResponse,
+      this.petitionResponse,
+      this.checkBoxIndex = null,
+      this.file,
       this.currentIndex = 1});
 
   @override
@@ -169,12 +230,33 @@ class _$_SubmitApplicationState implements _SubmitApplicationState {
   @override
   final StudentInfoResponseModel? infoResponse;
   @override
+  final PetitionResponseModel? petitionResponse;
+  @override
+  @JsonKey()
+  final int? checkBoxIndex;
+  @override
+  final File? file;
+  @override
   @JsonKey()
   final int currentIndex;
 
   @override
-  String toString() {
-    return 'SubmitApplicationState(status: $status, failure: $failure, infoResponse: $infoResponse, currentIndex: $currentIndex)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SubmitApplicationState(status: $status, failure: $failure, infoResponse: $infoResponse, petitionResponse: $petitionResponse, checkBoxIndex: $checkBoxIndex, file: $file, currentIndex: $currentIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SubmitApplicationState'))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('failure', failure))
+      ..add(DiagnosticsProperty('infoResponse', infoResponse))
+      ..add(DiagnosticsProperty('petitionResponse', petitionResponse))
+      ..add(DiagnosticsProperty('checkBoxIndex', checkBoxIndex))
+      ..add(DiagnosticsProperty('file', file))
+      ..add(DiagnosticsProperty('currentIndex', currentIndex));
   }
 
   @override
@@ -186,13 +268,18 @@ class _$_SubmitApplicationState implements _SubmitApplicationState {
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.infoResponse, infoResponse) ||
                 other.infoResponse == infoResponse) &&
+            (identical(other.petitionResponse, petitionResponse) ||
+                other.petitionResponse == petitionResponse) &&
+            (identical(other.checkBoxIndex, checkBoxIndex) ||
+                other.checkBoxIndex == checkBoxIndex) &&
+            (identical(other.file, file) || other.file == file) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, failure, infoResponse, currentIndex);
+  int get hashCode => Object.hash(runtimeType, status, failure, infoResponse,
+      petitionResponse, checkBoxIndex, file, currentIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -207,6 +294,9 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
       {final Status status,
       final Failure failure,
       final StudentInfoResponseModel? infoResponse,
+      final PetitionResponseModel? petitionResponse,
+      final int? checkBoxIndex,
+      final File? file,
       final int currentIndex}) = _$_SubmitApplicationState;
 
   @override
@@ -215,6 +305,12 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
   Failure get failure;
   @override
   StudentInfoResponseModel? get infoResponse;
+  @override
+  PetitionResponseModel? get petitionResponse;
+  @override
+  int? get checkBoxIndex;
+  @override
+  File? get file;
   @override
   int get currentIndex;
   @override

@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
+import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
 import 'package:uni_hostel/presentation/view/tabs/apartment/widget/apartment_card_item.dart';
 
 class CardListWeb extends StatelessWidget {
+  const CardListWeb({super.key, required this.responseModel});
+  final DormitorysResponseModel? responseModel;
   @override
   Widget build(BuildContext context) {
     ScrollController scrollController = ScrollController();
@@ -25,13 +28,13 @@ class CardListWeb extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: List.generate(
-                  4,
+                  responseModel?.results?.length ?? 0,
                   (index) => ApartmentCardItem(
-                    width: 320,
-                      title: "1-TTJ",
-                      subTitle: "117 ta o’ringa mo’ljallangan",
+                      width: 320,
+                      title: responseModel?.results?[index].name ?? "",
+                      subTitle: responseModel?.results?[index].description ?? "",
                       img:
-                          "https://upload.wikimedia.org/wikipedia/commons/d/db/Toshkent_tibbiyot_akademiyasi_bosh_o%27quv_binosi.jpg")),
+                          responseModel?.results?[index].image ?? "")),
             ),
           ),
         ),

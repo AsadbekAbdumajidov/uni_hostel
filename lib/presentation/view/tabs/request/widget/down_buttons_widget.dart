@@ -4,14 +4,13 @@ import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/widget/custom_button.dart';
 
 class DownButtonsWidget extends StatelessWidget {
-  const DownButtonsWidget({super.key, required this.onTapBack, required this.onTapNext});
+  const DownButtonsWidget({super.key, required this.onTapBack, required this.onTapNext });
   final Function() onTapBack;
   final Function() onTapNext;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 14,bottom: 40),
+      padding: const EdgeInsets.only(top: 14,bottom: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -24,7 +23,7 @@ class DownButtonsWidget extends StatelessWidget {
           SizedBox(width: 20),
           CustomButton(
             text: AppStrings.strSent,
-            onTap: () {},
+            onTap: onTapNext,
             width: 100,
             style: Theme.of(context)
                 .textTheme

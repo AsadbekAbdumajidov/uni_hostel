@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/widget/custom_button.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
 
-class StatusWidget extends StatelessWidget {
-  const StatusWidget(
+class StepStatusWidget extends StatelessWidget {
+  const StepStatusWidget(
       {super.key, required this.img, required this.title, this.onTap});
   final String img;
   final String title;
@@ -16,12 +15,12 @@ class StatusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: context.w / 2,
+        width: 300,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 40),
-            SvgPicture.asset(img, height: 300, width: context.w /2),
+            SvgPicture.asset(img, height: 300,fit: BoxFit.contain),
             SizedBox(height: 25),
             Text(title,
                 textAlign: TextAlign.center,

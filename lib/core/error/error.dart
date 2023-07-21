@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:uni_hostel/core/themes/app_text.dart';
 
 abstract class LocalizedMessage {
   String getLocalizedMessage(BuildContext context);
@@ -29,29 +30,23 @@ class ServerFailure extends Failure {
 
   @override
   String getLocalizedMessage(BuildContext context) =>
-      'Server error $statusCode';
+      '${AppStrings.strServerFailure} $statusCode';
 }
 
-class RegistaredFailure extends Failure {
-  const RegistaredFailure() : super();
 
-  @override
-  String getLocalizedMessage(BuildContext context) =>
-      'This email is registered';
-}
 class ConnectionFailure extends Failure {
   const ConnectionFailure() : super();
 
   @override
   String getLocalizedMessage(BuildContext context) =>
-      'Check internet connection';
+      AppStrings.strConnectionFailure;
 }
 
 class UnknownFailure extends Failure {
   const UnknownFailure() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => 'Unknown failure';
+  String getLocalizedMessage(BuildContext context) => AppStrings.strUnknownFailure;
 }
 
 class GeneralFailure extends Failure {
@@ -68,14 +63,14 @@ class UserNotFoundFailure extends Failure {
 
   @override
   String getLocalizedMessage(BuildContext context) =>
-      'Id yoki passport seriyasi xato !';
+      AppStrings.strUserNotFoundFailure;
 }
 
 class UserNotFound extends Failure {
   const UserNotFound() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => 'Foydalanuvchi topilmadi';
+  String getLocalizedMessage(BuildContext context) => AppStrings.strUserNotFound;
 }
 
 
@@ -83,5 +78,13 @@ class CacheFailure extends Failure {
   const CacheFailure() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => 'Kesh xatosi';
+  String getLocalizedMessage(BuildContext context) => AppStrings.strCacheFailure;
 }
+
+class SubmittedFailure extends Failure {
+  const SubmittedFailure() : super();
+
+  @override
+  String getLocalizedMessage(BuildContext context) => AppStrings.strSubmittedFailure;
+}
+

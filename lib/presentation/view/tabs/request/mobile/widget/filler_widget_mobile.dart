@@ -55,7 +55,7 @@ class FillerMobileWidget extends StatelessWidget {
             TextItemWidget(
               flex: 4,
               isReadOnly: true,
-              hintText: AppStrings.strProvince,
+              hintText: AppStrings.strRegion,
               initialValue: response?.region ?? "-",
 
             ),

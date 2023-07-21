@@ -16,6 +16,8 @@ class AppIcons {
   static const iconRejected= "assets/icons/ic_rejected.svg";
   static const iconSuccess = "assets/icons/ic_success.svg";
   static const iconExpertise = "assets/icons/ic_expertise.svg";
+  static const iconWhiteLogo = "assets/icons/ic_white_logo.svg";
+
 
   
 }

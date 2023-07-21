@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
 import 'package:uni_hostel/presentation/view/custom_app_bar/custom_app_bar.dart';
+import 'package:uni_hostel/presentation/view/menu_drawer/menu_drawer.dart';
+import 'package:uni_hostel/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel/presentation/view/tabs/notifications/notification_mobile/notification_mobile_screen.dart';
 import 'package:uni_hostel/presentation/view/tabs/notifications/notification_web/notification_web_screen.dart';
 
@@ -14,7 +16,8 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomNavBar(buildContext: context),
-        // bottomNavigationBar:ResponsiveWidget.isMobile(context) ? CustomBottomBar() : null,
+        drawer: MenuDrawer(),
+        endDrawer: ProfileDrawer(),
         body: SingleChildScrollView(
           child: Center(
             child: Container(

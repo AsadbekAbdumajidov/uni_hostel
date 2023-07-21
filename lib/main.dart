@@ -5,6 +5,7 @@ import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_theme.dart';
 import 'package:uni_hostel/di.dart';
 import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/payment/payment_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
@@ -31,7 +32,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => inject<AuthCubit>()..checkUserToAuth()),
         BlocProvider(
-            create: (context) => inject<SubmitApplicationCubit>()..getStudentInfo()),
+            create: (context) => inject<DormitoryCubit>()..getDormitory()),
+        BlocProvider(
+            create: (context) =>
+                inject<SubmitApplicationCubit>()..getStudentInfo()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

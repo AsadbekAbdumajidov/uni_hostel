@@ -22,7 +22,6 @@ StudentInfoResponseModel _$StudentInfoResponseModelFromJson(
 /// @nodoc
 mixin _$StudentInfoResponseModel {
   int? get id => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_name')
   String? get firstName => throw _privateConstructorUsedError;
   @JsonKey(name: 'last_name')
@@ -35,6 +34,8 @@ mixin _$StudentInfoResponseModel {
   String? get passportSeries => throw _privateConstructorUsedError;
   @JsonKey(name: 'date_of_birth')
   String? get dateOfBirth => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_ordered')
+  String? get isOrdered => throw _privateConstructorUsedError;
   String? get jshir => throw _privateConstructorUsedError;
   String? get region => throw _privateConstructorUsedError;
   String? get district => throw _privateConstructorUsedError;
@@ -57,13 +58,13 @@ abstract class $StudentInfoResponseModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int? id,
-      String? type,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'fathers_name') String? fathersName,
       @JsonKey(name: 'full_name') String? fullName,
       @JsonKey(name: 'passport_series') String? passportSeries,
       @JsonKey(name: 'date_of_birth') String? dateOfBirth,
+      @JsonKey(name: 'is_ordered') String? isOrdered,
       String? jshir,
       String? region,
       String? district,
@@ -88,13 +89,13 @@ class _$StudentInfoResponseModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = freezed,
-    Object? type = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? fathersName = freezed,
     Object? fullName = freezed,
     Object? passportSeries = freezed,
     Object? dateOfBirth = freezed,
+    Object? isOrdered = freezed,
     Object? jshir = freezed,
     Object? region = freezed,
     Object? district = freezed,
@@ -108,10 +109,6 @@ class _$StudentInfoResponseModelCopyWithImpl<$Res,
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -135,6 +132,10 @@ class _$StudentInfoResponseModelCopyWithImpl<$Res,
       dateOfBirth: freezed == dateOfBirth
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isOrdered: freezed == isOrdered
+          ? _value.isOrdered
+          : isOrdered // ignore: cast_nullable_to_non_nullable
               as String?,
       jshir: freezed == jshir
           ? _value.jshir
@@ -179,13 +180,13 @@ abstract class _$$_StudentInfoResponseModelCopyWith<$Res>
   @useResult
   $Res call(
       {int? id,
-      String? type,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'fathers_name') String? fathersName,
       @JsonKey(name: 'full_name') String? fullName,
       @JsonKey(name: 'passport_series') String? passportSeries,
       @JsonKey(name: 'date_of_birth') String? dateOfBirth,
+      @JsonKey(name: 'is_ordered') String? isOrdered,
       String? jshir,
       String? region,
       String? district,
@@ -208,13 +209,13 @@ class __$$_StudentInfoResponseModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? type = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? fathersName = freezed,
     Object? fullName = freezed,
     Object? passportSeries = freezed,
     Object? dateOfBirth = freezed,
+    Object? isOrdered = freezed,
     Object? jshir = freezed,
     Object? region = freezed,
     Object? district = freezed,
@@ -228,10 +229,6 @@ class __$$_StudentInfoResponseModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -255,6 +252,10 @@ class __$$_StudentInfoResponseModelCopyWithImpl<$Res>
       dateOfBirth: freezed == dateOfBirth
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isOrdered: freezed == isOrdered
+          ? _value.isOrdered
+          : isOrdered // ignore: cast_nullable_to_non_nullable
               as String?,
       jshir: freezed == jshir
           ? _value.jshir
@@ -293,13 +294,13 @@ class __$$_StudentInfoResponseModelCopyWithImpl<$Res>
 class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
   const _$_StudentInfoResponseModel(
       {this.id,
-      this.type,
       @JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName,
       @JsonKey(name: 'fathers_name') this.fathersName,
       @JsonKey(name: 'full_name') this.fullName,
       @JsonKey(name: 'passport_series') this.passportSeries,
       @JsonKey(name: 'date_of_birth') this.dateOfBirth,
+      @JsonKey(name: 'is_ordered') this.isOrdered,
       this.jshir,
       this.region,
       this.district,
@@ -313,8 +314,6 @@ class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
 
   @override
   final int? id;
-  @override
-  final String? type;
   @override
   @JsonKey(name: 'first_name')
   final String? firstName;
@@ -334,6 +333,9 @@ class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
   @JsonKey(name: 'date_of_birth')
   final String? dateOfBirth;
   @override
+  @JsonKey(name: 'is_ordered')
+  final String? isOrdered;
+  @override
   final String? jshir;
   @override
   final String? region;
@@ -350,7 +352,7 @@ class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
 
   @override
   String toString() {
-    return 'StudentInfoResponseModel(id: $id, type: $type, firstName: $firstName, lastName: $lastName, fathersName: $fathersName, fullName: $fullName, passportSeries: $passportSeries, dateOfBirth: $dateOfBirth, jshir: $jshir, region: $region, district: $district, neighborhood: $neighborhood, faculty: $faculty, course: $course, group: $group)';
+    return 'StudentInfoResponseModel(id: $id, firstName: $firstName, lastName: $lastName, fathersName: $fathersName, fullName: $fullName, passportSeries: $passportSeries, dateOfBirth: $dateOfBirth, isOrdered: $isOrdered, jshir: $jshir, region: $region, district: $district, neighborhood: $neighborhood, faculty: $faculty, course: $course, group: $group)';
   }
 
   @override
@@ -359,7 +361,6 @@ class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
         (other.runtimeType == runtimeType &&
             other is _$_StudentInfoResponseModel &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -372,6 +373,8 @@ class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
                 other.passportSeries == passportSeries) &&
             (identical(other.dateOfBirth, dateOfBirth) ||
                 other.dateOfBirth == dateOfBirth) &&
+            (identical(other.isOrdered, isOrdered) ||
+                other.isOrdered == isOrdered) &&
             (identical(other.jshir, jshir) || other.jshir == jshir) &&
             (identical(other.region, region) || other.region == region) &&
             (identical(other.district, district) ||
@@ -388,13 +391,13 @@ class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      type,
       firstName,
       lastName,
       fathersName,
       fullName,
       passportSeries,
       dateOfBirth,
+      isOrdered,
       jshir,
       region,
       district,
@@ -421,13 +424,13 @@ class _$_StudentInfoResponseModel implements _StudentInfoResponseModel {
 abstract class _StudentInfoResponseModel implements StudentInfoResponseModel {
   const factory _StudentInfoResponseModel(
       {final int? id,
-      final String? type,
       @JsonKey(name: 'first_name') final String? firstName,
       @JsonKey(name: 'last_name') final String? lastName,
       @JsonKey(name: 'fathers_name') final String? fathersName,
       @JsonKey(name: 'full_name') final String? fullName,
       @JsonKey(name: 'passport_series') final String? passportSeries,
       @JsonKey(name: 'date_of_birth') final String? dateOfBirth,
+      @JsonKey(name: 'is_ordered') final String? isOrdered,
       final String? jshir,
       final String? region,
       final String? district,
@@ -441,8 +444,6 @@ abstract class _StudentInfoResponseModel implements StudentInfoResponseModel {
 
   @override
   int? get id;
-  @override
-  String? get type;
   @override
   @JsonKey(name: 'first_name')
   String? get firstName;
@@ -461,6 +462,9 @@ abstract class _StudentInfoResponseModel implements StudentInfoResponseModel {
   @override
   @JsonKey(name: 'date_of_birth')
   String? get dateOfBirth;
+  @override
+  @JsonKey(name: 'is_ordered')
+  String? get isOrdered;
   @override
   String? get jshir;
   @override

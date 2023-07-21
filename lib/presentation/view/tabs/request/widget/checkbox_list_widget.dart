@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/checkbox_item_widget.dart';
 
 class CheckboxListWidget extends StatelessWidget {
-  const CheckboxListWidget({
-    super.key,
-  });
-
+  const CheckboxListWidget({super.key, required this.index});
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,54 +16,67 @@ class CheckboxListWidget extends StatelessWidget {
           child: Column(
             children: [
               CheckboxItemWidget(
-                onChange: (v) {},
+                onChange: (v) =>
+                    context.read<SubmitApplicationCubit>().checkBox(1),
                 title: AppStrings.strIronNotebook,
-                value: true,
+                value: index == 1 ? true : false,
               ),
               SizedBox(width: 20),
               CheckboxItemWidget(
-                onChange: (v) {},
+                onChange: (v) =>
+                    context.read<SubmitApplicationCubit>().checkBox(2),
                 title: AppStrings.strWomenNotebook,
-                value: true,
+                value: index == 2 ? true : false,
               ),
               CheckboxItemWidget(
-                onChange: (v) {},
+                onChange: (v) =>
+                    context.read<SubmitApplicationCubit>().checkBox(3),
                 title: AppStrings.strYouthNotebook,
-                value: false,
+                value: index == 3 ? true : false,
               ),
               SizedBox(width: 20),
               CheckboxItemWidget(
-                onChange: (v) {},
+                onChange: (v) =>
+                    context.read<SubmitApplicationCubit>().checkBox(4),
                 title: AppStrings.strFosterCareHome,
-                value: false,
+                value: index == 4 ? true : false,
               ),
               ResponsiveWidget.isMobile(context)
                   ? Column(
                       children: [
                         CheckboxItemWidget(
-                          onChange: (v) {},
+                          onChange: (v) => context
+                              .read<SubmitApplicationCubit>()
+                              .checkBox(5),
                           title: AppStrings.strParentsDead,
-                          value: false,
+                          value: index == 5 ? true : false,
                         ),
                         SizedBox(width: 20),
                         CheckboxItemWidget(
-                          onChange: (v) {},
+                          onChange: (v) => context
+                              .read<SubmitApplicationCubit>()
+                              .checkBox(6),
                           title: AppStrings.strOneParentsDead,
-                          value: false,
+                          value: index == 6 ? true : false,
                         ),
                         CheckboxItemWidget(
-                          onChange: (v) {},
+                          onChange: (v) => context
+                              .read<SubmitApplicationCubit>()
+                              .checkBox(7),
                           title: AppStrings.strDisabledGroup,
-                          value: false,
+                          value: index == 7 ? true : false,
                         ),
                         SizedBox(width: 20),
                         CheckboxItemWidget(
-                          onChange: (v) {},
+                          onChange: (v) => context
+                              .read<SubmitApplicationCubit>()
+                              .checkBox(8),
                           title: AppStrings.strGiftedStudent,
-                          value: false,
+                          value: index == 8 ? true : false,
                         ),
                       ],
-                    ):SizedBox.shrink()
+                    )
+                  : SizedBox.shrink()
             ],
           ),
         ),
@@ -73,26 +86,30 @@ class CheckboxListWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     CheckboxItemWidget(
-                      onChange: (v) {},
+                      onChange: (v) =>
+                          context.read<SubmitApplicationCubit>().checkBox(5),
                       title: AppStrings.strParentsDead,
-                      value: false,
+                      value: index == 5 ? true : false,
                     ),
                     SizedBox(width: 20),
                     CheckboxItemWidget(
-                      onChange: (v) {},
+                      onChange: (v) =>
+                          context.read<SubmitApplicationCubit>().checkBox(6),
                       title: AppStrings.strOneParentsDead,
-                      value: false,
+                      value: index == 6 ? true : false,
                     ),
                     CheckboxItemWidget(
-                      onChange: (v) {},
+                      onChange: (v) =>
+                          context.read<SubmitApplicationCubit>().checkBox(7),
                       title: AppStrings.strDisabledGroup,
-                      value: false,
+                      value: index == 7 ? true : false,
                     ),
                     SizedBox(width: 20),
                     CheckboxItemWidget(
-                      onChange: (v) {},
+                      onChange: (v) =>
+                          context.read<SubmitApplicationCubit>().checkBox(8),
                       title: AppStrings.strGiftedStudent,
-                      value: false,
+                      value: index == 8 ? true : false,
                     ),
                   ],
                 ),

@@ -9,9 +9,17 @@ import 'package:uni_hostel/presentation/view/tabs/request/widget/step_widget.dar
 
 class AppSenderMobileScreen extends StatelessWidget {
   const AppSenderMobileScreen(
-      {super.key, this.infoResponse, required this.currentIndex});
+      {super.key,
+      this.infoResponse,
+      required this.currentIndex,
+      required this.index,
+      required this.fileOnTap,
+      required this.onTapNext});
   final StudentInfoResponseModel? infoResponse;
   final int currentIndex;
+  final int index;
+  final Function() fileOnTap;
+  final Function() onTapNext;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,17 +27,22 @@ class AppSenderMobileScreen extends StatelessWidget {
       children: [
         StepWidget(currentIndex: currentIndex),
         currentIndex == 1
-            ? RequestMobileScreen(infoResponse: infoResponse)
+            ? RequestMobileScreen(
+                infoResponse: infoResponse,
+                index: index,
+                fileOnTap: fileOnTap,
+                onTapNext: onTapNext,
+              )
             : currentIndex == 2
-                ? StatusWidget(
+                ? StepStatusWidget(
                     img: AppIcons.iconExpertise,
                     title: AppStrings.strExpertiseAbout)
-                : infoResponse?.type == "rejected"
-                    ? StatusWidget(
+                : infoResponse?.isOrdered == "cancelled"
+                    ? StepStatusWidget(
                         img: AppIcons.iconRejected,
                         title: AppStrings.strRejectedAbout,
                       )
-                    : StatusWidget(
+                    : StepStatusWidget(
                         img: AppIcons.iconSuccess,
                         title: AppStrings.strsuccessAbout,
                         onTap: () {},

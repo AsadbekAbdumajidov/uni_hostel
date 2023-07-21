@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 
 class NetworkImageWidget extends StatelessWidget {
-  const NetworkImageWidget({super.key, this.img = "", required this.size});
+  const NetworkImageWidget({super.key, this.img = "", required this.size, this.onTap});
   final String? img;
   final double size;
+  final Function()? onTap;
+
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
-      borderRadius: BorderRadius.circular(20),
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(30),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(30),
         child: CachedNetworkImage(
           imageUrl: img??"",
           height: size,

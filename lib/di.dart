@@ -8,10 +8,13 @@ import 'package:uni_hostel/data/domain/repository/main.dart';
 import 'package:uni_hostel/data/domain/usecases/auth/check_user_auth.dart';
 import 'package:uni_hostel/data/domain/usecases/auth/login.dart';
 import 'package:uni_hostel/data/domain/usecases/auth/logout.dart';
+import 'package:uni_hostel/data/domain/usecases/main/dormitory.dart';
+import 'package:uni_hostel/data/domain/usecases/main/petition.dart';
 import 'package:uni_hostel/data/domain/usecases/main/student_info.dart';
 import 'package:uni_hostel/data/repository/authorization.dart';
 import 'package:uni_hostel/data/repository/main.dart';
 import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/login/login_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/payment/payment_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
@@ -23,22 +26,24 @@ Future<void> initDi() async {
   // cubits need register
   inject.registerFactory(() => TopNavBarCubit());
   inject.registerFactory(() => PaymentCubit());
-  inject.registerFactory(() => AuthCubit(inject(),inject()));
+  inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
-  inject.registerFactory(() => SubmitApplicationCubit(inject()));
-
+  inject.registerFactory(() => DormitoryCubit(inject()));
+  inject.registerFactory(() => SubmitApplicationCubit(inject(), inject()));
 
   // use case need to register
   inject.registerFactory(() => LoginUseCase(inject()));
+  inject.registerFactory(() => DormitoryUseCase(inject()));
+  inject.registerFactory(() => PetitionUseCase(inject()));
   inject.registerFactory(() => StudentInfoUseCase(inject()));
   inject.registerLazySingleton(() => CheckUserToAuthUseCase(inject()));
   inject.registerLazySingleton(() => LogoutUseCase(inject()));
-  
+
   // repository init
   inject.registerLazySingleton<IAuthRepository>(
       () => AuthRepository(inject(), inject()));
   inject.registerLazySingleton<IMainRepository>(
-      () => MainRepository(inject()));
+      () => MainRepository(inject(), inject()));
 
   // local source init
   var pref = await SharedPreferences.getInstance();
