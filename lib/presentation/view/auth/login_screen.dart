@@ -13,17 +13,20 @@ import 'package:uni_hostel/core/widget/custom_button.dart';
 import 'package:uni_hostel/core/widget/custom_text_field.dart';
 import 'package:uni_hostel/di.dart';
 import 'package:uni_hostel/presentation/components/flush_bars.dart';
+import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/login/login_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 
 class LoginPage extends StatelessWidget {
   final formGlobalKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    
     return BlocProvider(
       create: (context) => inject<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
         if (state.status == Status.SUCCESS) {
+          context.read<DormitoryCubit>().getDormitory();
+          context.read<SubmitApplicationCubit>().getStudentInfo();
           Navigator.pushNamedAndRemoveUntil(
               context, RouteName.home.route, (route) => false);
         }
@@ -33,11 +36,12 @@ class LoginPage extends StatelessWidget {
       }, builder: (context, state) {
         return Scaffold(
           body: SingleChildScrollView(
-              child: Form(
-            key: formGlobalKey,
-            child: Center(
+            child: Form(
+              key: formGlobalKey,
+              child: Center(
                 child: Container(
-                  constraints: const BoxConstraints(maxWidth: 440,maxHeight: maxHeight),
+                  constraints:
+                      const BoxConstraints(maxWidth: 440, maxHeight: maxHeight),
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -76,10 +80,11 @@ class LoginPage extends StatelessWidget {
                                   ?.copyWith(color: AppColors.bodyTextColor)),
                           SizedBox(height: he(10)),
                           CustomTextField(
-                            obscure: state.changeEye,
+                              obscure: state.changeEye,
                               validator: (dynamic v) => Validator.fieldChecker(
                                   value: v,
-                                  message: AppStrings.strValidatePassportSeries),
+                                  message:
+                                      AppStrings.strValidatePassportSeries),
                               onChange: (value) => context
                                   .read<LoginCubit>()
                                   .getPassportSeries(value),
