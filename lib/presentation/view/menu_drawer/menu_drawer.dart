@@ -18,57 +18,57 @@ class MenuDrawer extends StatelessWidget {
     return BlocBuilder<TopNavBarCubit, TopNavBarState>(
         builder: (context, state) {
       return Drawer(
-        backgroundColor: AppColors.primaryColor,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SvgPicture.asset(AppIcons.iconWhiteLogo, height: 53, width: 53),
-            SizedBox(height: 50),
-            SideMenuItem(
-                index: 0,
-                title: AppStrings.strHome,
+          backgroundColor: AppColors.primaryColor,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SvgPicture.asset(AppIcons.iconWhiteLogo, height: 53, width: 53),
+              SizedBox(height: 50),
+              SideMenuItem(
+                  index: 0,
+                  title: AppStrings.strHome,
+                  currentIndex: state.currentIndex,
+                  onTap: () {
+                    if (state.currentIndex != 0) {
+                      context.read<TopNavBarCubit>().changeIndex(0);
+                      Navigator.pushNamed(context, RouteName.home.route);
+                    }
+                  }),
+              SideMenuItem(
+                  index: 1,
+                  title: AppStrings.strPayment,
+                  currentIndex: state.currentIndex,
+                  onTap: () {
+                    // if (state.currentIndex != 1) {
+                    //   context.read<TopNavBarCubit>().changeIndex(1);
+                    //   Navigator.pushNamed(context, RouteName.payment.route);
+                    // }
+                  }),
+              SideMenuItem(
+                  index: 2,
+                  title: AppStrings.strNotification,
+                  currentIndex: state.currentIndex,
+                  onTap: () {
+                    // if (state.currentIndex != 2) {
+                    //   context.read<TopNavBarCubit>().changeIndex(2);
+                    //   Navigator.pushNamed(context, RouteName.notification.route);
+                    // }
+                  }),
+              SideMenuItem(
+                index: 3,
+                title: AppStrings.strSubmitApplication,
                 currentIndex: state.currentIndex,
                 onTap: () {
-                  if (state.currentIndex != 0) {
-                    context.read<TopNavBarCubit>().changeIndex(0);
-                    Navigator.pushNamed(context, RouteName.home.route);
+                  if (state.currentIndex != 3) {
+                    context.read<TopNavBarCubit>().changeIndex(3);
+                    Navigator.pushNamed(context, RouteName.request.route);
                   }
-                }),
-            SideMenuItem(
-                    index: 1,
-                    title: AppStrings.strPayment,
-                    currentIndex: state.currentIndex,
-                    onTap: () {
-                      if (state.currentIndex != 1) {
-                        context.read<TopNavBarCubit>().changeIndex(1);
-                        Navigator.pushNamed(context, RouteName.payment.route);
-                      }
-                    })
-                ,
-            SideMenuItem(
-                index: 2,
-                title: AppStrings.strNotification,
-                currentIndex: state.currentIndex,
-                onTap: () {
-                  if (state.currentIndex != 2) {
-                    context.read<TopNavBarCubit>().changeIndex(2);
-                    Navigator.pushNamed(context, RouteName.notification.route);
-                  }
-                }),
-            SideMenuItem(
-              index: 3,
-              title: AppStrings.strSubmitApplication,
-              currentIndex: state.currentIndex,
-              onTap: () {
-                if (state.currentIndex != 3) {
-                  context.read<TopNavBarCubit>().changeIndex(3);
-                  Navigator.pushNamed(context, RouteName.request.route);
-                }
-              },
-            ),
-          ],
-        ).paddingSymmetric(vertical:ResponsiveWidget.isMobile(context) ? 60 : 40, horizontal: 20)
-      );
+                },
+              ),
+            ],
+          ).paddingSymmetric(
+              vertical: ResponsiveWidget.isMobile(context) ? 60 : 40,
+              horizontal: 20));
     });
   }
 }

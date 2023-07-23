@@ -35,7 +35,7 @@ class ApartmentScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height:ResponsiveWidget.isMobile(context) ? 250 : 400,
+                  height:ResponsiveWidget.isMobileLarge(context) ? 250 : 400,
                     child: Column(
                   children: [
                     SizedBox(

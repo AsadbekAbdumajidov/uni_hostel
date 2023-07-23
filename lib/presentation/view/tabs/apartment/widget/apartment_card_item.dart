@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/extension/for_context.dart';
@@ -20,74 +19,73 @@ class ApartmentCardItem extends StatelessWidget {
   final double? height;
   @override
   Widget build(BuildContext context) {
-    return  InkWell(
-        onTap: () {},
-        highlightColor: AppColors.transparent,
-        splashFactory: NoSplash.splashFactory,
-        hoverColor: AppColors.transparent,
-        child: Container(
-          width: width ?? null,
-          height: height ?? null,
-          decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
+    return InkWell(
+      onTap: () {},
+      highlightColor: AppColors.transparent,
+      splashFactory: NoSplash.splashFactory,
+      hoverColor: AppColors.transparent,
+      child: Container(
+        width: width ?? null,
+        height: height ?? null,
+        decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+           
+            ClipRRect(
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)),
-                child: CachedNetworkImage(
-                  imageUrl: img,
-                  height: ResponsiveWidget.isMobileLarge(context) ? 180 : 230,
+                child: Container(
                   width: context.w,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(
-                    ResponsiveWidget.isMobileLarge(context) ? 16 : 26),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(title,
-                              
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .displayMedium
-                                  ?.copyWith(
-                                      color: AppColors.whiteColor,
-                                      fontSize:
-                                          ResponsiveWidget.isMobileLarge(context)
-                                              ? 22
-                                              : 38)),
-                          Text(subTitle,
-                          maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .displaySmall
-                                  ?.copyWith(
+                  height: ResponsiveWidget.isMobileLarge(context) ? 180 : 230,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(image: NetworkImage(img),fit: BoxFit.cover)),
+                )),
+            Padding(
+              padding: EdgeInsets.all(
+                  ResponsiveWidget.isMobileLarge(context) ? 16 : 26),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayMedium
+                                ?.copyWith(
                                     color: AppColors.whiteColor,
                                     fontSize:
                                         ResponsiveWidget.isMobileLarge(context)
-                                            ? 14
-                                            : 16,
-                                  )),
-                        ],
-                      ),
+                                            ? 22
+                                            : 38)),
+                        Text(subTitle,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall
+                                ?.copyWith(
+                                  color: AppColors.whiteColor,
+                                  fontSize:
+                                      ResponsiveWidget.isMobileLarge(context)
+                                          ? 14
+                                          : 16,
+                                )),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
     ).paddingSymmetric(horizontal: 12);
   }
 }

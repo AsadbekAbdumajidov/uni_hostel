@@ -71,7 +71,7 @@ class ApplicationSenderScreen extends StatelessWidget {
                         fileOnTap: () {
                           context
                               .read<SubmitApplicationCubit>()
-                              .pickFile();
+                              .filePicker();
                           debugPrint(state.file.toString());
                         })),
               ),

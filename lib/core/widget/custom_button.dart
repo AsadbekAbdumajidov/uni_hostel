@@ -50,7 +50,7 @@ class CustomButton extends StatelessWidget {
                   ? SizedBox(
                       height: he(30),
                       width: he(30),
-                      child: const LoadingWidget())
+                      child: const LoadingWidget(color: AppColors.whiteColor))
                   :  Text(text,
                       style: style ??
                           Theme.of(context)

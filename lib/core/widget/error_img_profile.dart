@@ -1,13 +1,19 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 
 class NetworkImageWidget extends StatelessWidget {
-  const NetworkImageWidget({super.key, this.img = "", required this.size, this.onTap});
+  const NetworkImageWidget(
+      {super.key,
+      this.img = "",
+      required this.size,
+      this.onTap,
+      this.backgroundColor,
+      this.lineColour});
   final String? img;
   final double size;
   final Function()? onTap;
-
+  final Color? backgroundColor;
+  final Color? lineColour;
 
   @override
   Widget build(BuildContext context) {
@@ -16,21 +22,28 @@ class NetworkImageWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(30),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
-        child: CachedNetworkImage(
-          imageUrl: img??"",
-          height: size,
-          width:size,
-          fit: BoxFit.cover,
-          errorWidget: (_, __, ___) => const ErrorImageProfile(),
-          placeholder: (_, __) => const ErrorImageProfile(),
-        ),
+        child: img == ""
+            ? ErrorImageProfile(
+                backgroundColor: backgroundColor, lineColour: lineColour)
+            : Container(
+                width: size,
+                height: size,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                  image: NetworkImage(img ?? ""),
+                  fit: BoxFit.cover,
+                )),
+              ),
       ),
     );
   }
 }
 
 class ErrorImageProfile extends StatelessWidget {
-  const ErrorImageProfile({super.key});
+  const ErrorImageProfile(
+      {super.key, required this.backgroundColor, required this.lineColour});
+  final Color? backgroundColor;
+  final Color? lineColour;
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +51,14 @@ class ErrorImageProfile extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       child: Container(
         decoration: BoxDecoration(
-            color: AppColors.primaryColor.withOpacity(.5),
+            color: lineColour ?? AppColors.primaryColor.withOpacity(.5),
             borderRadius: BorderRadius.circular(20)),
         child: Container(
           padding: const EdgeInsets.all(1),
           margin: const EdgeInsets.all(1),
-          child: const CircleAvatar(
-              backgroundColor: AppColors.whiteColor,
-              child: Icon(Icons.person_outline, color: AppColors.blackColor)),
+          child: CircleAvatar(
+              backgroundColor: backgroundColor ?? AppColors.whiteColor,
+              child: Icon(Icons.person_outline, color:lineColour?? AppColors.blackColor)),
         ),
       ),
     );

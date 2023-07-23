@@ -82,21 +82,8 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
     }
   }
 
-  // Future<void> dsdsds() async {
-  //   FilePickerResult? result = await FilePicker.platform.pickFiles();
 
-  //   if (result != null) {
-  //     Uint8List? fileBytes = result.files.first.bytes;
-  //     String fileName = result.files.first.name;
 
-  //     // Upload file
-  //     var file = await FirebaseStorage.instance
-  //         .ref('uploads/$fileName')
-  //         .putData(fileBytes!);
-  //     emit(state.copyWith(
-  //         file: File(file.ref.fullPath), status: Status.UNKNOWN));
-  //   }
-  // }
   // -----------------------------------
 
   Future<void> checkBox(int index) async {

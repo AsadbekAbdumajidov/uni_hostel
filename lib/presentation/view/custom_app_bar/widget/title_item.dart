@@ -37,10 +37,10 @@ class TitleItem extends StatelessWidget {
                 currentIndex: currentIndex,
                 index: 1,
                 onTap: () {
-                  if (currentIndex != 1) {
-                    context.read<TopNavBarCubit>().changeIndex(1);
-                    Navigator.pushNamed(context, RouteName.payment.route);
-                  }
+                  // if (currentIndex != 1) {
+                  //   context.read<TopNavBarCubit>().changeIndex(1);
+                  //   Navigator.pushNamed(context, RouteName.payment.route);
+                  // }
                 })
             .paddingSymmetric(
                 horizontal: ResponsiveWidget.isTablet(context) ? 20 : 30),
@@ -51,10 +51,10 @@ class TitleItem extends StatelessWidget {
               currentIndex: currentIndex,
               index: 2,
               onTap: () {
-                if (currentIndex != 2) {
-                  context.read<TopNavBarCubit>().changeIndex(2);
-                  Navigator.pushNamed(context, RouteName.notification.route);
-                }
+                // if (currentIndex != 2) {
+                //   context.read<TopNavBarCubit>().changeIndex(2);
+                //   Navigator.pushNamed(context, RouteName.notification.route);
+                // }
               }),
         ),
         SizedBox(width: ResponsiveWidget.isTablet(context) ? 20 : 30),

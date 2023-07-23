@@ -5,7 +5,10 @@ import 'package:uni_hostel/core/widget/error_img_profile.dart';
 
 class FullNameInformation extends StatelessWidget {
   const FullNameInformation(
-      {super.key, required this.title, required this.subTitle, required this.img});
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.img});
   final String? title;
   final String? subTitle;
   final String img;
@@ -14,7 +17,12 @@ class FullNameInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        NetworkImageWidget(size: 55, img: img),
+        NetworkImageWidget(
+          size: 55,
+          img: img,
+          backgroundColor: AppColors.primaryColor,
+          lineColour: AppColors.whiteColor,
+        ),
         Flexible(
           flex: 5,
           child: Column(
@@ -31,7 +39,7 @@ class FullNameInformation extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headlineMedium
-                      ?.copyWith(color: AppColors.whiteColor,fontSize: 10)),
+                      ?.copyWith(color: AppColors.whiteColor, fontSize: 10)),
             ],
           ).paddingOnly(left: 6),
         ),

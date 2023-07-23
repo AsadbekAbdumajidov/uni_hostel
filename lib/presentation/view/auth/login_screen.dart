@@ -74,6 +74,7 @@ class LoginPage extends StatelessWidget {
                                 ?.copyWith(color: AppColors.bodyTextColor)),
                         SizedBox(height: he(10)),
                         CustomTextField(
+                          obscure: state.changeEye,
                             validator: (dynamic v) => Validator.fieldChecker(
                                 value: v,
                                 message: AppStrings.strValidatePassportSeries),
