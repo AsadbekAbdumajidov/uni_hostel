@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
@@ -19,24 +20,20 @@ import 'package:uni_hostel/presentation/view/tabs/request/widget/status_widget.d
 class ApartmentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Center(
-        child: Container(
-          constraints: BoxConstraints(maxWidth: maxWidth),
-          child: BlocBuilder<DormitoryCubit, DormitoryState>(
-              builder: (context, state) {
-            if (state.status == Status.LOADING) {
-              return Container(
-                height: context.h,
-                child: LoadingWidget());
-            }
-            if (state.status == Status.ERROR) {
-              showErrorMessage(
-                  context, state.failure.getLocalizedMessage(context));
-            }
-            var lenght = state.responseModel?.results!.length ?? 0;
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+    return BlocBuilder<DormitoryCubit, DormitoryState>(
+        builder: (context, state) {
+      if (state.status == Status.LOADING) {
+        return Container(height: context.h, child: LoadingWidget());
+      }
+      if (state.status == Status.ERROR) {
+        showErrorMessage(context, state.failure.getLocalizedMessage(context));
+      }
+      var lenght = state.responseModel?.results!.length ?? 0;
+      return SingleChildScrollView(
+        child: Center(
+          child: Container(
+            constraints: BoxConstraints(maxWidth: maxWidth),
+            child: Column(
               children: [
                 Column(
                   children: [
@@ -59,13 +56,13 @@ class ApartmentScreen extends StatelessWidget {
                             title: AppStrings.strBedroomsAreNotYetAvailable)
                         : GridView.builder(
                             shrinkWrap: true,
-                            padding: EdgeInsets.only(bottom: 20),
                             physics: NeverScrollableScrollPhysics(),
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               mainAxisExtent: 275,
                               crossAxisCount: 2,
                               mainAxisSpacing: 10,
+                            
                             ),
                             itemCount: lenght,
                             itemBuilder: (BuildContext ctx, index) {
@@ -75,15 +72,15 @@ class ApartmentScreen extends StatelessWidget {
                                 title: response?.name ?? "",
                                 subTitle: response?.description ?? "",
                                 img: response?.image ?? "",
-                              );
+                              ).paddingOnly(right: index.isEven ? 10 : 0);
                             },
-                          )
+                          ).paddingOnly(bottom: 100)
                     : CardListWeb(responseModel: state.responseModel)
               ],
-            );
-          }),
-        ),
-      ),
-    );
+            ),
+          ),
+        ).paddingSymmetric(horizontal: 10),
+      );
+    });
   }
 }

@@ -17,7 +17,8 @@ class CardListWeb extends StatelessWidget {
         GestureDetector(
           child: SvgPicture.asset(AppIcons.iconArrowLeft),
           onTap: () {
-            scrollController.animateTo(scrollController.position.maxScrollExtent,
+            scrollController.animateTo(
+                scrollController.position.maxScrollExtent,
                 duration: const Duration(milliseconds: 500),
                 curve: Curves.fastOutSlowIn);
           },
@@ -28,20 +29,21 @@ class CardListWeb extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: List.generate(
-                  responseModel?.results?.length ?? 0,
-                  (index) => ApartmentCardItem(
-                      width: 320,
-                      title: responseModel?.results?[index].name ?? "",
-                      subTitle: responseModel?.results?[index].description ?? "",
-                      img:
-                          responseModel?.results?[index].image ?? "")),
+                responseModel?.results?.length ?? 0,
+                (index) => ApartmentCardItem(
+                    width: 320,
+                    title: responseModel?.results?[index].name ?? "",
+                    subTitle: responseModel?.results?[index].description ?? "",
+                    img: responseModel?.results?[index].image ?? "").paddingSymmetric(horizontal: 10),
+              ),
             ),
           ),
         ),
         GestureDetector(
           child: SvgPicture.asset(AppIcons.iconArrowRight),
           onTap: () {
-            scrollController.animateTo(scrollController.position.minScrollExtent,
+            scrollController.animateTo(
+                scrollController.position.minScrollExtent,
                 duration: const Duration(milliseconds: 500),
                 curve: Curves.fastOutSlowIn);
           },

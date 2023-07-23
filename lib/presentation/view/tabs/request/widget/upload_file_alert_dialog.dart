@@ -53,13 +53,12 @@ class UploadFileAlertDialod extends StatelessWidget {
                         child: state.name == null
                             ? GestureDetector(
                                 onTap: () => context
-                                        .read<SubmitApplicationCubit>()
-                                        .pickFile(),
+                                    .read<SubmitApplicationCubit>()
+                                    .pickFile(),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(CupertinoIcons.cloud_upload,
-                                        color: AppColors.blackColor),
+                                    Icon(Icons.cloud_upload_outlined,color: AppColors.blackColor,size: 25,),
                                     Text(
                                       "PDF",
                                       style: Theme.of(context)

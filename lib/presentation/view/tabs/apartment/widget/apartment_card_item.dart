@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
@@ -87,6 +86,6 @@ class ApartmentCardItem extends StatelessWidget {
           ],
         ),
       ),
-    ).paddingSymmetric(horizontal: 12);
+    );
   }
 }

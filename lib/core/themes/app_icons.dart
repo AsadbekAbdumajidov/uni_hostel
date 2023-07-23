@@ -18,6 +18,4 @@ class AppIcons {
   static const iconExpertise = "assets/icons/ic_expertise.svg";
   static const iconWhiteLogo = "assets/icons/ic_white_logo.svg";
 
-
-  
 }
