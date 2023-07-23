@@ -1,8 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
-
-import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uni_hostel/core/error/error.dart';
 import 'package:uni_hostel/core/usecase/usecase.dart';
@@ -13,8 +12,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
 import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
 import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
-import 'package:open_app_file/open_app_file.dart';
-
 part 'submit_application_state.dart';
 part 'submit_application_cubit.freezed.dart';
 
@@ -44,51 +41,58 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
   // ----------------- File picker ------------------
 
   Future pickFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.any,
-    );
-    print(result?.files.first.bytes);
-    if (result?.files.first != null) {
-      print("ERROR====${result?.files.first.bytes}");
-      // var file = result?.files.first.bytes;
-      // emit(state.copyWith(file: file., status: Status.UNKNOWN));
-    } else {
-      print("------------------");
+    try {
+      var result = (await FilePicker.platform.pickFiles(
+              type: FileType.custom,
+              allowMultiple: false,
+              allowedExtensions: ["pdf"]))
+          ?.files;
+
+      var name = result?.first.name;
+      var file = result!.first;
+      debugPrint("name  = $name");
+      emit(state.copyWith(file: file, name: name, status: Status.UNKNOWN));
+    } on PlatformException catch (e) {
+      debugPrint("Unsopperted operation $e");
+    } catch (e) {
+      debugPrint("Path error $e");
     }
   }
 
-  Future<void> picksinglefile() async {
-    PlatformFile? file;
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
-    if (result != null) {
-      file = result.files.first;
-      file == null ? false : OpenAppFile.open(file.path.toString());
-      emit(state.copyWith(file: File(file.path ?? ""), status: Status.UNKNOWN));
-    }
+  // Future<void> picksinglefile() async {
+  //   PlatformFile? file;
+  //   FilePickerResult? result = await FilePicker.platform.pickFiles();
+  //   if (result != null) {
+  //     file = result.files.first;
+  //     file == null ? false : OpenAppFile.open(file.path.toString());
+  //     emit(state.copyWith(file: File(file.path ?? "aasa"), status: Status.UNKNOWN));
+  //   }
+  // }
+
+  Future<void> clearFile() async {
+    emit(state.copyWith(file: null, name: null, status: Status.UNKNOWN));
   }
 
-  Future<void> filePicker() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['jpg', 'pdf', 'doc'],
-    );
-    print("======${result?.files.single.path}========");
-    if (result != null) {
-      File file = File(result.files.single.path ?? "======");
+  // Future<void> filePicker() async {
+  //   FilePickerResult? result = await FilePicker.platform.pickFiles(
+  //     type: FileType.custom,
+  //     allowedExtensions: ['jpg', 'pdf', 'doc'],
+  //   );
+  //   print("======${result?.files.single.path}========");
+  //   if (result != null) {
+  //     File file = File(result.files.single.path ?? "======");
 
-      emit(state.copyWith(file: file, status: Status.UNKNOWN));
-    } else {
-      // User canceled the picker
-    }
-  }
-
-
+  //     emit(state.copyWith(file: file, status: Status.UNKNOWN));
+  //   } else {
+  //     // User canceled the picker
+  //   }
+  // }
 
   // -----------------------------------
 
   Future<void> checkBox(int index) async {
     if (index == state.checkBoxIndex) {
-      emit(state.copyWith(checkBoxIndex: 0, status: Status.UNKNOWN));
+      emit(state.copyWith(checkBoxIndex: null, status: Status.UNKNOWN));
       debugPrint("==Index===${state.checkBoxIndex}====");
     } else {
       emit(state.copyWith(checkBoxIndex: index, status: Status.UNKNOWN));

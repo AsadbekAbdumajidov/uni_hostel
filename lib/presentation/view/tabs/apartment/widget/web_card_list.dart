@@ -17,7 +17,7 @@ class CardListWeb extends StatelessWidget {
         GestureDetector(
           child: SvgPicture.asset(AppIcons.iconArrowLeft),
           onTap: () {
-            scrollController.animateTo(500,
+            scrollController.animateTo(scrollController.position.maxScrollExtent,
                 duration: const Duration(milliseconds: 500),
                 curve: Curves.fastOutSlowIn);
           },
@@ -41,7 +41,7 @@ class CardListWeb extends StatelessWidget {
         GestureDetector(
           child: SvgPicture.asset(AppIcons.iconArrowRight),
           onTap: () {
-            scrollController.animateTo(0,
+            scrollController.animateTo(scrollController.position.minScrollExtent,
                 duration: const Duration(milliseconds: 500),
                 curve: Curves.fastOutSlowIn);
           },

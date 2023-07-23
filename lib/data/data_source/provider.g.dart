@@ -13,7 +13,7 @@ class _ApiClient implements ApiClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://api.unihostel.uz/v1/';
+    baseUrl ??= 'https://api.unihostel.uz/v1/';
   }
 
   final Dio _dio;

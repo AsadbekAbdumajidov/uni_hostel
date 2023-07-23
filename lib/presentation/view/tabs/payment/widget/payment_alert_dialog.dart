@@ -19,13 +19,13 @@ class PaymentAlertDialog extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Container(
-        height: 400,
-        width: 524,
+        width: 500,
         decoration: BoxDecoration(
           color: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,6 +44,7 @@ class PaymentAlertDialog extends StatelessWidget {
               ],
             ),
             Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 20),
@@ -101,10 +102,9 @@ class PaymentAlertDialog extends StatelessWidget {
                     Expanded(flex: 5, child: SizedBox.shrink())
                   ],
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 20),
               ],
             ),
-            Spacer(),
             CustomButton(text: AppStrings.strPay, onTap: onTap)
           ],
         ).paddingAll(30),

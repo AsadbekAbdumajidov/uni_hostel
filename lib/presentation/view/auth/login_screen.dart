@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
@@ -31,74 +32,76 @@ class LoginPage extends StatelessWidget {
         }
       }, builder: (context, state) {
         return Scaffold(
-          body: Form(
+          body: SingleChildScrollView(
+              child: Form(
             key: formGlobalKey,
             child: Center(
-              child: Container(
-                constraints: const BoxConstraints(maxWidth: 474),
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(AppIcons.iconLogo),
-                    SizedBox(height: he(30)),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 40),
-                      child: Text(
-                        AppStrings.strSignInYourAcc,
-                        style: Theme.of(context).textTheme.displayMedium,
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(AppStrings.strTalabaId,
-                            style: Theme.of(context)
-                                .textTheme
-                                .displaySmall
-                                ?.copyWith(color: AppColors.bodyTextColor)),
-                        SizedBox(height: he(10)),
-                        CustomTextField(
-                          onChange: (value) =>
-                              context.read<LoginCubit>().getStudentID(value),
-                          hintText: AppStrings.strEnterStudentId,
-                          validator: (dynamic v) => Validator.fieldChecker(
-                              value: v,
-                              message: AppStrings.strValidateStudentId),
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 440,maxHeight: maxHeight),
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(AppIcons.iconLogo),
+                      SizedBox(height: he(30)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 40),
+                        child: Text(
+                          AppStrings.strSignInYourAcc,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
-                        SizedBox(height: he(30)),
-                        Text(AppStrings.strPassport,
-                            style: Theme.of(context)
-                                .textTheme
-                                .displaySmall
-                                ?.copyWith(color: AppColors.bodyTextColor)),
-                        SizedBox(height: he(10)),
-                        CustomTextField(
-                          obscure: state.changeEye,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(AppStrings.strTalabaId,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall
+                                  ?.copyWith(color: AppColors.bodyTextColor)),
+                          SizedBox(height: he(10)),
+                          CustomTextField(
+                            onChange: (value) =>
+                                context.read<LoginCubit>().getStudentID(value),
+                            hintText: AppStrings.strEnterStudentId,
                             validator: (dynamic v) => Validator.fieldChecker(
                                 value: v,
-                                message: AppStrings.strValidatePassportSeries),
-                            onChange: (value) => context
-                                .read<LoginCubit>()
-                                .getPassportSeries(value),
-                            hintText: AppStrings.strPassportSeries,
-                            suffixIcon: GestureDetector(
-                                onTap: () =>
-                                    context.read<LoginCubit>().changeEye(),
-                                child: const Icon(Icons.remove_red_eye))),
-                        SizedBox(height: he(30)),
-                        CustomButton(
-                            isLoading: state.status == Status.LOADING,
-                            text: AppStrings.strAcces,
-                            onTap: () {
-                              if (formGlobalKey.currentState!.validate()) {
-                                context.read<LoginCubit>().login();
-                              }
-                            })
-                      ],
-                    ),
-                    const SizedBox(height: 15),
-                  ],
+                                message: AppStrings.strValidateStudentId),
+                          ),
+                          SizedBox(height: he(30)),
+                          Text(AppStrings.strPassport,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall
+                                  ?.copyWith(color: AppColors.bodyTextColor)),
+                          SizedBox(height: he(10)),
+                          CustomTextField(
+                            obscure: state.changeEye,
+                              validator: (dynamic v) => Validator.fieldChecker(
+                                  value: v,
+                                  message: AppStrings.strValidatePassportSeries),
+                              onChange: (value) => context
+                                  .read<LoginCubit>()
+                                  .getPassportSeries(value),
+                              hintText: AppStrings.strPassportSeries,
+                              suffixIcon: GestureDetector(
+                                  onTap: () =>
+                                      context.read<LoginCubit>().changeEye(),
+                                  child: const Icon(Icons.remove_red_eye))),
+                          SizedBox(height: he(30)),
+                          CustomButton(
+                              isLoading: state.status == Status.LOADING,
+                              text: AppStrings.strAcces,
+                              onTap: () {
+                                if (formGlobalKey.currentState!.validate()) {
+                                  context.read<LoginCubit>().login();
+                                }
+                              })
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                    ],
+                  ),
                 ),
               ),
             ),

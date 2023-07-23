@@ -12,6 +12,7 @@ import 'package:uni_hostel/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel/presentation/view/profile_drawer/profile_drawer.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/mobile/app_sender_mobile_screen.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/web/app_sender_web_screen.dart';
+import 'package:uni_hostel/presentation/view/tabs/request/widget/upload_file_alert_dialog.dart';
 
 class ApplicationSenderScreen extends StatelessWidget {
   const ApplicationSenderScreen({super.key});
@@ -52,10 +53,13 @@ class ApplicationSenderScreen extends StatelessWidget {
                           }
                         },
                         fileOnTap: () {
-                          context
-                              .read<SubmitApplicationCubit>()
-                              .picksinglefile();
-                          debugPrint(state.file.toString());
+                          state.checkBoxIndex == null
+                              ? null
+                              : showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return UploadFileAlertDialod();
+                                  });
                         }),
                     desktop: AppSenderWebScreen(
                         checkBoxIndex: state.checkBoxIndex ?? 0,
@@ -69,10 +73,13 @@ class ApplicationSenderScreen extends StatelessWidget {
                           }
                         },
                         fileOnTap: () {
-                          context
-                              .read<SubmitApplicationCubit>()
-                              .filePicker();
-                          debugPrint(state.file.toString());
+                          state.checkBoxIndex == null
+                              ? null
+                              : showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return UploadFileAlertDialod();
+                                  });
                         })),
               ),
             ),

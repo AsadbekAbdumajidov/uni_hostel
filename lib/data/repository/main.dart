@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uni_hostel/core/error/error.dart';
@@ -44,20 +45,18 @@ class MainRepository implements IMainRepository {
 
   @override
   Future<Either<Failure, PetitionResponseModel>> petition(
-      PetitionRequestModel requestModel, File? file) async {
+      PetitionRequestModel requestModel, PlatformFile? file) async {
     Dio dio = Dio();
     try {
-      var anyFile = file == null
-          ? ""
-          : await MultipartFile.fromFile(file.path,
-              filename: file.path.split('/').last);
-      var formData = FormData.fromMap({
-        'marital_status': requestModel.maritalStatus,
-        'reference_file': anyFile,
-      });
+      FormData formData =  FormData.fromMap({
+              'marital_status': requestModel.maritalStatus,
+              'reference_file': MultipartFile.fromBytes(file?.bytes ?? [],
+                  filename: file?.name),
+            });
       var withoutFileformData = FormData.fromMap({
         'marital_status': requestModel.maritalStatus,
       });
+
       final response = await dio.post('${BASE_URL}student/order/',
           data: file == null ? withoutFileformData : formData,
           options: Options(headers: {
@@ -90,7 +89,8 @@ class MainRepository implements IMainRepository {
   }
 
   @override
-  Future<Either<Failure, DormitorysResponseModel>> getDormitorys(int? page) async{
+  Future<Either<Failure, DormitorysResponseModel>> getDormitorys(
+      int? page) async {
     try {
       final response = await _apiClient.getDormitorys(page ?? 0);
       return Right(response);

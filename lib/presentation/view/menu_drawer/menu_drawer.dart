@@ -31,6 +31,7 @@ class MenuDrawer extends StatelessWidget {
                   onTap: () {
                     if (state.currentIndex != 0) {
                       context.read<TopNavBarCubit>().changeIndex(0);
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, RouteName.home.route);
                     }
                   }),
@@ -41,6 +42,7 @@ class MenuDrawer extends StatelessWidget {
                   onTap: () {
                     // if (state.currentIndex != 1) {
                     //   context.read<TopNavBarCubit>().changeIndex(1);
+                    //   Navigator.pop(context);
                     //   Navigator.pushNamed(context, RouteName.payment.route);
                     // }
                   }),
@@ -51,6 +53,7 @@ class MenuDrawer extends StatelessWidget {
                   onTap: () {
                     // if (state.currentIndex != 2) {
                     //   context.read<TopNavBarCubit>().changeIndex(2);
+                    // Navigator.pop(context);
                     //   Navigator.pushNamed(context, RouteName.notification.route);
                     // }
                   }),
@@ -61,6 +64,7 @@ class MenuDrawer extends StatelessWidget {
                 onTap: () {
                   if (state.currentIndex != 3) {
                     context.read<TopNavBarCubit>().changeIndex(3);
+                    Navigator.pop(context);
                     Navigator.pushNamed(context, RouteName.request.route);
                   }
                 },

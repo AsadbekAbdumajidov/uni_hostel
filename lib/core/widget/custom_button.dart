@@ -71,34 +71,34 @@ class CustomOutlineButton extends StatelessWidget {
     required this.text,
     required this.onTap,
     this.bgColor,
-    this.width,
+    this.width, this.style, this.ounLineColour, this.radius,
   }) : super(key: key);
   final String text;
   final double? width;
   final Function() onTap;
-  final Color? bgColor;
-
+  final Color? bgColor;final TextStyle? style;
+ final Color? ounLineColour;final double? radius;
   @override
   Widget build(BuildContext context) {
     return Material(
       color: bgColor,
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(radius??5),
       child: InkWell(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(radius??5),
         onTap: onTap,
         child: Ink(
           height: 40,
           width: width ?? context.w,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: AppColors.primaryColor, width: wi(2)),
+              borderRadius: BorderRadius.circular(radius??5),
+              border: Border.all(color:ounLineColour?? AppColors.primaryColor, width: wi(2)),
               color: bgColor),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(text,
-                  style: Theme.of(context)
+                  style:style?? Theme.of(context)
                       .textTheme
                       .titleSmall
                       ?.copyWith(color: AppColors.primaryColor)),

@@ -80,6 +80,8 @@ class AppStrings {
   static const strResidenceAddress = "Doimiy yashash manzili";
   static const strExit = "Chiqish";
   static const strBedroomsAreNotYetAvailable = "Yotoqxonalar hali mavjud emas";
+static const strSave = "Saqlash";
+static const strUploadTheFile= "Fileni yuklang";
 
 
 

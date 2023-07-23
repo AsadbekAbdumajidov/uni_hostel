@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'package:dartz/dartz.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:uni_hostel/core/error/error.dart';
 import 'package:uni_hostel/core/usecase/usecase.dart';
 import 'package:uni_hostel/data/domain/repository/main.dart';
@@ -19,6 +19,7 @@ class PetitionUseCase
 
 class PetitionParams {
   final PetitionRequestModel request;
-  final File? file;
+  final PlatformFile? file;
+
   PetitionParams(this.file, {required this.request});
 }

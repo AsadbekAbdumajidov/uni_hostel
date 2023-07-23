@@ -8,7 +8,9 @@ class SubmitApplicationState with _$SubmitApplicationState {
     StudentInfoResponseModel? infoResponse,
     PetitionResponseModel? petitionResponse,
     @Default(null) int? checkBoxIndex,
-    File? file,
+    PlatformFile? file,
+    String? name,
+
     @Default(1) int currentIndex,
   }) = _SubmitApplicationState;
 }
