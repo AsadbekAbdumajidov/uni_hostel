@@ -33,17 +33,16 @@ class ApartmentCardItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           
             ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
-                child: Container(
-                  width: context.w,
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+              child:  Image.network(
+                  img,
                   height: ResponsiveWidget.isMobileLarge(context) ? 180 : 230,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(image: NetworkImage(img),fit: BoxFit.cover)),
-                )),
+                  width: context.w,
+                  fit: BoxFit.cover,
+              ),
+            ),
             Padding(
               padding: EdgeInsets.all(
                   ResponsiveWidget.isMobileLarge(context) ? 16 : 26),
@@ -55,6 +54,8 @@ class ApartmentCardItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
                                 .textTheme
                                 .displayMedium

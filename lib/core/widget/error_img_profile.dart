@@ -25,14 +25,11 @@ class NetworkImageWidget extends StatelessWidget {
         child: img == ""
             ? ErrorImageProfile(
                 backgroundColor: backgroundColor, lineColour: lineColour)
-            : Container(
+            : Image.network(
+                img ?? "",
                 width: size,
                 height: size,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                  image: NetworkImage(img ?? ""),
-                  fit: BoxFit.cover,
-                )),
+                fit: BoxFit.cover,
               ),
       ),
     );
@@ -58,7 +55,8 @@ class ErrorImageProfile extends StatelessWidget {
           margin: const EdgeInsets.all(1),
           child: CircleAvatar(
               backgroundColor: backgroundColor ?? AppColors.whiteColor,
-              child: Icon(Icons.person_outline, color:lineColour?? AppColors.blackColor)),
+              child: Icon(Icons.person_outline,
+                  color: lineColour ?? AppColors.blackColor)),
         ),
       ),
     );

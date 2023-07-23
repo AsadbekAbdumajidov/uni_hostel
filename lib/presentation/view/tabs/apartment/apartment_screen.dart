@@ -19,53 +19,57 @@ class ApartmentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: maxWidth,maxHeight: maxHeight),
-          child: BlocBuilder<DormitoryCubit, DormitoryState>(
-              builder: (context, state) {
-            if (state.status == Status.LOADING) {
-              return LoadingWidget();
-            }
-            if (state.status == Status.ERROR) {
-              showErrorMessage(
-                  context, state.failure.getLocalizedMessage(context));
-            }
-            return Column(
+      child: BlocBuilder<DormitoryCubit, DormitoryState>(
+          builder: (context, state) {
+        if (state.status == Status.LOADING) {
+          return LoadingWidget();
+        }
+        if (state.status == Status.ERROR) {
+          showErrorMessage(context, state.failure.getLocalizedMessage(context));
+        }
+        var lenght = state.responseModel?.results!.length ?? 0;
+        return Center(
+          child: Container(
+            constraints: BoxConstraints(
+                maxWidth: maxWidth,
+                maxHeight: lenght > 4 ? maxHeight + 300 : maxHeight),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height:ResponsiveWidget.isMobileLarge(context) ? 250 : 400,
+                    height: ResponsiveWidget.isMobileLarge(context) ? 250 : 400,
                     child: Column(
-                  children: [
-                    SizedBox(
-                        height:
-                            ResponsiveWidget.isMobileLarge(context) ? 40 : 100),
-                    MainTextWidget(
-                        mainFirst: AppStrings.strMainFirst,
-                        mainSecond: AppStrings.strMainSecond),
-                    SizedBox(height: 30),
-                    Text(AppStrings.strWebsiteIsForYou,
-                        style: Theme.of(context).textTheme.titleSmall),
-                    SizedBox(height: 60),
-                  ],
-                )),
+                      children: [
+                        SizedBox(
+                            height: ResponsiveWidget.isMobileLarge(context)
+                                ? 40
+                                : 100),
+                        MainTextWidget(
+                            mainFirst: AppStrings.strMainFirst,
+                            mainSecond: AppStrings.strMainSecond),
+                        SizedBox(height: 30),
+                        Text(AppStrings.strWebsiteIsForYou,
+                            style: Theme.of(context).textTheme.titleSmall),
+                        SizedBox(height: 60),
+                      ],
+                    )),
                 ResponsiveWidget.isMobileLarge(context)
                     ? state.responseModel!.results!.isEmpty
                         ? StepStatusWidget(
                             img: AppIcons.iconRejected,
                             title: AppStrings.strBedroomsAreNotYetAvailable)
                         : Expanded(
-                          flex: 8,
+                            flex: 8,
                             child: GridView.builder(
+                              padding: EdgeInsets.only(bottom: 20),
                               physics: NeverScrollableScrollPhysics(),
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                 mainAxisExtent: 275,
                                 crossAxisCount: 2,
-                                mainAxisSpacing: 10
+                                mainAxisSpacing: 10,
                               ),
-                              itemCount: state.responseModel?.results?.length,
+                              itemCount: lenght,
                               itemBuilder: (BuildContext ctx, index) {
                                 var response =
                                     state.responseModel?.results?[index];
@@ -79,10 +83,10 @@ class ApartmentScreen extends StatelessWidget {
                           )
                     : CardListWeb(responseModel: state.responseModel)
               ],
-            );
-          }),
-        ),
-      ),
+            ),
+          ),
+        );
+      }),
     );
   }
 }
