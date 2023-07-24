@@ -19,7 +19,9 @@ class NetworkClient {
         debugPrint(_token);
         if (_token != '') {
           options.headers['Authorization'] = 'Bearer $_token';
-         
+         options.headers['Access-Control-Allow-Origin'] = '*';
+          options.headers['Access-Control-Allow-Methods'] =
+              'POST, GET, OPTIONS, PUT, DELETE, HEAD';
         }
         return handler.next(options);
       },
@@ -44,6 +46,9 @@ class NetworkClient {
             headers: requestOptions.headers,
           );
           options.headers!['Authorization'] = 'Bearer $_token';
+          options.headers!['Access-Control-Allow-Origin'] = '*';
+          options.headers!['Access-Control-Allow-Methods'] =
+              'POST, GET, OPTIONS, PUT, DELETE, HEAD';
           
           Response cloneReq = await Dio().request<dynamic>(
               BASE_URL + requestOptions.path,

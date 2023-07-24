@@ -19,7 +19,9 @@ class ApartmentCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        debugPrint("SS==${subTitle.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ' ')}");
+      },
       highlightColor: AppColors.transparent,
       splashFactory: NoSplash.splashFactory,
       hoverColor: AppColors.transparent,
@@ -35,11 +37,11 @@ class ApartmentCardItem extends StatelessWidget {
             ClipRRect(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-              child:  Image.network(
-                  img,
-                  height: ResponsiveWidget.isMobileLarge(context) ? 180 : 230,
-                  width: context.w,
-                  fit: BoxFit.cover,
+              child: Image.network(
+                img,
+                height: ResponsiveWidget.isMobileLarge(context) ? 180 : 230,
+                width: context.w,
+                fit: BoxFit.cover,
               ),
             ),
             Padding(
@@ -53,8 +55,8 @@ class ApartmentCardItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
                                 .textTheme
                                 .displayMedium
@@ -64,7 +66,7 @@ class ApartmentCardItem extends StatelessWidget {
                                         ResponsiveWidget.isMobileLarge(context)
                                             ? 22
                                             : 38)),
-                        Text(subTitle,
+                        Text("${subTitle.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ' ')}",
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
