@@ -27,7 +27,15 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
       PetitionParams(
         state.file,
         request: PetitionRequestModel(
-            maritalStatus: checkBoxList[state.checkBoxIndex ?? 0]),
+          ironNotebook: state.ironNotebook,
+          womensBook: state.womensBook,
+          youthsNotebook: state.youthsNotebook,
+          fosterHome: state.fosterHome,
+          noBreadWinner: state.noBreadWinner,
+          oneParentsIsDead: state.oneParentsIsDead,
+          disabled: state.disabled,
+          giftedStudent: state.giftedStudent,
+        ),
       ),
     );
     result.fold(
@@ -50,7 +58,6 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
 
       var name = result?.first.name;
       var file = result!.first;
-      debugPrint("name  = $name");
       emit(state.copyWith(file: file, name: name, status: Status.UNKNOWN));
     } on PlatformException catch (e) {
       debugPrint("Unsopperted operation $e");
@@ -59,44 +66,62 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
     }
   }
 
-  // Future<void> picksinglefile() async {
-  //   PlatformFile? file;
-  //   FilePickerResult? result = await FilePicker.platform.pickFiles();
-  //   if (result != null) {
-  //     file = result.files.first;
-  //     file == null ? false : OpenAppFile.open(file.path.toString());
-  //     emit(state.copyWith(file: File(file.path ?? "aasa"), status: Status.UNKNOWN));
-  //   }
-  // }
-
   Future<void> clearFile() async {
     emit(state.copyWith(file: null, name: null, status: Status.UNKNOWN));
   }
 
-  // Future<void> filePicker() async {
-  //   FilePickerResult? result = await FilePicker.platform.pickFiles(
-  //     type: FileType.custom,
-  //     allowedExtensions: ['jpg', 'pdf', 'doc'],
-  //   );
-  //   print("======${result?.files.single.path}========");
-  //   if (result != null) {
-  //     File file = File(result.files.single.path ?? "======");
-
-  //     emit(state.copyWith(file: file, status: Status.UNKNOWN));
-  //   } else {
-  //     // User canceled the picker
-  //   }
-  // }
-
   // -----------------------------------
 
   Future<void> checkBox(int index) async {
-    if (index == state.checkBoxIndex) {
-      emit(state.copyWith(checkBoxIndex: null, status: Status.UNKNOWN));
-      debugPrint("==Index===${state.checkBoxIndex}====");
+    switch (index) {
+      case 1:
+        emit(state.copyWith(
+            ironNotebook: !state.ironNotebook, status: Status.UNKNOWN));
+        debugPrint(state.ironNotebook.toString());
+        break;
+      case 2:
+        emit(state.copyWith(
+            womensBook: !state.womensBook, status: Status.UNKNOWN));
+        break;
+      case 3:
+        emit(state.copyWith(
+            youthsNotebook: !state.youthsNotebook, status: Status.UNKNOWN));
+        break;
+      case 4:
+        emit(state.copyWith(
+            fosterHome: !state.fosterHome, status: Status.UNKNOWN));
+        break;
+      case 5:
+        emit(state.copyWith(
+            noBreadWinner: !state.noBreadWinner, status: Status.UNKNOWN));
+        break;
+      case 6:
+        emit(state.copyWith(
+            oneParentsIsDead: !state.oneParentsIsDead, status: Status.UNKNOWN));
+        break;
+      case 7:
+        emit(state.copyWith(disabled: !state.disabled, status: Status.UNKNOWN));
+        break;
+      case 8:
+        emit(state.copyWith(
+            giftedStudent: !state.giftedStudent, status: Status.UNKNOWN));
+        break;
+      default:
+    }
+  }
+
+  bool cheack() {
+    if (state.ironNotebook == false &&
+        state.womensBook == false &&
+        state.youthsNotebook == false &&
+        state.fosterHome == false &&
+        state.noBreadWinner == false &&
+        state.oneParentsIsDead == false &&
+        state.disabled == false &&
+        state.giftedStudent == false) {
+      return false;
     } else {
-      emit(state.copyWith(checkBoxIndex: index, status: Status.UNKNOWN));
-      debugPrint("==Index===${state.checkBoxIndex}====");
+      return true;
     }
   }
 

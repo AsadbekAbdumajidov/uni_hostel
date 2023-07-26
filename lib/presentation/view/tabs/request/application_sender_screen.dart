@@ -34,6 +34,7 @@ class ApplicationSenderScreen extends StatelessWidget {
         if (state.status == Status.SUCCESS) {
           context.read<SubmitApplicationCubit>().getStudentInfo();
         }
+        var cheack = context.read<SubmitApplicationCubit>().cheack();
         return SingleChildScrollView(
           child: Center(
             child: Container(
@@ -44,16 +45,17 @@ class ApplicationSenderScreen extends StatelessWidget {
                     mobile: AppSenderMobileScreen(
                         infoResponse: state.infoResponse,
                         currentIndex: state.currentIndex,
-                        index: state.checkBoxIndex ?? 0,
                         onTapNext: () {
-                          if (state.checkBoxIndex != 0 && state.file == null) {
+                         debugPrint("${cheack} == ${state.file?.name}");
+                          if (cheack == true && state.file == null) {
                             showErrorMessage(context, AppStrings.strUploadDoc);
-                          } else {
+                          } else if (cheack == false && state.file == null ||
+                              cheack == true && state.file != null) {
                             context.read<SubmitApplicationCubit>().petition();
                           }
                         },
                         fileOnTap: () {
-                          state.checkBoxIndex == null
+                          cheack == false
                               ? null
                               : showDialog(
                                   context: context,
@@ -62,18 +64,20 @@ class ApplicationSenderScreen extends StatelessWidget {
                                   });
                         }),
                     desktop: AppSenderWebScreen(
-                        checkBoxIndex: state.checkBoxIndex ?? 0,
                         infoResponse: state.infoResponse,
                         currentIndex: state.currentIndex,
                         onTapNext: () {
-                          if (state.checkBoxIndex != 0 && state.file == null) {
+                          debugPrint("${cheack} == ${state.file?.name}");
+                          if (cheack == true && state.file == null) {
                             showErrorMessage(context, AppStrings.strUploadDoc);
-                          } else {
+                          } else if (cheack == false && state.file == null ||
+                              cheack == true && state.file != null) {
                             context.read<SubmitApplicationCubit>().petition();
                           }
                         },
                         fileOnTap: () {
-                          state.checkBoxIndex == null
+                          debugPrint(cheack.toString());
+                          cheack == false
                               ? null
                               : showDialog(
                                   context: context,

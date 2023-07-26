@@ -11,10 +11,8 @@ class RequestWebScreen extends StatelessWidget {
   const RequestWebScreen(
       {super.key,
       this.infoResponse,
-      required this.checkBoxIndex,
       required this.fileOnTap, required this.onTapNext});
   final StudentInfoResponseModel? infoResponse;
-  final int checkBoxIndex;
   final Function() fileOnTap;
   final Function() onTapNext;
 
@@ -38,7 +36,7 @@ class RequestWebScreen extends StatelessWidget {
           ),
         ),
         FillerWidget(response: infoResponse),
-        CheckboxListWidget(index: checkBoxIndex),
+        CheckboxListWidget(),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: CustomButton(

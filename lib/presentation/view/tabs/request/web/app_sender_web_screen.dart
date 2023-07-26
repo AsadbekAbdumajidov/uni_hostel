@@ -14,12 +14,10 @@ class AppSenderWebScreen extends StatelessWidget {
       {super.key,
       this.infoResponse,
       required this.currentIndex,
-      required this.checkBoxIndex,
       required this.fileOnTap,
       required this.onTapNext});
   final StudentInfoResponseModel? infoResponse;
   final int currentIndex;
-  final int checkBoxIndex;
   final Function() fileOnTap;
   final Function() onTapNext;
 
@@ -32,7 +30,6 @@ class AppSenderWebScreen extends StatelessWidget {
         currentIndex == 1
             ? RequestWebScreen(
                 infoResponse: infoResponse,
-                checkBoxIndex: checkBoxIndex,
                 fileOnTap: fileOnTap,
                 onTapNext: onTapNext,
               )

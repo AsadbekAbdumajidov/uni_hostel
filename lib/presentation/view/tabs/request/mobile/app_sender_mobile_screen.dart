@@ -12,12 +12,10 @@ class AppSenderMobileScreen extends StatelessWidget {
       {super.key,
       this.infoResponse,
       required this.currentIndex,
-      required this.index,
       required this.fileOnTap,
       required this.onTapNext});
   final StudentInfoResponseModel? infoResponse;
   final int currentIndex;
-  final int index;
   final Function() fileOnTap;
   final Function() onTapNext;
   @override
@@ -29,7 +27,6 @@ class AppSenderMobileScreen extends StatelessWidget {
         currentIndex == 1
             ? RequestMobileScreen(
                 infoResponse: infoResponse,
-                index: index,
                 fileOnTap: fileOnTap,
                 onTapNext: onTapNext,
               )

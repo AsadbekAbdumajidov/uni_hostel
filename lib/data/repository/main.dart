@@ -48,29 +48,36 @@ class MainRepository implements IMainRepository {
       PetitionRequestModel requestModel, PlatformFile? file) async {
     Dio dio = Dio();
     try {
-      FormData formData =  FormData.fromMap({
-              'marital_status': requestModel.maritalStatus,
-              'reference_file': MultipartFile.fromBytes(file?.bytes ?? [],
-                  filename: file?.name),
-            });
-      var withoutFileformData = FormData.fromMap({
-        'marital_status': requestModel.maritalStatus,
+      FormData formData = FormData.fromMap({
+        'iron_notebook': requestModel.ironNotebook,
+        'womens_book': requestModel.womensBook,
+        'youths_notebook': requestModel.youthsNotebook,
+        'foster_home': requestModel.fosterHome,
+        'no_breadwinner': requestModel.noBreadWinner,
+        'one_parents_is_dead': requestModel.oneParentsIsDead,
+        'disabled': requestModel.disabled,
+        'gifted_student': requestModel.giftedStudent,
+        'reference_file':
+            MultipartFile.fromBytes(file?.bytes ?? [], filename: file?.name),
       });
-
+      debugPrint(formData.fields.toString());
       final response = await dio.post('${BASE_URL}student/order/',
-          data: file == null ? withoutFileformData : formData,
+          data: formData,
           options: Options(headers: {
             "Authorization":
                 "Bearer ${_localDatasource.getString(ACCESS_TOKEN)}"
           }));
-      dio.interceptors
-          .add(LogInterceptor(requestBody: true, responseBody: true));
+      debugPrint(response.data.toString());
+      dio.interceptors.add(LogInterceptor(
+          requestBody: true,
+          responseBody: true,
+          requestHeader: true,
+          responseHeader: true));
       return Right(PetitionResponseModel.fromJson(response.data));
     } on DioError catch (e) {
-      dio.interceptors
-          .add(LogInterceptor(requestBody: true, responseBody: true));
       if (kDebugMode) {
-        debugPrint("$e");
+        debugPrint(e.toString());
+
       }
       if (e.error is SocketException) {
         return const Left(ConnectionFailure());
@@ -82,7 +89,7 @@ class MainRepository implements IMainRepository {
       );
     } on Object catch (e) {
       if (kDebugMode) {
-        debugPrint("$e");
+        debugPrint("ERR == $e");
       }
       rethrow;
     }

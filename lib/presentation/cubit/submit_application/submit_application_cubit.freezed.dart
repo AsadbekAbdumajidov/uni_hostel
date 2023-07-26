@@ -22,9 +22,16 @@ mixin _$SubmitApplicationState {
       throw _privateConstructorUsedError;
   PetitionResponseModel? get petitionResponse =>
       throw _privateConstructorUsedError;
-  int? get checkBoxIndex => throw _privateConstructorUsedError;
   PlatformFile? get file => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  bool get ironNotebook => throw _privateConstructorUsedError;
+  bool get womensBook => throw _privateConstructorUsedError;
+  bool get youthsNotebook => throw _privateConstructorUsedError;
+  bool get fosterHome => throw _privateConstructorUsedError;
+  bool get noBreadWinner => throw _privateConstructorUsedError;
+  bool get oneParentsIsDead => throw _privateConstructorUsedError;
+  bool get disabled => throw _privateConstructorUsedError;
+  bool get giftedStudent => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,9 +50,16 @@ abstract class $SubmitApplicationStateCopyWith<$Res> {
       Failure failure,
       StudentInfoResponseModel? infoResponse,
       PetitionResponseModel? petitionResponse,
-      int? checkBoxIndex,
       PlatformFile? file,
       String? name,
+      bool ironNotebook,
+      bool womensBook,
+      bool youthsNotebook,
+      bool fosterHome,
+      bool noBreadWinner,
+      bool oneParentsIsDead,
+      bool disabled,
+      bool giftedStudent,
       int currentIndex});
 
   $StudentInfoResponseModelCopyWith<$Res>? get infoResponse;
@@ -70,9 +84,16 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
     Object? failure = null,
     Object? infoResponse = freezed,
     Object? petitionResponse = freezed,
-    Object? checkBoxIndex = freezed,
     Object? file = freezed,
     Object? name = freezed,
+    Object? ironNotebook = null,
+    Object? womensBook = null,
+    Object? youthsNotebook = null,
+    Object? fosterHome = null,
+    Object? noBreadWinner = null,
+    Object? oneParentsIsDead = null,
+    Object? disabled = null,
+    Object? giftedStudent = null,
     Object? currentIndex = null,
   }) {
     return _then(_value.copyWith(
@@ -92,10 +113,6 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
           ? _value.petitionResponse
           : petitionResponse // ignore: cast_nullable_to_non_nullable
               as PetitionResponseModel?,
-      checkBoxIndex: freezed == checkBoxIndex
-          ? _value.checkBoxIndex
-          : checkBoxIndex // ignore: cast_nullable_to_non_nullable
-              as int?,
       file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -104,6 +121,38 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      ironNotebook: null == ironNotebook
+          ? _value.ironNotebook
+          : ironNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      womensBook: null == womensBook
+          ? _value.womensBook
+          : womensBook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      youthsNotebook: null == youthsNotebook
+          ? _value.youthsNotebook
+          : youthsNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fosterHome: null == fosterHome
+          ? _value.fosterHome
+          : fosterHome // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noBreadWinner: null == noBreadWinner
+          ? _value.noBreadWinner
+          : noBreadWinner // ignore: cast_nullable_to_non_nullable
+              as bool,
+      oneParentsIsDead: null == oneParentsIsDead
+          ? _value.oneParentsIsDead
+          : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool,
+      disabled: null == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      giftedStudent: null == giftedStudent
+          ? _value.giftedStudent
+          : giftedStudent // ignore: cast_nullable_to_non_nullable
+              as bool,
       currentIndex: null == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
@@ -151,9 +200,16 @@ abstract class _$$_SubmitApplicationStateCopyWith<$Res>
       Failure failure,
       StudentInfoResponseModel? infoResponse,
       PetitionResponseModel? petitionResponse,
-      int? checkBoxIndex,
       PlatformFile? file,
       String? name,
+      bool ironNotebook,
+      bool womensBook,
+      bool youthsNotebook,
+      bool fosterHome,
+      bool noBreadWinner,
+      bool oneParentsIsDead,
+      bool disabled,
+      bool giftedStudent,
       int currentIndex});
 
   @override
@@ -178,9 +234,16 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
     Object? failure = null,
     Object? infoResponse = freezed,
     Object? petitionResponse = freezed,
-    Object? checkBoxIndex = freezed,
     Object? file = freezed,
     Object? name = freezed,
+    Object? ironNotebook = null,
+    Object? womensBook = null,
+    Object? youthsNotebook = null,
+    Object? fosterHome = null,
+    Object? noBreadWinner = null,
+    Object? oneParentsIsDead = null,
+    Object? disabled = null,
+    Object? giftedStudent = null,
     Object? currentIndex = null,
   }) {
     return _then(_$_SubmitApplicationState(
@@ -200,10 +263,6 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
           ? _value.petitionResponse
           : petitionResponse // ignore: cast_nullable_to_non_nullable
               as PetitionResponseModel?,
-      checkBoxIndex: freezed == checkBoxIndex
-          ? _value.checkBoxIndex
-          : checkBoxIndex // ignore: cast_nullable_to_non_nullable
-              as int?,
       file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -212,6 +271,38 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      ironNotebook: null == ironNotebook
+          ? _value.ironNotebook
+          : ironNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      womensBook: null == womensBook
+          ? _value.womensBook
+          : womensBook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      youthsNotebook: null == youthsNotebook
+          ? _value.youthsNotebook
+          : youthsNotebook // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fosterHome: null == fosterHome
+          ? _value.fosterHome
+          : fosterHome // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noBreadWinner: null == noBreadWinner
+          ? _value.noBreadWinner
+          : noBreadWinner // ignore: cast_nullable_to_non_nullable
+              as bool,
+      oneParentsIsDead: null == oneParentsIsDead
+          ? _value.oneParentsIsDead
+          : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool,
+      disabled: null == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      giftedStudent: null == giftedStudent
+          ? _value.giftedStudent
+          : giftedStudent // ignore: cast_nullable_to_non_nullable
+              as bool,
       currentIndex: null == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
@@ -230,9 +321,16 @@ class _$_SubmitApplicationState
       this.failure = const UnknownFailure(),
       this.infoResponse,
       this.petitionResponse,
-      this.checkBoxIndex = null,
       this.file,
       this.name,
+      this.ironNotebook = false,
+      this.womensBook = false,
+      this.youthsNotebook = false,
+      this.fosterHome = false,
+      this.noBreadWinner = false,
+      this.oneParentsIsDead = false,
+      this.disabled = false,
+      this.giftedStudent = false,
       this.currentIndex = 1});
 
   @override
@@ -246,19 +344,40 @@ class _$_SubmitApplicationState
   @override
   final PetitionResponseModel? petitionResponse;
   @override
-  @JsonKey()
-  final int? checkBoxIndex;
-  @override
   final PlatformFile? file;
   @override
   final String? name;
+  @override
+  @JsonKey()
+  final bool ironNotebook;
+  @override
+  @JsonKey()
+  final bool womensBook;
+  @override
+  @JsonKey()
+  final bool youthsNotebook;
+  @override
+  @JsonKey()
+  final bool fosterHome;
+  @override
+  @JsonKey()
+  final bool noBreadWinner;
+  @override
+  @JsonKey()
+  final bool oneParentsIsDead;
+  @override
+  @JsonKey()
+  final bool disabled;
+  @override
+  @JsonKey()
+  final bool giftedStudent;
   @override
   @JsonKey()
   final int currentIndex;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SubmitApplicationState(status: $status, failure: $failure, infoResponse: $infoResponse, petitionResponse: $petitionResponse, checkBoxIndex: $checkBoxIndex, file: $file, name: $name, currentIndex: $currentIndex)';
+    return 'SubmitApplicationState(status: $status, failure: $failure, infoResponse: $infoResponse, petitionResponse: $petitionResponse, file: $file, name: $name, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadWinner: $noBreadWinner, oneParentsIsDead: $oneParentsIsDead, disabled: $disabled, giftedStudent: $giftedStudent, currentIndex: $currentIndex)';
   }
 
   @override
@@ -270,9 +389,16 @@ class _$_SubmitApplicationState
       ..add(DiagnosticsProperty('failure', failure))
       ..add(DiagnosticsProperty('infoResponse', infoResponse))
       ..add(DiagnosticsProperty('petitionResponse', petitionResponse))
-      ..add(DiagnosticsProperty('checkBoxIndex', checkBoxIndex))
       ..add(DiagnosticsProperty('file', file))
       ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('ironNotebook', ironNotebook))
+      ..add(DiagnosticsProperty('womensBook', womensBook))
+      ..add(DiagnosticsProperty('youthsNotebook', youthsNotebook))
+      ..add(DiagnosticsProperty('fosterHome', fosterHome))
+      ..add(DiagnosticsProperty('noBreadWinner', noBreadWinner))
+      ..add(DiagnosticsProperty('oneParentsIsDead', oneParentsIsDead))
+      ..add(DiagnosticsProperty('disabled', disabled))
+      ..add(DiagnosticsProperty('giftedStudent', giftedStudent))
       ..add(DiagnosticsProperty('currentIndex', currentIndex));
   }
 
@@ -287,17 +413,46 @@ class _$_SubmitApplicationState
                 other.infoResponse == infoResponse) &&
             (identical(other.petitionResponse, petitionResponse) ||
                 other.petitionResponse == petitionResponse) &&
-            (identical(other.checkBoxIndex, checkBoxIndex) ||
-                other.checkBoxIndex == checkBoxIndex) &&
             (identical(other.file, file) || other.file == file) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.ironNotebook, ironNotebook) ||
+                other.ironNotebook == ironNotebook) &&
+            (identical(other.womensBook, womensBook) ||
+                other.womensBook == womensBook) &&
+            (identical(other.youthsNotebook, youthsNotebook) ||
+                other.youthsNotebook == youthsNotebook) &&
+            (identical(other.fosterHome, fosterHome) ||
+                other.fosterHome == fosterHome) &&
+            (identical(other.noBreadWinner, noBreadWinner) ||
+                other.noBreadWinner == noBreadWinner) &&
+            (identical(other.oneParentsIsDead, oneParentsIsDead) ||
+                other.oneParentsIsDead == oneParentsIsDead) &&
+            (identical(other.disabled, disabled) ||
+                other.disabled == disabled) &&
+            (identical(other.giftedStudent, giftedStudent) ||
+                other.giftedStudent == giftedStudent) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, failure, infoResponse,
-      petitionResponse, checkBoxIndex, file, name, currentIndex);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      failure,
+      infoResponse,
+      petitionResponse,
+      file,
+      name,
+      ironNotebook,
+      womensBook,
+      youthsNotebook,
+      fosterHome,
+      noBreadWinner,
+      oneParentsIsDead,
+      disabled,
+      giftedStudent,
+      currentIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -313,9 +468,16 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
       final Failure failure,
       final StudentInfoResponseModel? infoResponse,
       final PetitionResponseModel? petitionResponse,
-      final int? checkBoxIndex,
       final PlatformFile? file,
       final String? name,
+      final bool ironNotebook,
+      final bool womensBook,
+      final bool youthsNotebook,
+      final bool fosterHome,
+      final bool noBreadWinner,
+      final bool oneParentsIsDead,
+      final bool disabled,
+      final bool giftedStudent,
       final int currentIndex}) = _$_SubmitApplicationState;
 
   @override
@@ -327,11 +489,25 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
   @override
   PetitionResponseModel? get petitionResponse;
   @override
-  int? get checkBoxIndex;
-  @override
   PlatformFile? get file;
   @override
   String? get name;
+  @override
+  bool get ironNotebook;
+  @override
+  bool get womensBook;
+  @override
+  bool get youthsNotebook;
+  @override
+  bool get fosterHome;
+  @override
+  bool get noBreadWinner;
+  @override
+  bool get oneParentsIsDead;
+  @override
+  bool get disabled;
+  @override
+  bool get giftedStudent;
   @override
   int get currentIndex;
   @override

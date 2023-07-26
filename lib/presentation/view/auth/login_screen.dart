@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                               suffixIcon: GestureDetector(
                                   onTap: () =>
                                       context.read<LoginCubit>().changeEye(),
-                                  child: const Icon(Icons.remove_red_eye))),
+                                  child:  Icon(state.changeEye == false ? Icons.remove_red_eye_outlined : Icons.remove_red_eye))),
                           SizedBox(height: he(30)),
                           CustomButton(
                               isLoading: state.status == Status.LOADING,

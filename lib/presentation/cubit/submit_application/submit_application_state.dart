@@ -7,10 +7,16 @@ class SubmitApplicationState with _$SubmitApplicationState {
     @Default(UnknownFailure()) Failure failure,
     StudentInfoResponseModel? infoResponse,
     PetitionResponseModel? petitionResponse,
-    @Default(null) int? checkBoxIndex,
     PlatformFile? file,
     String? name,
-
+    @Default(false)bool ironNotebook,
+    @Default(false)bool womensBook,
+    @Default(false)bool youthsNotebook,
+    @Default(false)bool fosterHome,
+    @Default(false)bool noBreadWinner,
+    @Default(false)bool oneParentsIsDead,
+    @Default(false)bool disabled,
+    @Default(false)bool giftedStudent,
     @Default(1) int currentIndex,
   }) = _SubmitApplicationState;
 }

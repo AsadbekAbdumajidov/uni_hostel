@@ -9,11 +9,25 @@ part of 'petition_request.dart';
 _$_PetitionRequestModel _$$_PetitionRequestModelFromJson(
         Map<String, dynamic> json) =>
     _$_PetitionRequestModel(
-      maritalStatus: json['marital_status'] as String?,
+      ironNotebook: json['iron_notebook'] as bool?,
+      womensBook: json['womens_book'] as bool?,
+      youthsNotebook: json['youths_notebook'] as bool?,
+      fosterHome: json['foster_home'] as bool?,
+      noBreadWinner: json['no_breadwinner'] as bool?,
+      oneParentsIsDead: json['one_parents_is_dead'] as bool?,
+      disabled: json['disabled'] as bool?,
+      giftedStudent: json['gifted_student'] as bool?,
     );
 
 Map<String, dynamic> _$$_PetitionRequestModelToJson(
         _$_PetitionRequestModel instance) =>
     <String, dynamic>{
-      'marital_status': instance.maritalStatus,
+      'iron_notebook': instance.ironNotebook,
+      'womens_book': instance.womensBook,
+      'youths_notebook': instance.youthsNotebook,
+      'foster_home': instance.fosterHome,
+      'no_breadwinner': instance.noBreadWinner,
+      'one_parents_is_dead': instance.oneParentsIsDead,
+      'disabled': instance.disabled,
+      'gifted_student': instance.giftedStudent,
     };

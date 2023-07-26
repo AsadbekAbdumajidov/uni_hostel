@@ -10,8 +10,6 @@ import 'package:uni_hostel/presentation/view/tabs/notifications/notification_web
 class NotificationScreen extends StatelessWidget {
   NotificationScreen({super.key});
 
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

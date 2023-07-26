@@ -20,8 +20,21 @@ PetitionRequestModel _$PetitionRequestModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PetitionRequestModel {
-  @JsonKey(name: 'marital_status')
-  String? get maritalStatus => throw _privateConstructorUsedError;
+  @JsonKey(name: 'iron_notebook')
+  bool? get ironNotebook => throw _privateConstructorUsedError;
+  @JsonKey(name: 'womens_book')
+  bool? get womensBook => throw _privateConstructorUsedError;
+  @JsonKey(name: 'youths_notebook')
+  bool? get youthsNotebook => throw _privateConstructorUsedError;
+  @JsonKey(name: 'foster_home')
+  bool? get fosterHome => throw _privateConstructorUsedError;
+  @JsonKey(name: 'no_breadwinner')
+  bool? get noBreadWinner => throw _privateConstructorUsedError;
+  @JsonKey(name: 'one_parents_is_dead')
+  bool? get oneParentsIsDead => throw _privateConstructorUsedError;
+  bool? get disabled => throw _privateConstructorUsedError;
+  @JsonKey(name: 'gifted_student')
+  bool? get giftedStudent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +48,15 @@ abstract class $PetitionRequestModelCopyWith<$Res> {
           $Res Function(PetitionRequestModel) then) =
       _$PetitionRequestModelCopyWithImpl<$Res, PetitionRequestModel>;
   @useResult
-  $Res call({@JsonKey(name: 'marital_status') String? maritalStatus});
+  $Res call(
+      {@JsonKey(name: 'iron_notebook') bool? ironNotebook,
+      @JsonKey(name: 'womens_book') bool? womensBook,
+      @JsonKey(name: 'youths_notebook') bool? youthsNotebook,
+      @JsonKey(name: 'foster_home') bool? fosterHome,
+      @JsonKey(name: 'no_breadwinner') bool? noBreadWinner,
+      @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
+      bool? disabled,
+      @JsonKey(name: 'gifted_student') bool? giftedStudent});
 }
 
 /// @nodoc
@@ -52,13 +73,48 @@ class _$PetitionRequestModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? maritalStatus = freezed,
+    Object? ironNotebook = freezed,
+    Object? womensBook = freezed,
+    Object? youthsNotebook = freezed,
+    Object? fosterHome = freezed,
+    Object? noBreadWinner = freezed,
+    Object? oneParentsIsDead = freezed,
+    Object? disabled = freezed,
+    Object? giftedStudent = freezed,
   }) {
     return _then(_value.copyWith(
-      maritalStatus: freezed == maritalStatus
-          ? _value.maritalStatus
-          : maritalStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+      ironNotebook: freezed == ironNotebook
+          ? _value.ironNotebook
+          : ironNotebook // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      womensBook: freezed == womensBook
+          ? _value.womensBook
+          : womensBook // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      youthsNotebook: freezed == youthsNotebook
+          ? _value.youthsNotebook
+          : youthsNotebook // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      fosterHome: freezed == fosterHome
+          ? _value.fosterHome
+          : fosterHome // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      noBreadWinner: freezed == noBreadWinner
+          ? _value.noBreadWinner
+          : noBreadWinner // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      oneParentsIsDead: freezed == oneParentsIsDead
+          ? _value.oneParentsIsDead
+          : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      disabled: freezed == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      giftedStudent: freezed == giftedStudent
+          ? _value.giftedStudent
+          : giftedStudent // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -71,7 +127,15 @@ abstract class _$$_PetitionRequestModelCopyWith<$Res>
       __$$_PetitionRequestModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'marital_status') String? maritalStatus});
+  $Res call(
+      {@JsonKey(name: 'iron_notebook') bool? ironNotebook,
+      @JsonKey(name: 'womens_book') bool? womensBook,
+      @JsonKey(name: 'youths_notebook') bool? youthsNotebook,
+      @JsonKey(name: 'foster_home') bool? fosterHome,
+      @JsonKey(name: 'no_breadwinner') bool? noBreadWinner,
+      @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
+      bool? disabled,
+      @JsonKey(name: 'gifted_student') bool? giftedStudent});
 }
 
 /// @nodoc
@@ -85,13 +149,48 @@ class __$$_PetitionRequestModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? maritalStatus = freezed,
+    Object? ironNotebook = freezed,
+    Object? womensBook = freezed,
+    Object? youthsNotebook = freezed,
+    Object? fosterHome = freezed,
+    Object? noBreadWinner = freezed,
+    Object? oneParentsIsDead = freezed,
+    Object? disabled = freezed,
+    Object? giftedStudent = freezed,
   }) {
     return _then(_$_PetitionRequestModel(
-      maritalStatus: freezed == maritalStatus
-          ? _value.maritalStatus
-          : maritalStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
+      ironNotebook: freezed == ironNotebook
+          ? _value.ironNotebook
+          : ironNotebook // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      womensBook: freezed == womensBook
+          ? _value.womensBook
+          : womensBook // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      youthsNotebook: freezed == youthsNotebook
+          ? _value.youthsNotebook
+          : youthsNotebook // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      fosterHome: freezed == fosterHome
+          ? _value.fosterHome
+          : fosterHome // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      noBreadWinner: freezed == noBreadWinner
+          ? _value.noBreadWinner
+          : noBreadWinner // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      oneParentsIsDead: freezed == oneParentsIsDead
+          ? _value.oneParentsIsDead
+          : oneParentsIsDead // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      disabled: freezed == disabled
+          ? _value.disabled
+          : disabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      giftedStudent: freezed == giftedStudent
+          ? _value.giftedStudent
+          : giftedStudent // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -100,18 +199,45 @@ class __$$_PetitionRequestModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PetitionRequestModel implements _PetitionRequestModel {
   const _$_PetitionRequestModel(
-      {@JsonKey(name: 'marital_status') this.maritalStatus});
+      {@JsonKey(name: 'iron_notebook') this.ironNotebook,
+      @JsonKey(name: 'womens_book') this.womensBook,
+      @JsonKey(name: 'youths_notebook') this.youthsNotebook,
+      @JsonKey(name: 'foster_home') this.fosterHome,
+      @JsonKey(name: 'no_breadwinner') this.noBreadWinner,
+      @JsonKey(name: 'one_parents_is_dead') this.oneParentsIsDead,
+      this.disabled,
+      @JsonKey(name: 'gifted_student') this.giftedStudent});
 
   factory _$_PetitionRequestModel.fromJson(Map<String, dynamic> json) =>
       _$$_PetitionRequestModelFromJson(json);
 
   @override
-  @JsonKey(name: 'marital_status')
-  final String? maritalStatus;
+  @JsonKey(name: 'iron_notebook')
+  final bool? ironNotebook;
+  @override
+  @JsonKey(name: 'womens_book')
+  final bool? womensBook;
+  @override
+  @JsonKey(name: 'youths_notebook')
+  final bool? youthsNotebook;
+  @override
+  @JsonKey(name: 'foster_home')
+  final bool? fosterHome;
+  @override
+  @JsonKey(name: 'no_breadwinner')
+  final bool? noBreadWinner;
+  @override
+  @JsonKey(name: 'one_parents_is_dead')
+  final bool? oneParentsIsDead;
+  @override
+  final bool? disabled;
+  @override
+  @JsonKey(name: 'gifted_student')
+  final bool? giftedStudent;
 
   @override
   String toString() {
-    return 'PetitionRequestModel(maritalStatus: $maritalStatus)';
+    return 'PetitionRequestModel(ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadWinner: $noBreadWinner, oneParentsIsDead: $oneParentsIsDead, disabled: $disabled, giftedStudent: $giftedStudent)';
   }
 
   @override
@@ -119,13 +245,36 @@ class _$_PetitionRequestModel implements _PetitionRequestModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PetitionRequestModel &&
-            (identical(other.maritalStatus, maritalStatus) ||
-                other.maritalStatus == maritalStatus));
+            (identical(other.ironNotebook, ironNotebook) ||
+                other.ironNotebook == ironNotebook) &&
+            (identical(other.womensBook, womensBook) ||
+                other.womensBook == womensBook) &&
+            (identical(other.youthsNotebook, youthsNotebook) ||
+                other.youthsNotebook == youthsNotebook) &&
+            (identical(other.fosterHome, fosterHome) ||
+                other.fosterHome == fosterHome) &&
+            (identical(other.noBreadWinner, noBreadWinner) ||
+                other.noBreadWinner == noBreadWinner) &&
+            (identical(other.oneParentsIsDead, oneParentsIsDead) ||
+                other.oneParentsIsDead == oneParentsIsDead) &&
+            (identical(other.disabled, disabled) ||
+                other.disabled == disabled) &&
+            (identical(other.giftedStudent, giftedStudent) ||
+                other.giftedStudent == giftedStudent));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, maritalStatus);
+  int get hashCode => Object.hash(
+      runtimeType,
+      ironNotebook,
+      womensBook,
+      youthsNotebook,
+      fosterHome,
+      noBreadWinner,
+      oneParentsIsDead,
+      disabled,
+      giftedStudent);
 
   @JsonKey(ignore: true)
   @override
@@ -144,15 +293,42 @@ class _$_PetitionRequestModel implements _PetitionRequestModel {
 
 abstract class _PetitionRequestModel implements PetitionRequestModel {
   const factory _PetitionRequestModel(
-          {@JsonKey(name: 'marital_status') final String? maritalStatus}) =
+          {@JsonKey(name: 'iron_notebook') final bool? ironNotebook,
+          @JsonKey(name: 'womens_book') final bool? womensBook,
+          @JsonKey(name: 'youths_notebook') final bool? youthsNotebook,
+          @JsonKey(name: 'foster_home') final bool? fosterHome,
+          @JsonKey(name: 'no_breadwinner') final bool? noBreadWinner,
+          @JsonKey(name: 'one_parents_is_dead') final bool? oneParentsIsDead,
+          final bool? disabled,
+          @JsonKey(name: 'gifted_student') final bool? giftedStudent}) =
       _$_PetitionRequestModel;
 
   factory _PetitionRequestModel.fromJson(Map<String, dynamic> json) =
       _$_PetitionRequestModel.fromJson;
 
   @override
-  @JsonKey(name: 'marital_status')
-  String? get maritalStatus;
+  @JsonKey(name: 'iron_notebook')
+  bool? get ironNotebook;
+  @override
+  @JsonKey(name: 'womens_book')
+  bool? get womensBook;
+  @override
+  @JsonKey(name: 'youths_notebook')
+  bool? get youthsNotebook;
+  @override
+  @JsonKey(name: 'foster_home')
+  bool? get fosterHome;
+  @override
+  @JsonKey(name: 'no_breadwinner')
+  bool? get noBreadWinner;
+  @override
+  @JsonKey(name: 'one_parents_is_dead')
+  bool? get oneParentsIsDead;
+  @override
+  bool? get disabled;
+  @override
+  @JsonKey(name: 'gifted_student')
+  bool? get giftedStudent;
   @override
   @JsonKey(ignore: true)
   _$$_PetitionRequestModelCopyWith<_$_PetitionRequestModel> get copyWith =>

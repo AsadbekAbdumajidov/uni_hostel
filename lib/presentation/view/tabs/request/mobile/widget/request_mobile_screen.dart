@@ -12,11 +12,9 @@ class RequestMobileScreen extends StatelessWidget {
   const RequestMobileScreen(
       {super.key,
       this.infoResponse,
-      required this.index,
       required this.fileOnTap,
       required this.onTapNext});
   final StudentInfoResponseModel? infoResponse;
-  final int index;
   final Function() fileOnTap;
   final Function() onTapNext;
   @override
@@ -39,7 +37,7 @@ class RequestMobileScreen extends StatelessWidget {
           ),
         ),
         FillerMobileWidget(response: infoResponse),
-        CheckboxListWidget(index: index),
+        CheckboxListWidget(),
         CustomButton(
           radius: 30,
           width: 140,
