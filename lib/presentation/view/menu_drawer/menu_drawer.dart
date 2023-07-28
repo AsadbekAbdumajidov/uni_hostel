@@ -71,7 +71,7 @@ class MenuDrawer extends StatelessWidget {
               ),
             ],
           ).paddingSymmetric(
-              vertical: ResponsiveWidget.isMobile(context) ? 60 : 40,
+              vertical: ResponsiveWidget.isMobile(context) ? 40 : 30,
               horizontal: 20));
     });
   }

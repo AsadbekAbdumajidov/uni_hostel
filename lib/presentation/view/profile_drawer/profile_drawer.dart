@@ -67,7 +67,7 @@ class ProfileDrawer extends StatelessWidget {
             ),
            
           ],
-        ).paddingSymmetric(vertical:ResponsiveWidget.isMobile(context) ? 60 : 40, horizontal: 20);
+        ).paddingSymmetric(vertical:ResponsiveWidget.isMobile(context) ? 40 : 30, horizontal: 20);
       }),
     );
   }

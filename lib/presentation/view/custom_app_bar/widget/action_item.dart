@@ -15,6 +15,7 @@ class ActionItems extends StatelessWidget {
     return BlocBuilder<SubmitApplicationCubit, SubmitApplicationState>(
         builder: (context, state) {
       return Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           TextButton(
             onPressed: () {},
@@ -32,7 +33,7 @@ class ActionItems extends StatelessWidget {
           ResponsiveWidget.isTablet(context)
               ? const SizedBox.shrink()
               : Container(
-                width: 200,
+                width: 180,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,9 +51,8 @@ class ActionItems extends StatelessWidget {
                                   color: AppColors.bodyTextColor,
                                   fontWeight: FontWeight.w400)),
                     ],
-                  ).paddingOnly(right: 16),
+                  ),
               ),
-          SizedBox(width: 20)
         ],
       ).paddingOnly(top: ResponsiveWidget.isMobile(context) ? 0 : 16);
     });

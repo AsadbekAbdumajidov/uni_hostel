@@ -43,9 +43,9 @@ class ApartmentScreen extends StatelessWidget {
                     MainTextWidget(
                         mainFirst: AppStrings.strMainFirst,
                         mainSecond: AppStrings.strMainSecond),
-                    SizedBox(height: 30),
-                    Text(AppStrings.strWebsiteIsForYou,
-                        style: Theme.of(context).textTheme.titleSmall),
+                    // SizedBox(height: 30),
+                    // Text(AppStrings.strWebsiteIsForYou,
+                    //     style: Theme.of(context).textTheme.titleSmall),
                     SizedBox(height: 60),
                   ],
                 ),

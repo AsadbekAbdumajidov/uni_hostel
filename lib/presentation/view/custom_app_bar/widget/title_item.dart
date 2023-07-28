@@ -43,7 +43,7 @@ class TitleItem extends StatelessWidget {
                   // }
                 })
             .paddingSymmetric(
-                horizontal: ResponsiveWidget.isTablet(context) ? 20 : 30),
+                horizontal: ResponsiveWidget.isTablet(context) ? 10 : 14),
         Flexible(
           flex: 5,
           child: TopTabItem(
@@ -57,7 +57,7 @@ class TitleItem extends StatelessWidget {
                 // }
               }),
         ),
-        SizedBox(width: ResponsiveWidget.isTablet(context) ? 20 : 30),
+        SizedBox(width: ResponsiveWidget.isTablet(context) ? 10 : 14),
         Flexible(
           flex: 5,
           child: TopTabItem(

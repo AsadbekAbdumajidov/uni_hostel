@@ -26,7 +26,7 @@ class PaymentStoryCard extends StatelessWidget {
           SizedBox(height: 20),
           Container(
             height: 500,
-            width:ResponsiveWidget.isMobileLarge(context) ? context.w : 500,
+            width: ResponsiveWidget.isMobileLarge(context) ? context.w : 500,
             decoration: BoxDecoration(
                 color: AppColors.whiteColor,
                 borderRadius: BorderRadius.circular(10)),
@@ -49,7 +49,8 @@ class PaymentStoryCard extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium
-                          ?.copyWith(fontSize: 
+                          ?.copyWith(
+                              fontSize:
                                   ResponsiveWidget.isTablet(context) ? 16 : 18),
                     ),
                   ],
@@ -59,14 +60,12 @@ class PaymentStoryCard extends StatelessWidget {
                     itemCount: 6,
                     itemBuilder: (_, __) {
                       return InkWell(
-                        onTap: (){
+                        onTap: () {
                           showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return CheckAlertDialog(
-                              
-                            );
-                          });
+                              context: context,
+                              builder: (BuildContext context) {
+                                return CheckAlertDialog();
+                              });
                         },
                         child: Container(
                           width: context.w,
@@ -95,10 +94,10 @@ class PaymentStoryCard extends StatelessWidget {
                                         .textTheme
                                         .displaySmall
                                         ?.copyWith(
-                                            fontSize:
-                                                ResponsiveWidget.isTablet(context)
-                                                    ? 14
-                                                    : 16),
+                                            fontSize: ResponsiveWidget.isTablet(
+                                                    context)
+                                                ? 14
+                                                : 16),
                                   ),
                                 ],
                               ),
@@ -111,10 +110,10 @@ class PaymentStoryCard extends StatelessWidget {
                                         .displaySmall
                                         ?.copyWith(
                                             fontWeight: FontWeight.w500,
-                                            fontSize:
-                                                ResponsiveWidget.isTablet(context)
-                                                    ? 14
-                                                    : 16),
+                                            fontSize: ResponsiveWidget.isTablet(
+                                                    context)
+                                                ? 14
+                                                : 16),
                                   ),
                                   SizedBox(width: 4),
                                   Icon(

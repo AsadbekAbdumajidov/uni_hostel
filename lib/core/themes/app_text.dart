@@ -13,9 +13,9 @@ class AppStrings {
       "Passport seriyangizni bo'sh qoldirmang";
   static const strNotification = "Bildirishnomalar";
   static const strUzb = "Uzbek";
-  static const strMainFirst = "Talabalar turar joyidan joy \nolishga ";
-  static const strMainSecond = "qiynalyabsizmi?";
-  static const strWebsiteIsForYou = "Unda bu veb-sayt aynan siz uchun ... ";
+  static const strMainFirst = "Talabalar turar joyiga onlayn ro’yxatdan \no’tish ";
+  static const strMainSecond = "platformasi";
+  // static const strWebsiteIsForYou = "Unda bu veb-sayt aynan siz uchun ... ";
   static const strReservePlace = "Joyni band qilish";
   static const strSignAccount = "Akkauntga kirish";
   static const strUniversitiesThatTrustUs =
@@ -82,8 +82,6 @@ class AppStrings {
   static const strBedroomsAreNotYetAvailable = "Yotoqxonalar hali mavjud emas";
 static const strSave = "Saqlash";
 static const strUploadTheFile= "Fileni yuklang";
-
-
 
   /// --------------------------- Failure Text ------------------------------- ///
   static const strUserNotFound = "Foydalanuvchi topilmadi";

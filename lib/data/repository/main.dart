@@ -68,16 +68,12 @@ class MainRepository implements IMainRepository {
                 "Bearer ${_localDatasource.getString(ACCESS_TOKEN)}"
           }));
       debugPrint(response.data.toString());
-      dio.interceptors.add(LogInterceptor(
-          requestBody: true,
-          responseBody: true,
-          requestHeader: true,
-          responseHeader: true));
+      dio.interceptors
+          .add(LogInterceptor(requestBody: true, responseBody: true));
       return Right(PetitionResponseModel.fromJson(response.data));
     } on DioError catch (e) {
       if (kDebugMode) {
         debugPrint(e.toString());
-
       }
       if (e.error is SocketException) {
         return const Left(ConnectionFailure());

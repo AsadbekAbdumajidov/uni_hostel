@@ -22,7 +22,6 @@ class _MainViewState extends State<MainView> {
         key: _scaffoldKey,
         drawer: MenuDrawer(),
         endDrawer: ProfileDrawer(),
-
         appBar: CustomNavBar(buildContext: context),
         body: _innerNavigationBody());
   }

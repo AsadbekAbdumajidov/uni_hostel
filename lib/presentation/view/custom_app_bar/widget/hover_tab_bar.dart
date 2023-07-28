@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
+import 'package:uni_hostel/presentation/cubit/on_hover/on_hover_cubit.dart';
 
 class TopTabItem extends StatelessWidget {
   final Function()? onTap;
@@ -16,28 +18,41 @@ class TopTabItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: index == currentIndex
-          ? Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: AppColors.primaryColor.withOpacity(0.1)),
-              child: Padding(
-                padding: const EdgeInsets.all(4),
-                child: Text(title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .displaySmall
-                        ?.copyWith(color: AppColors.bodyTextColor)),
-              ),
-            )
-          : Text(title,
-          overflow: TextOverflow.ellipsis,
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall
-                  ?.copyWith(color: AppColors.bodyTextColor)),
+    return BlocProvider(
+      create: (context) => OnHoverCubit(),
+      child: BlocBuilder<OnHoverCubit, OnHoverState>(builder: (context, state) {
+        return InkWell(
+          onHover: (v)=> context.read<OnHoverCubit>().getHover(v),
+            onTap: onTap,
+            child: index == currentIndex
+                ? Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: AppColors.primaryColor.withOpacity(0.7)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(title,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall
+                              ?.copyWith(color: AppColors.whiteColor,)),
+                    ),
+                  )
+                : Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color:state.hover ? AppColors.primaryColor.withOpacity(0.1): AppColors.transparent),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(title,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall
+                              ?.copyWith(color: AppColors.bodyTextColor)),
+                    ),
+                  ));
+      }),
     );
   }
 }
