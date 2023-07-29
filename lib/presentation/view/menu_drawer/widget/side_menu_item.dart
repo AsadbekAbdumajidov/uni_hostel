@@ -21,6 +21,8 @@ class SideMenuItem extends StatelessWidget {
       create: (context) => OnHoverCubit(),
       child: BlocBuilder<OnHoverCubit, OnHoverState>(builder: (context, state) {
         return InkWell(
+          splashFactory: NoSplash.splashFactory,
+          highlightColor: AppColors.transparent,
           onHover: (value) => context.read<OnHoverCubit>().getHover(value),
           onTap: onTap,
           child: index == currentIndex

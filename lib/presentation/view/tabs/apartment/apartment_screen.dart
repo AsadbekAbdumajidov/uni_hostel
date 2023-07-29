@@ -1,4 +1,3 @@
-// ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +13,7 @@ import 'package:uni_hostel/presentation/components/responsiveness.dart';
 import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
 import 'package:uni_hostel/presentation/view/tabs/apartment/widget/apartment_card_item.dart';
 import 'package:uni_hostel/presentation/view/tabs/apartment/widget/main_text.dart';
+import 'package:uni_hostel/presentation/view/tabs/apartment/widget/stat_item_widget.dart';
 import 'package:uni_hostel/presentation/view/tabs/apartment/widget/web_card_list.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/status_widget.dart';
 
@@ -37,22 +37,18 @@ class ApartmentScreen extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    SizedBox(
-                        height:
-                            ResponsiveWidget.isMobileLarge(context) ? 40 : 100),
+                    SizedBox(height: 40),
+                    StatItemWidget().paddingOnly(bottom: 30,top: 20),
                     MainTextWidget(
                         mainFirst: AppStrings.strMainFirst,
                         mainSecond: AppStrings.strMainSecond),
-                    // SizedBox(height: 30),
-                    // Text(AppStrings.strWebsiteIsForYou,
-                    //     style: Theme.of(context).textTheme.titleSmall),
                     SizedBox(height: 60),
                   ],
                 ),
                 ResponsiveWidget.isMobileLarge(context)
                     ? state.responseModel!.results!.isEmpty
                         ? StepStatusWidget(
-                            img: AppIcons.iconRejected,
+                            img: AppIcons.iconBgRejected,
                             title: AppStrings.strBedroomsAreNotYetAvailable)
                         : GridView.builder(
                             shrinkWrap: true,
@@ -62,7 +58,6 @@ class ApartmentScreen extends StatelessWidget {
                               mainAxisExtent: 275,
                               crossAxisCount: 2,
                               mainAxisSpacing: 10,
-                            
                             ),
                             itemCount: lenght,
                             itemBuilder: (BuildContext ctx, index) {

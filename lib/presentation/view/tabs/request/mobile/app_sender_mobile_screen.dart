@@ -36,7 +36,7 @@ class AppSenderMobileScreen extends StatelessWidget {
                     title: AppStrings.strExpertiseAbout)
                 : infoResponse?.isOrdered == "cancelled"
                     ? StepStatusWidget(
-                        img: AppIcons.iconRejected,
+                        img: AppIcons.iconBgRejected,
                         title: AppStrings.strRejectedAbout,
                       )
                     : StepStatusWidget(

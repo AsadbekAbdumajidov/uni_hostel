@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
@@ -10,6 +11,7 @@ import 'package:uni_hostel/presentation/cubit/submit_application/submit_applicat
 import 'package:uni_hostel/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel/presentation/view/profile_drawer/profile_drawer.dart';
+import 'package:uni_hostel/presentation/components/support_item_widget.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/mobile/app_sender_mobile_screen.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/web/app_sender_web_screen.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/upload_file_alert_dialog.dart';
@@ -21,6 +23,8 @@ class ApplicationSenderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomNavBar(buildContext: context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: SupportItemWidget().paddingAll(30),
       drawer: MenuDrawer(),
       endDrawer: ProfileDrawer(),
       body: BlocBuilder<SubmitApplicationCubit, SubmitApplicationState>(
@@ -46,7 +50,7 @@ class ApplicationSenderScreen extends StatelessWidget {
                         infoResponse: state.infoResponse,
                         currentIndex: state.currentIndex,
                         onTapNext: () {
-                         debugPrint("${cheack} == ${state.file?.name}");
+                          debugPrint("${cheack} == ${state.file?.name}");
                           if (cheack == true && state.file == null) {
                             showErrorMessage(context, AppStrings.strUploadDoc);
                           } else if (cheack == false && state.file == null ||

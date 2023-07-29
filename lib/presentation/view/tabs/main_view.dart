@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/routes/app_pages.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
 import 'package:uni_hostel/presentation/view/custom_app_bar/custom_app_bar.dart';
 import 'package:uni_hostel/presentation/view/menu_drawer/menu_drawer.dart';
 import 'package:uni_hostel/presentation/view/profile_drawer/profile_drawer.dart';
+import 'package:uni_hostel/presentation/components/support_item_widget.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -23,6 +25,8 @@ class _MainViewState extends State<MainView> {
         drawer: MenuDrawer(),
         endDrawer: ProfileDrawer(),
         appBar: CustomNavBar(buildContext: context),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButton: SupportItemWidget().paddingAll(30),
         body: _innerNavigationBody());
   }
 }

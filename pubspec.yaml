@@ -47,6 +47,10 @@ dependencies:
   #
   file_picker: ^5.3.2
   open_app_file: ^4.0.2
+  # for support contact
+  floating_action_bubble: ^1.1.4
+  # used url launcher
+  url_launcher: ^6.1.12
   
 
 
@@ -55,6 +59,7 @@ dev_dependencies:
   retrofit_generator: any
   flutter_test:
     sdk: flutter
+  
   
 flutter:
   uses-material-design: true

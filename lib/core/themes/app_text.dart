@@ -15,7 +15,12 @@ class AppStrings {
   static const strUzb = "Uzbek";
   static const strMainFirst = "Talabalar turar joyiga onlayn ro’yxatdan \no’tish ";
   static const strMainSecond = "platformasi";
-  // static const strWebsiteIsForYou = "Unda bu veb-sayt aynan siz uchun ... ";
+  
+    static const strRequests = "Arizalar";
+  static const strRejected = "Rad etilgan";
+  static const strApproveds = "Tasdiqlangan";
+  static const strWaited = "Navbatda";
+
   static const strReservePlace = "Joyni band qilish";
   static const strSignAccount = "Akkauntga kirish";
   static const strUniversitiesThatTrustUs =
@@ -82,6 +87,11 @@ class AppStrings {
   static const strBedroomsAreNotYetAvailable = "Yotoqxonalar hali mavjud emas";
 static const strSave = "Saqlash";
 static const strUploadTheFile= "Fileni yuklang";
+
+static const strTgGroup = "Guruh";
+static const strTgCanal = "Kanal";
+static const strSupport = "qo'llab-quvvatlash";
+
 
   /// --------------------------- Failure Text ------------------------------- ///
   static const strUserNotFound = "Foydalanuvchi topilmadi";

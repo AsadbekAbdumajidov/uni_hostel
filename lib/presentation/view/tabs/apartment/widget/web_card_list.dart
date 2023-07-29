@@ -31,13 +31,15 @@ class CardListWeb extends StatelessWidget {
               children: List.generate(
                 responseModel?.results?.length ?? 0,
                 (index) => ApartmentCardItem(
-                    width: 320,
-                    title: responseModel?.results?[index].name ?? "",
-                    subTitle: responseModel?.results?[index].description ?? "",
-                    img: responseModel?.results?[index].image ?? "").paddingSymmetric(horizontal: 10),
+                        width: 320,
+                        title: responseModel?.results?[index].name ?? "",
+                        subTitle:
+                            responseModel?.results?[index].description ?? "",
+                        img: responseModel?.results?[index].image ?? "")
+                    .paddingSymmetric(horizontal: 10),
               ),
             ),
-          ),
+          ).paddingOnly(bottom: 30),
         ),
         GestureDetector(
           child: SvgPicture.asset(AppIcons.iconArrowRight),

@@ -22,6 +22,8 @@ class TopTabItem extends StatelessWidget {
       create: (context) => OnHoverCubit(),
       child: BlocBuilder<OnHoverCubit, OnHoverState>(builder: (context, state) {
         return InkWell(
+          splashFactory: NoSplash.splashFactory,
+          highlightColor: AppColors.transparent,
           onHover: (v)=> context.read<OnHoverCubit>().getHover(v),
             onTap: onTap,
             child: index == currentIndex
