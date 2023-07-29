@@ -6,5 +6,9 @@ class DormitoryState with _$DormitoryState {
     @Default(Status.UNKNOWN) Status status,
     @Default(UnknownFailure()) Failure failure,
     DormitorysResponseModel? responseModel,
+    DormitorySelected? dormitory,
+    @Default(false) bool isSelected,
+
+
   }) = _DormitoryState;
 }

@@ -8,6 +8,7 @@ import 'package:uni_hostel/core/error/error.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
 import 'package:uni_hostel/data/data_source/provider.dart';
 import 'package:uni_hostel/data/domain/repository/main.dart';
+import 'package:uni_hostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
 import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
 import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
 import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
@@ -96,6 +97,31 @@ class MainRepository implements IMainRepository {
       int? page) async {
     try {
       final response = await _apiClient.getDormitorys(page ?? 0);
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UserNotFound()
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+  
+  @override
+  Future<Either<Failure, DormitorySelected>> getDormitory(int id) async{
+    try {
+      final response = await _apiClient.getDormitory(id);
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

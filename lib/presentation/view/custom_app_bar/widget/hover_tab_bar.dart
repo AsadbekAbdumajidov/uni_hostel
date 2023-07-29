@@ -24,6 +24,7 @@ class TopTabItem extends StatelessWidget {
         return InkWell(
           splashFactory: NoSplash.splashFactory,
           highlightColor: AppColors.transparent,
+          focusColor: AppColors.transparent,
           onHover: (v)=> context.read<OnHoverCubit>().getHover(v),
             onTap: onTap,
             child: index == currentIndex

@@ -51,7 +51,8 @@ dependencies:
   floating_action_bubble: ^1.1.4
   # used url launcher
   url_launcher: ^6.1.12
-  
+  # for page animation
+  animate_do: ^3.0.2
 
 
 dev_dependencies:
@@ -59,6 +60,7 @@ dev_dependencies:
   retrofit_generator: any
   flutter_test:
     sdk: flutter
+  
   
   
 flutter:

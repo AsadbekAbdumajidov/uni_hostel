@@ -16,13 +16,13 @@ class MainTextWidget extends StatelessWidget {
           TextSpan(
               text: mainFirst,
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    fontSize: ResponsiveWidget.isMobileLarge(context) ? 30 : 55,
+                    fontSize: ResponsiveWidget.isMobileLarge(context) ? 30 : ResponsiveWidget.isTablet(context) ? 40: 55,
                   )),
           TextSpan(
               text: mainSecond,
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
                     color: AppColors.primaryColor,
-                    fontSize: ResponsiveWidget.isMobileLarge(context) ? 30 : 55,
+                    fontSize: ResponsiveWidget.isMobileLarge(context) ? 30 : ResponsiveWidget.isTablet(context) ? 40: 55,
                   )),
         ],
       ),

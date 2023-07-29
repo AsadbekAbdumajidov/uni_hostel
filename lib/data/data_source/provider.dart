@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
+import 'package:uni_hostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
 import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
 import 'package:uni_hostel/data/models/login/request/login_request_model.dart';
 import 'package:uni_hostel/data/models/login/response/login_response_model.dart';
@@ -28,7 +29,8 @@ abstract class ApiClient {
   Future<PetitionResponseModel> petition(@Body() PetitionRequestModel request);
 
   @GET('student/dormitory/')
-  Future<DormitorysResponseModel> getDormitorys(
-    @Query('page') int page,
-  );
+  Future<DormitorysResponseModel> getDormitorys(@Query('page') int page);
+
+  @GET('student/dormitory/{id}')
+  Future<DormitorySelected> getDormitory(@Path('id') int id);
 }

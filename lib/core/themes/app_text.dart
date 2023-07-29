@@ -13,10 +13,11 @@ class AppStrings {
       "Passport seriyangizni bo'sh qoldirmang";
   static const strNotification = "Bildirishnomalar";
   static const strUzb = "Uzbek";
-  static const strMainFirst = "Talabalar turar joyiga onlayn ro’yxatdan \no’tish ";
+  static const strMainFirst =
+      "Talabalar turar joyiga onlayn ro’yxatdan \no’tish ";
   static const strMainSecond = "platformasi";
-  
-    static const strRequests = "Arizalar";
+
+  static const strRequests = "Arizalar";
   static const strRejected = "Rad etilgan";
   static const strApproveds = "Tasdiqlangan";
   static const strWaited = "Navbatda";
@@ -85,13 +86,14 @@ class AppStrings {
   static const strResidenceAddress = "Doimiy yashash manzili";
   static const strExit = "Chiqish";
   static const strBedroomsAreNotYetAvailable = "Yotoqxonalar hali mavjud emas";
-static const strSave = "Saqlash";
-static const strUploadTheFile= "Fileni yuklang";
+  static const strSave = "Saqlash";
+  static const strUploadTheFile = "Fileni yuklang";
 
-static const strTgGroup = "Guruh";
-static const strTgCanal = "Kanal";
-static const strSupport = "qo'llab-quvvatlash";
-
+  static const strTgGroup = "Guruh";
+  static const strTgCanal = "Kanal";
+  static const strSupport = "qo'llab-quvvatlash";
+  static const strOnTheSubject = "Mavzuga oid";
+  static const strReturnBack = "Bosh sahifaga qaytish";
 
   /// --------------------------- Failure Text ------------------------------- ///
   static const strUserNotFound = "Foydalanuvchi topilmadi";
@@ -101,5 +103,4 @@ static const strSupport = "qo'llab-quvvatlash";
   static const strConnectionFailure = "Internetga ulanishni tekshiring";
   static const strUnknownFailure = "Noma'lum muvaffaqiyatsizlik";
   static const strServerFailure = "Server xatosi";
-
 }
