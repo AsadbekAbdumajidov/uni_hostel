@@ -1,9 +1,11 @@
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/utils/service_link.dart';
+import 'package:uni_hostel/presentation/components/responsiveness.dart';
 
 class SupportItemWidget extends StatefulWidget {
   @override
@@ -36,7 +38,8 @@ class _SupportItemWidgetState extends State<SupportItemWidget>
       children: [
         Center(
           child: Container(
-            constraints: const BoxConstraints(maxWidth: maxWidth,maxHeight: maxHeight ),
+            constraints:
+                const BoxConstraints(maxWidth: maxWidth, maxHeight: maxHeight),
             child: FloatingActionBubble(
               items: <Bubble>[
                 Bubble(
@@ -49,8 +52,7 @@ class _SupportItemWidgetState extends State<SupportItemWidget>
                       .displaySmall!
                       .copyWith(color: AppColors.whiteColor),
                   onPress: () {
-                    ServiceUrl.launchInWebViewOrVC(
-                        Uri.parse("https://t.me/UniHostel"));
+                    ServiceUrl.launchInBrow("https://t.me/UniHostel");
                     _animationController.reverse();
                   },
                 ),
@@ -64,8 +66,7 @@ class _SupportItemWidgetState extends State<SupportItemWidget>
                       .displaySmall!
                       .copyWith(color: AppColors.whiteColor),
                   onPress: () {
-                    ServiceUrl.launchInWebViewOrVC(
-                        Uri.parse("https://t.me/unihostel_chat"));
+                    ServiceUrl.launchInBrow("https://t.me/unihostel_chat");
                     _animationController.reverse();
                   },
                 ),
@@ -79,8 +80,7 @@ class _SupportItemWidgetState extends State<SupportItemWidget>
                       .displaySmall!
                       .copyWith(color: AppColors.whiteColor),
                   onPress: () {
-                    ServiceUrl.launchInWebViewOrVC(
-                        Uri.parse("https://t.me/unihostel_support"));
+                    ServiceUrl.launchInBrow("https://t.me/unihostel_support");
 
                     _animationController.reverse();
                   },
@@ -97,6 +97,6 @@ class _SupportItemWidgetState extends State<SupportItemWidget>
           ),
         ),
       ],
-    );
+    ).paddingAll(ResponsiveWidget.isMobile(context) ? 14 : 30);
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
@@ -21,7 +20,7 @@ class PaymentScreen extends StatelessWidget {
       drawer: MenuDrawer(),
       endDrawer: ProfileDrawer(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        floatingActionButton: SupportItemWidget().paddingAll(30),
+        floatingActionButton: SupportItemWidget(),
       appBar: CustomNavBar(buildContext: context),
       body: BlocBuilder<PaymentCubit, PaymentState>(builder: (context, state) {
         return Center(

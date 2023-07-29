@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
@@ -24,7 +23,7 @@ class ApplicationSenderScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomNavBar(buildContext: context),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: SupportItemWidget().paddingAll(30),
+      floatingActionButton: SupportItemWidget(),
       drawer: MenuDrawer(),
       endDrawer: ProfileDrawer(),
       body: BlocBuilder<SubmitApplicationCubit, SubmitApplicationState>(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/routes/app_pages.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
@@ -26,7 +25,7 @@ class _MainViewState extends State<MainView> {
         endDrawer: ProfileDrawer(),
         appBar: CustomNavBar(buildContext: context),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        floatingActionButton: SupportItemWidget().paddingAll(30),
+        floatingActionButton: SupportItemWidget(),
         body: _innerNavigationBody());
   }
 }

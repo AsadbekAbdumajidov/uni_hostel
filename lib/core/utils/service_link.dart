@@ -6,7 +6,8 @@ class ServiceUrl {
     String url = text;
     if (!await launch(url)) throw 'Could not launch $url';
   }
- static void launchInWebViewOrVC(Uri url) async {
+
+  static void launchInWebViewOrVC(Uri url) async {
     if (!await launchUrl(
       url,
       mode: LaunchMode.inAppWebView,
@@ -15,5 +16,18 @@ class ServiceUrl {
     )) {
       throw Exception('Could not launch $url');
     }
+  }
+
+  static void launchInBrowser(Uri url) async {
+    if (!await launchUrl(url, mode: LaunchMode.externalNonBrowserApplication)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+  static void launchInBrow(String url) async {
+      if(await canLaunch(url)){
+        await launch(url, forceWebView: true,forceSafariVC: true);  //forceWebView is true now
+      }else {
+        throw 'Could not launch $url';
+      }
   }
 }
