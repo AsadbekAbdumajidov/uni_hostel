@@ -8,13 +8,13 @@ import 'package:uni_hostel/data/models/petition/response/petition_response.dart'
 
 class PetitionUseCase
     extends UseCase<PetitionResponseModel, PetitionParams> {
-  final IMainRepository _iProfileRepository;
-  PetitionUseCase(this._iProfileRepository);
+  final IMainRepository _iMainRepository;
+  PetitionUseCase(this._iMainRepository);
 
   @override
   Future<Either<Failure, PetitionResponseModel>> call(
           PetitionParams params) =>
-      _iProfileRepository.petition(params.request,params.file);
+      _iMainRepository.petition(params.request,params.file);
 }
 
 class PetitionParams {

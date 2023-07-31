@@ -18,8 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SubmitApplicationState {
   Status get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
-  StudentInfoResponseModel? get infoResponse =>
-      throw _privateConstructorUsedError;
+  BookingInfoResponse? get infoResponse => throw _privateConstructorUsedError;
   PetitionResponseModel? get petitionResponse =>
       throw _privateConstructorUsedError;
   PlatformFile? get file => throw _privateConstructorUsedError;
@@ -48,7 +47,7 @@ abstract class $SubmitApplicationStateCopyWith<$Res> {
   $Res call(
       {Status status,
       Failure failure,
-      StudentInfoResponseModel? infoResponse,
+      BookingInfoResponse? infoResponse,
       PetitionResponseModel? petitionResponse,
       PlatformFile? file,
       String? name,
@@ -62,7 +61,7 @@ abstract class $SubmitApplicationStateCopyWith<$Res> {
       bool giftedStudent,
       int currentIndex});
 
-  $StudentInfoResponseModelCopyWith<$Res>? get infoResponse;
+  $BookingInfoResponseCopyWith<$Res>? get infoResponse;
   $PetitionResponseModelCopyWith<$Res>? get petitionResponse;
 }
 
@@ -108,7 +107,7 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
       infoResponse: freezed == infoResponse
           ? _value.infoResponse
           : infoResponse // ignore: cast_nullable_to_non_nullable
-              as StudentInfoResponseModel?,
+              as BookingInfoResponse?,
       petitionResponse: freezed == petitionResponse
           ? _value.petitionResponse
           : petitionResponse // ignore: cast_nullable_to_non_nullable
@@ -162,13 +161,12 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $StudentInfoResponseModelCopyWith<$Res>? get infoResponse {
+  $BookingInfoResponseCopyWith<$Res>? get infoResponse {
     if (_value.infoResponse == null) {
       return null;
     }
 
-    return $StudentInfoResponseModelCopyWith<$Res>(_value.infoResponse!,
-        (value) {
+    return $BookingInfoResponseCopyWith<$Res>(_value.infoResponse!, (value) {
       return _then(_value.copyWith(infoResponse: value) as $Val);
     });
   }
@@ -198,7 +196,7 @@ abstract class _$$_SubmitApplicationStateCopyWith<$Res>
   $Res call(
       {Status status,
       Failure failure,
-      StudentInfoResponseModel? infoResponse,
+      BookingInfoResponse? infoResponse,
       PetitionResponseModel? petitionResponse,
       PlatformFile? file,
       String? name,
@@ -213,7 +211,7 @@ abstract class _$$_SubmitApplicationStateCopyWith<$Res>
       int currentIndex});
 
   @override
-  $StudentInfoResponseModelCopyWith<$Res>? get infoResponse;
+  $BookingInfoResponseCopyWith<$Res>? get infoResponse;
   @override
   $PetitionResponseModelCopyWith<$Res>? get petitionResponse;
 }
@@ -258,7 +256,7 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
       infoResponse: freezed == infoResponse
           ? _value.infoResponse
           : infoResponse // ignore: cast_nullable_to_non_nullable
-              as StudentInfoResponseModel?,
+              as BookingInfoResponse?,
       petitionResponse: freezed == petitionResponse
           ? _value.petitionResponse
           : petitionResponse // ignore: cast_nullable_to_non_nullable
@@ -340,7 +338,7 @@ class _$_SubmitApplicationState
   @JsonKey()
   final Failure failure;
   @override
-  final StudentInfoResponseModel? infoResponse;
+  final BookingInfoResponse? infoResponse;
   @override
   final PetitionResponseModel? petitionResponse;
   @override
@@ -466,7 +464,7 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
   const factory _SubmitApplicationState(
       {final Status status,
       final Failure failure,
-      final StudentInfoResponseModel? infoResponse,
+      final BookingInfoResponse? infoResponse,
       final PetitionResponseModel? petitionResponse,
       final PlatformFile? file,
       final String? name,
@@ -485,7 +483,7 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
   @override
   Failure get failure;
   @override
-  StudentInfoResponseModel? get infoResponse;
+  BookingInfoResponse? get infoResponse;
   @override
   PetitionResponseModel? get petitionResponse;
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/widget/custom_button.dart';
-import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
+import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/web/widget/filler_widget.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/checkbox_list_widget.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/down_buttons_widget.dart';
@@ -12,7 +12,7 @@ class RequestWebScreen extends StatelessWidget {
       {super.key,
       this.infoResponse,
       required this.fileOnTap, required this.onTapNext});
-  final StudentInfoResponseModel? infoResponse;
+  final BookingInfoResponse? infoResponse;
   final Function() fileOnTap;
   final Function() onTapNext;
 

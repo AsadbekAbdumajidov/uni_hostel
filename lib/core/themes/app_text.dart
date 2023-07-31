@@ -91,6 +91,8 @@ class AppStrings {
 
   static const strTgGroup = "Guruh";
   static const strTgCanal = "Kanal";
+  static const strPhoneNumber = "Telefon";
+
   static const strSupport = "qo'llab-quvvatlash";
   static const strOnTheSubject = "Mavzuga oid";
   static const strReturnBack = "Bosh sahifaga qaytish";

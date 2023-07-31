@@ -3,7 +3,7 @@ import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/widget/custom_button.dart';
-import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
+import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/mobile/widget/filler_widget_mobile.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/checkbox_list_widget.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/down_buttons_widget.dart';
@@ -14,7 +14,7 @@ class RequestMobileScreen extends StatelessWidget {
       this.infoResponse,
       required this.fileOnTap,
       required this.onTapNext});
-  final StudentInfoResponseModel? infoResponse;
+  final BookingInfoResponse? infoResponse;
   final Function() fileOnTap;
   final Function() onTapNext;
   @override

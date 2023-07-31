@@ -1,12 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
+import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
 import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
 import 'package:uni_hostel/data/models/login/request/login_request_model.dart';
 import 'package:uni_hostel/data/models/login/response/login_response_model.dart';
 import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
 import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
+import 'package:uni_hostel/data/models/statistic/statistic_response.dart';
 import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
 part 'provider.g.dart';
 
@@ -23,7 +25,10 @@ abstract class ApiClient {
   Future<LoginResponseModel> login(@Body() LoginRequestModel request);
 
   @GET('student/student/datas/for/booking/')
-  Future<StudentInfoResponseModel> getInfo();
+  Future<BookingInfoResponse> getInfo();
+
+  @GET('student/profile')
+  Future<StudentInfoResponseModel> getProfile();
 
   @POST('student/order/')
   Future<PetitionResponseModel> petition(@Body() PetitionRequestModel request);
@@ -33,4 +38,7 @@ abstract class ApiClient {
 
   @GET('student/dormitory/{id}')
   Future<DormitorySelected> getDormitory(@Path('id') int id);
+
+  @GET('statistics/')
+  Future<StatisticResponse> getStatistic();
 }

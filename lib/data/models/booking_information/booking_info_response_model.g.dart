@@ -1,19 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'student_info_response_model.dart';
+part of 'booking_info_response_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_StudentInfoResponseModel _$$_StudentInfoResponseModelFromJson(
+_$_BookingInfoResponse _$$_BookingInfoResponseFromJson(
         Map<String, dynamic> json) =>
-    _$_StudentInfoResponseModel(
+    _$_BookingInfoResponse(
       id: json['id'] as int?,
       fullName: json['full_name'] as String?,
       studentId: json['student_id'] as int?,
       passportSeries: json['passport_series'] as String?,
       dateOfBirth: json['date_of_birth'] as String?,
+      isOrdered: json['is_ordered'] as String?,
       phoneNumber: json['phone_number'] as String?,
       jshir: json['jshir'] as String?,
       region: json['region'] as String?,
@@ -25,14 +26,15 @@ _$_StudentInfoResponseModel _$$_StudentInfoResponseModelFromJson(
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$_StudentInfoResponseModelToJson(
-        _$_StudentInfoResponseModel instance) =>
+Map<String, dynamic> _$$_BookingInfoResponseToJson(
+        _$_BookingInfoResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'full_name': instance.fullName,
       'student_id': instance.studentId,
       'passport_series': instance.passportSeries,
       'date_of_birth': instance.dateOfBirth,
+      'is_ordered': instance.isOrdered,
       'phone_number': instance.phoneNumber,
       'jshir': instance.jshir,
       'region': instance.region,

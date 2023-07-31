@@ -5,7 +5,7 @@ class SubmitApplicationState with _$SubmitApplicationState {
   const factory SubmitApplicationState({
     @Default(Status.UNKNOWN) Status status,
     @Default(UnknownFailure()) Failure failure,
-    StudentInfoResponseModel? infoResponse,
+    BookingInfoResponse? infoResponse,
     PetitionResponseModel? petitionResponse,
     PlatformFile? file,
     String? name,

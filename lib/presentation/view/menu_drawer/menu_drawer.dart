@@ -6,7 +6,9 @@ import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
+import 'package:uni_hostel/presentation/components/flush_bars.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 import 'package:uni_hostel/presentation/view/menu_drawer/widget/side_menu_item.dart';
 
@@ -62,10 +64,17 @@ class MenuDrawer extends StatelessWidget {
                 title: AppStrings.strSubmitApplication,
                 currentIndex: state.currentIndex,
                 onTap: () {
+                  var state = context.read<SubmitApplicationCubit>().state;
                   if (state.currentIndex != 3) {
+                    if (state.infoResponse == null) {
+                    showErrorMessage(
+                        context, state.failure.getLocalizedMessage(context));
+                  } else {
                     context.read<TopNavBarCubit>().changeIndex(3);
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RouteName.request.route);
+                  }
+                    
                   }
                 },
               ),

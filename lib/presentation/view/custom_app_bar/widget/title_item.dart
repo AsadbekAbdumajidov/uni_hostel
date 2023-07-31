@@ -5,7 +5,10 @@ import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
+import 'package:uni_hostel/presentation/components/flush_bars.dart';
+
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 import 'package:uni_hostel/presentation/view/custom_app_bar/widget/hover_tab_bar.dart';
 
@@ -65,13 +68,19 @@ class TitleItem extends StatelessWidget {
               currentIndex: currentIndex,
               index: 3,
               onTap: () {
+                var state = context.read<SubmitApplicationCubit>().state;
                 if (currentIndex != 3) {
-                  context.read<TopNavBarCubit>().changeIndex(3);
-                  Navigator.pushNamed(context, RouteName.request.route);
+                  if (state.infoResponse == null) {
+                    showErrorMessage(
+                        context, state.failure.getLocalizedMessage(context));
+                  } else {
+                    context.read<TopNavBarCubit>().changeIndex(3);
+                    Navigator.pushNamed(context, RouteName.request.route);
+                  }
                 }
               }),
         ),
       ],
-    ).paddingOnly(top:ResponsiveWidget.isMobile(context) ? 0 :16);
+    ).paddingOnly(top: ResponsiveWidget.isMobile(context) ? 0 : 16);
   }
 }

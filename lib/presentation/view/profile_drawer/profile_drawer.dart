@@ -10,7 +10,7 @@ import 'package:uni_hostel/presentation/components/flush_bars.dart';
 import 'package:uni_hostel/presentation/components/loading_widget.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
 import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel/presentation/view/profile_drawer/widget/full_name_information.dart';
 import 'package:uni_hostel/presentation/view/profile_drawer/widget/profile_driwer_item.dart';
 
@@ -21,8 +21,7 @@ class ProfileDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppColors.primaryColor,
-      child: BlocBuilder<SubmitApplicationCubit, SubmitApplicationState>(
-          builder: (context, state) {
+      child: BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
         if (state.status == Status.LOADING) {
           return LoadingWidget();
         }
@@ -34,28 +33,32 @@ class ProfileDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FullNameInformation(
-              title: state.infoResponse?.fullName,
-              subTitle: state.infoResponse?.passportSeries,
-              img: "",
+              title: state.profileResponse?.fullName,
+              subTitle: state.profileResponse?.passportSeries,
+              img: state.profileResponse?.image ?? "",
             ),
             SizedBox(height: 20),
             ProfileDriwerItem(
               title: "${AppStrings.strResidenceAddress}:",
               subTitle:
-                  "${state.infoResponse?.region} ${state.infoResponse?.district}",
+                  "${state.profileResponse?.region} ${state.profileResponse?.district}",
             ),
+            ProfileDriwerItem(
+              title: "${AppStrings.strPhoneNumber}:",
+              subTitle: "${state.profileResponse?.phoneNumber}",
+            ).paddingSymmetric(vertical: 20),
             ProfileDriwerItem(
               title: "${AppStrings.strFaculty}:",
-              subTitle: state.infoResponse?.faculty,
-            ).paddingSymmetric(vertical: 20),
-            ProfileDriwerItem(
-              title: "${AppStrings.strGroup}:",
-              subTitle: state.infoResponse?.group,
+              subTitle: state.profileResponse?.faculty,
             ),
             ProfileDriwerItem(
-              title: "${AppStrings.strCourse}:",
-              subTitle: state.infoResponse?.course,
+              title: "${AppStrings.strGroup}:",
+              subTitle: state.profileResponse?.group,
             ).paddingSymmetric(vertical: 20),
+            ProfileDriwerItem(
+              title: "${AppStrings.strCourse}:",
+              subTitle: state.profileResponse?.course,
+            ),
             Spacer(),
             TextButton(
               onPressed: () async => await logout(context),
@@ -65,9 +68,10 @@ class ProfileDrawer extends StatelessWidget {
                     fontWeight: FontWeight.w500, color: AppColors.whiteColor),
               ),
             ),
-           
           ],
-        ).paddingSymmetric(vertical:ResponsiveWidget.isMobile(context) ? 40 : 30, horizontal: 20);
+        ).paddingSymmetric(
+            vertical: ResponsiveWidget.isMobile(context) ? 40 : 30,
+            horizontal: 20);
       }),
     );
   }

@@ -21,6 +21,8 @@ mixin _$DormitoryState {
   DormitorysResponseModel? get responseModel =>
       throw _privateConstructorUsedError;
   DormitorySelected? get dormitory => throw _privateConstructorUsedError;
+  StatisticResponse? get statisticResponse =>
+      throw _privateConstructorUsedError;
   bool get isSelected => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,10 +41,12 @@ abstract class $DormitoryStateCopyWith<$Res> {
       Failure failure,
       DormitorysResponseModel? responseModel,
       DormitorySelected? dormitory,
+      StatisticResponse? statisticResponse,
       bool isSelected});
 
   $DormitorysResponseModelCopyWith<$Res>? get responseModel;
   $DormitorySelectedCopyWith<$Res>? get dormitory;
+  $StatisticResponseCopyWith<$Res>? get statisticResponse;
 }
 
 /// @nodoc
@@ -62,6 +66,7 @@ class _$DormitoryStateCopyWithImpl<$Res, $Val extends DormitoryState>
     Object? failure = null,
     Object? responseModel = freezed,
     Object? dormitory = freezed,
+    Object? statisticResponse = freezed,
     Object? isSelected = null,
   }) {
     return _then(_value.copyWith(
@@ -81,6 +86,10 @@ class _$DormitoryStateCopyWithImpl<$Res, $Val extends DormitoryState>
           ? _value.dormitory
           : dormitory // ignore: cast_nullable_to_non_nullable
               as DormitorySelected?,
+      statisticResponse: freezed == statisticResponse
+          ? _value.statisticResponse
+          : statisticResponse // ignore: cast_nullable_to_non_nullable
+              as StatisticResponse?,
       isSelected: null == isSelected
           ? _value.isSelected
           : isSelected // ignore: cast_nullable_to_non_nullable
@@ -112,6 +121,18 @@ class _$DormitoryStateCopyWithImpl<$Res, $Val extends DormitoryState>
       return _then(_value.copyWith(dormitory: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StatisticResponseCopyWith<$Res>? get statisticResponse {
+    if (_value.statisticResponse == null) {
+      return null;
+    }
+
+    return $StatisticResponseCopyWith<$Res>(_value.statisticResponse!, (value) {
+      return _then(_value.copyWith(statisticResponse: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -127,12 +148,15 @@ abstract class _$$_DormitoryStateCopyWith<$Res>
       Failure failure,
       DormitorysResponseModel? responseModel,
       DormitorySelected? dormitory,
+      StatisticResponse? statisticResponse,
       bool isSelected});
 
   @override
   $DormitorysResponseModelCopyWith<$Res>? get responseModel;
   @override
   $DormitorySelectedCopyWith<$Res>? get dormitory;
+  @override
+  $StatisticResponseCopyWith<$Res>? get statisticResponse;
 }
 
 /// @nodoc
@@ -150,6 +174,7 @@ class __$$_DormitoryStateCopyWithImpl<$Res>
     Object? failure = null,
     Object? responseModel = freezed,
     Object? dormitory = freezed,
+    Object? statisticResponse = freezed,
     Object? isSelected = null,
   }) {
     return _then(_$_DormitoryState(
@@ -169,6 +194,10 @@ class __$$_DormitoryStateCopyWithImpl<$Res>
           ? _value.dormitory
           : dormitory // ignore: cast_nullable_to_non_nullable
               as DormitorySelected?,
+      statisticResponse: freezed == statisticResponse
+          ? _value.statisticResponse
+          : statisticResponse // ignore: cast_nullable_to_non_nullable
+              as StatisticResponse?,
       isSelected: null == isSelected
           ? _value.isSelected
           : isSelected // ignore: cast_nullable_to_non_nullable
@@ -185,6 +214,7 @@ class _$_DormitoryState implements _DormitoryState {
       this.failure = const UnknownFailure(),
       this.responseModel,
       this.dormitory,
+      this.statisticResponse,
       this.isSelected = false});
 
   @override
@@ -198,12 +228,14 @@ class _$_DormitoryState implements _DormitoryState {
   @override
   final DormitorySelected? dormitory;
   @override
+  final StatisticResponse? statisticResponse;
+  @override
   @JsonKey()
   final bool isSelected;
 
   @override
   String toString() {
-    return 'DormitoryState(status: $status, failure: $failure, responseModel: $responseModel, dormitory: $dormitory, isSelected: $isSelected)';
+    return 'DormitoryState(status: $status, failure: $failure, responseModel: $responseModel, dormitory: $dormitory, statisticResponse: $statisticResponse, isSelected: $isSelected)';
   }
 
   @override
@@ -217,13 +249,15 @@ class _$_DormitoryState implements _DormitoryState {
                 other.responseModel == responseModel) &&
             (identical(other.dormitory, dormitory) ||
                 other.dormitory == dormitory) &&
+            (identical(other.statisticResponse, statisticResponse) ||
+                other.statisticResponse == statisticResponse) &&
             (identical(other.isSelected, isSelected) ||
                 other.isSelected == isSelected));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, status, failure, responseModel, dormitory, isSelected);
+  int get hashCode => Object.hash(runtimeType, status, failure, responseModel,
+      dormitory, statisticResponse, isSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -238,6 +272,7 @@ abstract class _DormitoryState implements DormitoryState {
       final Failure failure,
       final DormitorysResponseModel? responseModel,
       final DormitorySelected? dormitory,
+      final StatisticResponse? statisticResponse,
       final bool isSelected}) = _$_DormitoryState;
 
   @override
@@ -248,6 +283,8 @@ abstract class _DormitoryState implements DormitoryState {
   DormitorysResponseModel? get responseModel;
   @override
   DormitorySelected? get dormitory;
+  @override
+  StatisticResponse? get statisticResponse;
   @override
   bool get isSelected;
   @override

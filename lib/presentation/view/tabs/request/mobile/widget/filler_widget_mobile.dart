@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
+import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/text_item_widget.dart';
 
 class FillerMobileWidget extends StatelessWidget {
   const FillerMobileWidget({super.key, required this.response});
-  final StudentInfoResponseModel? response;
+  final BookingInfoResponse? response;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,6 +17,15 @@ class FillerMobileWidget extends StatelessWidget {
               flex: 5,
               hintText: AppStrings.strFullName,
               initialValue: response?.fullName ?? "-",
+            ),
+          ],
+        ),
+         Row(
+          children: [
+            TextItemWidget(
+              flex: 5,
+              hintText: AppStrings.strPhoneNumber,
+              initialValue: response?.phoneNumber ?? "-",
             ),
           ],
         ),

@@ -8,10 +8,12 @@ import 'package:uni_hostel/core/error/error.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
 import 'package:uni_hostel/data/data_source/provider.dart';
 import 'package:uni_hostel/data/domain/repository/main.dart';
+import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
 import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
 import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
 import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
+import 'package:uni_hostel/data/models/statistic/statistic_response.dart';
 import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
 
 class MainRepository implements IMainRepository {
@@ -20,7 +22,7 @@ class MainRepository implements IMainRepository {
   MainRepository(this._apiClient, this._localDatasource);
 
   @override
-  Future<Either<Failure, StudentInfoResponseModel>> getInfo() async {
+  Future<Either<Failure, BookingInfoResponse>> getInfo() async {
     try {
       final response = await _apiClient.getInfo();
       return Right(response);
@@ -33,7 +35,7 @@ class MainRepository implements IMainRepository {
       }
       return Left(
         (e.response?.statusCode == 400)
-            ? const UserNotFound()
+            ? UserNotFound("${e.response?.data["message"]}")
             : ServerFailure(e.response?.statusCode),
       );
     } on Object catch (e) {
@@ -107,7 +109,7 @@ class MainRepository implements IMainRepository {
       }
       return Left(
         (e.response?.statusCode == 400)
-            ? const UserNotFound()
+            ? const UserNotFound(null)
             : ServerFailure(e.response?.statusCode),
       );
     } on Object catch (e) {
@@ -117,9 +119,9 @@ class MainRepository implements IMainRepository {
       rethrow;
     }
   }
-  
+
   @override
-  Future<Either<Failure, DormitorySelected>> getDormitory(int id) async{
+  Future<Either<Failure, DormitorySelected>> getDormitory(int id) async {
     try {
       final response = await _apiClient.getDormitory(id);
       return Right(response);
@@ -132,7 +134,57 @@ class MainRepository implements IMainRepository {
       }
       return Left(
         (e.response?.statusCode == 400)
-            ? const UserNotFound()
+            ? const UserNotFound(null)
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, StatisticResponse>> getStatistic() async {
+    try {
+      final response = await _apiClient.getStatistic();
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? const UserNotFound(null)
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, StudentInfoResponseModel>> getProfile() async {
+    try {
+      final response = await _apiClient.getProfile();
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? UserNotFound(null)
             : ServerFailure(e.response?.statusCode),
       );
     } on Object catch (e) {

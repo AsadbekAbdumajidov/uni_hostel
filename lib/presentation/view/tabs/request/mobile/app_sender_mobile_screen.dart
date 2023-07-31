@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
+import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/mobile/widget/request_mobile_screen.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/status_widget.dart';
 import 'package:uni_hostel/presentation/view/tabs/request/widget/step_widget.dart';
@@ -14,7 +14,7 @@ class AppSenderMobileScreen extends StatelessWidget {
       required this.currentIndex,
       required this.fileOnTap,
       required this.onTapNext});
-  final StudentInfoResponseModel? infoResponse;
+  final BookingInfoResponse? infoResponse;
   final int currentIndex;
   final Function() fileOnTap;
   final Function() onTapNext;

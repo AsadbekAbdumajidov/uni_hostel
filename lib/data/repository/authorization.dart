@@ -55,7 +55,7 @@ final ApiClient _apiClient;
       }
       return Left(
         (e.response?.statusCode == 400)
-            ? const UserNotFound() 
+            ? const UserNotFound(null) 
             :  ServerFailure(e.response?.statusCode),
       );
     } on Object catch (e) {

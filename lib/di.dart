@@ -11,6 +11,8 @@ import 'package:uni_hostel/data/domain/usecases/auth/logout.dart';
 import 'package:uni_hostel/data/domain/usecases/main/dormitory.dart';
 import 'package:uni_hostel/data/domain/usecases/main/dormitory_selected.dart';
 import 'package:uni_hostel/data/domain/usecases/main/petition.dart';
+import 'package:uni_hostel/data/domain/usecases/main/profile.dart';
+import 'package:uni_hostel/data/domain/usecases/main/statistic.dart';
 import 'package:uni_hostel/data/domain/usecases/main/student_info.dart';
 import 'package:uni_hostel/data/repository/authorization.dart';
 import 'package:uni_hostel/data/repository/main.dart';
@@ -18,6 +20,7 @@ import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/login/login_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/payment/payment_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 
@@ -29,9 +32,11 @@ Future<void> initDi() async {
   inject.registerFactory(() => PaymentCubit());
   inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
-  inject.registerFactory(() => DormitoryCubit(inject(),inject()));
+  inject.registerFactory(() => DormitoryCubit(inject(),inject(),inject()));
 
   inject.registerFactory(() => SubmitApplicationCubit(inject(), inject()));
+  inject.registerFactory(() => ProfileCubit(inject()));
+
 
   // use case need to register
   inject.registerLazySingleton(() => LoginUseCase(inject()));
@@ -41,6 +46,9 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => CheckUserToAuthUseCase(inject()));
   inject.registerLazySingleton(() => LogoutUseCase(inject()));
   inject.registerLazySingleton(() => DormitorySelectedUseCase(inject()));
+  inject.registerLazySingleton(() => StatisticUseCase(inject()));
+  inject.registerLazySingleton(() => ProfileInfoUseCase(inject()));
+
 
 
   // repository init

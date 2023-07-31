@@ -6,13 +6,13 @@ import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart
 
 class DormitoryUseCase
     extends UseCase<DormitorysResponseModel, DormitoryParams> {
-  final IMainRepository _iProfileRepository;
-  DormitoryUseCase(this._iProfileRepository);
+  final IMainRepository _iMainRepository;
+  DormitoryUseCase(this._iMainRepository);
 
   @override
   Future<Either<Failure, DormitorysResponseModel>> call(
           DormitoryParams params) =>
-      _iProfileRepository.getDormitorys(params.page ?? 0);
+      _iMainRepository.getDormitorys(params.page ?? 0);
 }
 
 class DormitoryParams {

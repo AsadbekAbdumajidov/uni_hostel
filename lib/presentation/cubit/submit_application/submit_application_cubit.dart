@@ -9,9 +9,9 @@ import 'package:uni_hostel/core/utils/utils.dart';
 import 'package:uni_hostel/data/domain/usecases/main/petition.dart';
 import 'package:uni_hostel/data/domain/usecases/main/student_info.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
 import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
-import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
 part 'submit_application_state.dart';
 part 'submit_application_cubit.freezed.dart';
 
@@ -45,6 +45,8 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
       emit(state.copyWith(petitionResponse: success, status: Status.SUCCESS));
     });
   }
+
+  
 
   // ----------------- File picker ------------------
 

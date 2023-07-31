@@ -5,10 +5,12 @@ class AnimatedCircularProgressIndicator extends StatefulWidget {
   const AnimatedCircularProgressIndicator({
     Key? key,
     required this.count,
-    required this.label,
+    required this.label, required this.percantage,
   }) : super(key: key);
 
-  final double count;
+  final int count;
+  final double percantage;
+
   final String label;
 
   @override
@@ -28,7 +30,7 @@ class _AnimatedCircularProgressIndicatorState
           child: AspectRatio(
             aspectRatio: 1,
             child: TweenAnimationBuilder(
-              tween: Tween<double>(begin: 0, end: 0.8),
+              tween: Tween<double>(begin: 0, end: widget.percantage),
               duration: Duration(milliseconds: 1000),
               builder: (context, double value, child) => Stack(
                 fit: StackFit.expand,

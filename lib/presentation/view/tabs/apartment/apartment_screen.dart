@@ -50,7 +50,7 @@ class ApartmentScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             SizedBox(height: 40),
-                            StatItemWidget().paddingOnly(bottom: 30, top: 20),
+                            StatItemWidget(response: state.statisticResponse),
                             MainTextWidget(
                               mainFirst: AppStrings.strMainFirst,
                               mainSecond: AppStrings.strMainSecond,

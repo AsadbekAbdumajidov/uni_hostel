@@ -33,7 +33,6 @@ class ServerFailure extends Failure {
       '${AppStrings.strServerFailure} $statusCode';
 }
 
-
 class ConnectionFailure extends Failure {
   const ConnectionFailure() : super();
 
@@ -46,7 +45,8 @@ class UnknownFailure extends Failure {
   const UnknownFailure() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => AppStrings.strUnknownFailure;
+  String getLocalizedMessage(BuildContext context) =>
+      AppStrings.strUnknownFailure;
 }
 
 class GeneralFailure extends Failure {
@@ -57,7 +57,6 @@ class GeneralFailure extends Failure {
   String getLocalizedMessage(BuildContext context) => error;
 }
 
-
 class UserNotFoundFailure extends Failure {
   const UserNotFoundFailure() : super();
 
@@ -67,10 +66,16 @@ class UserNotFoundFailure extends Failure {
 }
 
 class UserNotFound extends Failure {
-  const UserNotFound() : super();
+    final String? errorMessage;
+
+  const UserNotFound(this.errorMessage) : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => AppStrings.strUserNotFound;
+  List<Object> get props => [errorMessage ?? AppStrings.strUserNotFound];
+
+  @override
+  String getLocalizedMessage(BuildContext context ) =>
+      "$errorMessage";
 }
 
 
@@ -78,13 +83,14 @@ class CacheFailure extends Failure {
   const CacheFailure() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => AppStrings.strCacheFailure;
+  String getLocalizedMessage(BuildContext context) =>
+      AppStrings.strCacheFailure;
 }
 
 class SubmittedFailure extends Failure {
   const SubmittedFailure() : super();
 
   @override
-  String getLocalizedMessage(BuildContext context) => AppStrings.strSubmittedFailure;
+  String getLocalizedMessage(BuildContext context) =>
+      AppStrings.strSubmittedFailure;
 }
-

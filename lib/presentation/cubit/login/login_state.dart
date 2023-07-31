@@ -8,6 +8,6 @@ class LoginState with _$LoginState {
     LoginResponseModel? loginResponseModel,
     @Default(0) int studentID,
     @Default("") String passportSeries,
-    @Default(false) bool? changeEye,
+    @Default(true) bool? changeEye,
   }) = _LoginState;
 }

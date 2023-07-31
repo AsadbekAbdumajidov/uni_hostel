@@ -44,7 +44,30 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<StudentInfoResponseModel> getInfo() async {
+  Future<BookingInfoResponse> getInfo() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<BookingInfoResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'student/student/datas/for/booking/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = BookingInfoResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<StudentInfoResponseModel> getProfile() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -57,7 +80,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              'student/student/datas/for/booking/',
+              'student/profile',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -132,6 +155,29 @@ class _ApiClient implements ApiClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = DormitorySelected.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<StatisticResponse> getStatistic() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<StatisticResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'statistics/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = StatisticResponse.fromJson(_result.data!);
     return value;
   }
 
