@@ -17,6 +17,7 @@ class FillerWidget extends StatelessWidget {
               hintText: AppStrings.strFullName,
               initialValue: response?.fullName ?? "-",
             ),
+            SizedBox(width: 20),
             TextItemWidget(
               flex: 5,
               hintText: AppStrings.strPhoneNumber,

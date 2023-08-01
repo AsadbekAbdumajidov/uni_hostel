@@ -46,8 +46,6 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
     });
   }
 
-  
-
   // ----------------- File picker ------------------
 
   Future pickFile() async {
@@ -141,7 +139,8 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
         emit(state.copyWith(
             infoResponse: success, currentIndex: 2, status: Status.UNKNOWN));
       } else if (success.isOrdered == "cancelled" ||
-          success.isOrdered == "accepted") {
+          success.isOrdered == "accepted" ||
+          success.isOrdered == "in_queue") {
         emit(state.copyWith(
             infoResponse: success, currentIndex: 3, status: Status.UNKNOWN));
       } else {

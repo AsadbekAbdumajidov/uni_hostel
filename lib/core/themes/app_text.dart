@@ -1,7 +1,7 @@
 class AppStrings {
   AppStrings._();
   static const strSignInYourAcc = "Hisobingizga kiring";
-  static const strTalabaId = "Talaba ID ";
+  static const strTalabaId = "HEMIS ID ";
   static const strPassport = "Passport";
   static const strEnterPassportSeries = "Passport seriyangizni kiriting";
   static const strEnterStudentId = "id kiriting";
@@ -53,7 +53,7 @@ class AppStrings {
   static const strUploadFile = "Faylni yuklash";
   static const strCancellation = "Bekor qilish";
   static const strDisabledGroup = "1-2 guruh nogironi";
-  static const strGiftedStudent = "Iqtiorli talaba";
+  static const strGiftedStudent = "Iqtidorli talaba";
   static const strNames = "Nomi:";
   static const strTimes = "Vaqti:";
   static const strPaymentStory = "To‘lovlar tarixi";
@@ -82,6 +82,8 @@ class AppStrings {
       "Sizning arizangiz ko‘rib chiqildi. Yotoqxona uchun 3 oylik ijara to‘lovini to‘lagandan so‘ng, sizni platforma avtomatik tarzda xonalarga joylashtiradi.";
   static const strRejectedAbout =
       "Sizning arizangiz ko'rib chiqildi. Yotoqxonaga joylashish haqidagi arizangiz qabul qilinmadi.";
+        static const strInQueue =
+      "Sizning arizangiz ko'rib chiqildi. Yotoxonaga joylashish bo'yicha navbatga qo'yildingiz.";
   static const strUploadDoc = "Tasdiqlovchi hujjatni yuklang";
   static const strResidenceAddress = "Doimiy yashash manzili";
   static const strExit = "Chiqish";

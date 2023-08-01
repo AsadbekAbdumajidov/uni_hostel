@@ -17,6 +17,7 @@ class MenuDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var requestState = context.watch<SubmitApplicationCubit>().state;
     return BlocBuilder<TopNavBarCubit, TopNavBarState>(
         builder: (context, state) {
       return Drawer(
@@ -64,11 +65,11 @@ class MenuDrawer extends StatelessWidget {
                 title: AppStrings.strSubmitApplication,
                 currentIndex: state.currentIndex,
                 onTap: () {
-                  var state = context.read<SubmitApplicationCubit>().state;
+                  
                   if (state.currentIndex != 3) {
-                    if (state.infoResponse == null) {
+                    if (requestState.infoResponse == null) {
                     showErrorMessage(
-                        context, state.failure.getLocalizedMessage(context));
+                        context, requestState.failure.getLocalizedMessage(context));
                   } else {
                     context.read<TopNavBarCubit>().changeIndex(3);
                     Navigator.pop(context);

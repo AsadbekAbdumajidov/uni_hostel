@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => inject<TopNavBarCubit>()),
         BlocProvider(create: (context) => inject<PaymentCubit>()),
-        BlocProvider(
+        BlocProvider( 
             create: (context) => inject<AuthCubit>()..checkUserToAuth()),
         BlocProvider(
             create: (context) => inject<DormitoryCubit>()..getDormitory()),

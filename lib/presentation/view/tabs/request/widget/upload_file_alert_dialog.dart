@@ -72,6 +72,7 @@ class UploadFileAlertDialod extends StatelessWidget {
                                 ),
                               )
                             : Text(state.name ?? "",
+                            overflow: TextOverflow.ellipsis,
                                 style:
                                     Theme.of(context).textTheme.displaySmall)),
                   ).paddingOnly(top: 30, bottom: 40),

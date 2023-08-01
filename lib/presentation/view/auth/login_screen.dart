@@ -15,6 +15,7 @@ import 'package:uni_hostel/di.dart';
 import 'package:uni_hostel/presentation/components/flush_bars.dart';
 import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/login/login_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
 import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 
 class LoginPage extends StatelessWidget {
@@ -27,6 +28,8 @@ class LoginPage extends StatelessWidget {
         if (state.status == Status.SUCCESS) {
           context.read<DormitoryCubit>().getDormitory();
           context.read<SubmitApplicationCubit>().getStudentInfo();
+          context.read<ProfileCubit>().getProfile();
+
           Navigator.pushNamedAndRemoveUntil(
               context, RouteName.home.route, (route) => false);
         }

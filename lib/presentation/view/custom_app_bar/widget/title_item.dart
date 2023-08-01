@@ -17,6 +17,7 @@ class TitleItem extends StatelessWidget {
   final int currentIndex;
   @override
   Widget build(BuildContext context) {
+    var state = context.watch<SubmitApplicationCubit>().state;
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -68,7 +69,7 @@ class TitleItem extends StatelessWidget {
               currentIndex: currentIndex,
               index: 3,
               onTap: () {
-                var state = context.read<SubmitApplicationCubit>().state;
+                
                 if (currentIndex != 3) {
                   if (state.infoResponse == null) {
                     showErrorMessage(

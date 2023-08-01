@@ -10,6 +10,7 @@ import 'package:uni_hostel/data/domain/usecases/auth/login.dart';
 import 'package:uni_hostel/data/domain/usecases/auth/logout.dart';
 import 'package:uni_hostel/data/domain/usecases/main/dormitory.dart';
 import 'package:uni_hostel/data/domain/usecases/main/dormitory_selected.dart';
+import 'package:uni_hostel/data/domain/usecases/main/image_upload.dart';
 import 'package:uni_hostel/data/domain/usecases/main/petition.dart';
 import 'package:uni_hostel/data/domain/usecases/main/profile.dart';
 import 'package:uni_hostel/data/domain/usecases/main/statistic.dart';
@@ -32,11 +33,9 @@ Future<void> initDi() async {
   inject.registerFactory(() => PaymentCubit());
   inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
-  inject.registerFactory(() => DormitoryCubit(inject(),inject(),inject()));
-
+  inject.registerFactory(() => DormitoryCubit(inject(), inject(), inject()));
   inject.registerFactory(() => SubmitApplicationCubit(inject(), inject()));
-  inject.registerFactory(() => ProfileCubit(inject()));
-
+  inject.registerFactory(() => ProfileCubit(inject(), inject()));
 
   // use case need to register
   inject.registerLazySingleton(() => LoginUseCase(inject()));
@@ -48,8 +47,7 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => DormitorySelectedUseCase(inject()));
   inject.registerLazySingleton(() => StatisticUseCase(inject()));
   inject.registerLazySingleton(() => ProfileInfoUseCase(inject()));
-
-
+  inject.registerLazySingleton(() => ImageUploadUseCase(inject()));
 
   // repository init
   inject.registerLazySingleton<IAuthRepository>(

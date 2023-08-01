@@ -5,15 +5,14 @@ import 'package:uni_hostel/core/themes/app_colors.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/widget/error_img_profile.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
+import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
 
 class ActionItems extends StatelessWidget {
   const ActionItems({super.key, this.onTapProfileDrawer});
   final Function()? onTapProfileDrawer;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SubmitApplicationCubit, SubmitApplicationState>(
-        builder: (context, state) {
+    return BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -25,25 +24,28 @@ class ActionItems extends StatelessWidget {
                     .displaySmall
                     ?.copyWith(color: AppColors.bodyTextColor)),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: NetworkImageWidget(
-                onTap: onTapProfileDrawer, size: 50, img: ""),
-          ),
+          NetworkImageWidget(
+                  onTap: onTapProfileDrawer,
+                  size: 50,
+                  img: state.profileResponse?.image ?? "")
+              .paddingSymmetric(horizontal: 12),
           ResponsiveWidget.isTablet(context)
               ? const SizedBox.shrink()
               : Container(
-                width: 180,
-                child: Column(
+                  width: 180,
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(state.infoResponse?.fullName ?? "",
+                      Text(state.profileResponse?.fullName ?? "",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
                               .displaySmall
-                              ?.copyWith(fontWeight: FontWeight.w500,fontSize: 14)),
-                      Text(state.infoResponse?.group ?? "",
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w500, fontSize: 14)),
+                      Text(state.profileResponse?.group ?? "",
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge
@@ -52,7 +54,7 @@ class ActionItems extends StatelessWidget {
                                   fontWeight: FontWeight.w400)),
                     ],
                   ),
-              ),
+                ),
         ],
       ).paddingOnly(top: ResponsiveWidget.isMobile(context) ? 0 : 16);
     });

@@ -20,6 +20,7 @@ class FillerMobileWidget extends StatelessWidget {
             ),
           ],
         ),
+        SizedBox(height: 20),
          Row(
           children: [
             TextItemWidget(

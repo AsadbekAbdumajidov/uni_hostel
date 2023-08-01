@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:uni_hostel/core/constants/constants.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
@@ -42,54 +43,54 @@ class ApplicationSenderScreen extends StatelessWidget {
           child: Center(
             child: Container(
               constraints: const BoxConstraints(maxWidth: maxWidth),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: ResponsiveWidget(
-                    mobile: AppSenderMobileScreen(
-                        infoResponse: state.infoResponse,
-                        currentIndex: state.currentIndex,
-                        onTapNext: () {
-                          debugPrint("${cheack} == ${state.file?.name}");
-                          if (cheack == true && state.file == null) {
-                            showErrorMessage(context, AppStrings.strUploadDoc);
-                          } else if (cheack == false && state.file == null ||
-                              cheack == true && state.file != null) {
-                            context.read<SubmitApplicationCubit>().petition();
-                          }
-                        },
-                        fileOnTap: () {
-                          cheack == false
-                              ? null
-                              : showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return UploadFileAlertDialod();
-                                  });
-                        }),
-                    desktop: AppSenderWebScreen(
-                        infoResponse: state.infoResponse,
-                        currentIndex: state.currentIndex,
-                        onTapNext: () {
-                          debugPrint("${cheack} == ${state.file?.name}");
-                          if (cheack == true && state.file == null) {
-                            showErrorMessage(context, AppStrings.strUploadDoc);
-                          } else if (cheack == false && state.file == null ||
-                              cheack == true && state.file != null) {
-                            context.read<SubmitApplicationCubit>().petition();
-                          }
-                        },
-                        fileOnTap: () {
-                          debugPrint(cheack.toString());
-                          cheack == false
-                              ? null
-                              : showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return UploadFileAlertDialod();
-                                  });
-                        })),
+              child:  ResponsiveWidget(
+                  mobile: AppSenderMobileScreen(
+                      infoResponse: state.infoResponse,
+                      currentIndex: state.currentIndex,
+                      onTapNext: () {
+                        debugPrint("${cheack} == ${state.file?.name}");
+                        if (cheack == true && state.file == null) {
+                          showErrorMessage(context, AppStrings.strUploadDoc);
+                        } else if (cheack == false && state.file == null ||
+                            cheack == true && state.file != null) {
+                          context.read<SubmitApplicationCubit>().petition();
+                        }
+                      },
+                      fileOnTap: () {
+                        cheack == false
+                            ? null
+                            : showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return UploadFileAlertDialod();
+                                });
+                      }, fileName: state.name ?? "",),
+                  desktop: AppSenderWebScreen(
+                    infoResponse: state.infoResponse,
+                    currentIndex: state.currentIndex,
+                    onTapNext: () {
+                      debugPrint("${cheack} == ${state.file?.name}");
+                      if (cheack == true && state.file == null) {
+                        showErrorMessage(context, AppStrings.strUploadDoc);
+                      } else if (cheack == false && state.file == null ||
+                          cheack == true && state.file != null) {
+                        context.read<SubmitApplicationCubit>().petition();
+                      }
+                    },
+                    fileOnTap: () {
+                      debugPrint(cheack.toString());
+                      cheack == false
+                          ? null
+                          : showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return UploadFileAlertDialod();
+                              },
+                            );
+                    }, fileName: state.name ??"",
+                  ),
+                ).paddingOnly(left: 16,right: 16,bottom: 40),
               ),
-            ),
           ),
         );
       }),

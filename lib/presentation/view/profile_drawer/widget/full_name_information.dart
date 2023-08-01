@@ -8,18 +8,21 @@ class FullNameInformation extends StatelessWidget {
       {super.key,
       required this.title,
       required this.subTitle,
-      required this.img});
+      required this.img, this.onTap});
   final String? title;
   final String? subTitle;
   final String img;
 
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         NetworkImageWidget(
+          isEdit: true,
           size: 55,
           img: img,
+          onTap: onTap,
           backgroundColor: AppColors.primaryColor,
           lineColour: AppColors.whiteColor,
         ),

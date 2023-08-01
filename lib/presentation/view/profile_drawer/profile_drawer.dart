@@ -23,16 +23,20 @@ class ProfileDrawer extends StatelessWidget {
       backgroundColor: AppColors.primaryColor,
       child: BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
         if (state.status == Status.LOADING) {
-          return LoadingWidget();
+          return LoadingWidget(color: AppColors.whiteColor);
         }
         if (state.status == Status.ERROR) {
           showErrorMessage(context, state.failure.getLocalizedMessage(context));
+        }
+        if (state.status == Status.SUCCESS) {
+          context.read<ProfileCubit>().getProfile();
         }
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FullNameInformation(
+              onTap: () => context.read<ProfileCubit>().pickFile(),
               title: state.profileResponse?.fullName,
               subTitle: state.profileResponse?.passportSeries,
               img: state.profileResponse?.image ?? "",

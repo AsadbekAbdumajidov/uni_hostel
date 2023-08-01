@@ -20,6 +20,9 @@ mixin _$ProfileState {
   Failure get failure => throw _privateConstructorUsedError;
   StudentInfoResponseModel? get profileResponse =>
       throw _privateConstructorUsedError;
+  ImageUploadResponse? get imageUploadResponse =>
+      throw _privateConstructorUsedError;
+  PlatformFile? get pickedImg => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -35,9 +38,12 @@ abstract class $ProfileStateCopyWith<$Res> {
   $Res call(
       {Status status,
       Failure failure,
-      StudentInfoResponseModel? profileResponse});
+      StudentInfoResponseModel? profileResponse,
+      ImageUploadResponse? imageUploadResponse,
+      PlatformFile? pickedImg});
 
   $StudentInfoResponseModelCopyWith<$Res>? get profileResponse;
+  $ImageUploadResponseCopyWith<$Res>? get imageUploadResponse;
 }
 
 /// @nodoc
@@ -56,6 +62,8 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? status = null,
     Object? failure = null,
     Object? profileResponse = freezed,
+    Object? imageUploadResponse = freezed,
+    Object? pickedImg = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -70,6 +78,14 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.profileResponse
           : profileResponse // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponseModel?,
+      imageUploadResponse: freezed == imageUploadResponse
+          ? _value.imageUploadResponse
+          : imageUploadResponse // ignore: cast_nullable_to_non_nullable
+              as ImageUploadResponse?,
+      pickedImg: freezed == pickedImg
+          ? _value.pickedImg
+          : pickedImg // ignore: cast_nullable_to_non_nullable
+              as PlatformFile?,
     ) as $Val);
   }
 
@@ -85,6 +101,19 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
       return _then(_value.copyWith(profileResponse: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageUploadResponseCopyWith<$Res>? get imageUploadResponse {
+    if (_value.imageUploadResponse == null) {
+      return null;
+    }
+
+    return $ImageUploadResponseCopyWith<$Res>(_value.imageUploadResponse!,
+        (value) {
+      return _then(_value.copyWith(imageUploadResponse: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -98,10 +127,14 @@ abstract class _$$_ProfileStateCopyWith<$Res>
   $Res call(
       {Status status,
       Failure failure,
-      StudentInfoResponseModel? profileResponse});
+      StudentInfoResponseModel? profileResponse,
+      ImageUploadResponse? imageUploadResponse,
+      PlatformFile? pickedImg});
 
   @override
   $StudentInfoResponseModelCopyWith<$Res>? get profileResponse;
+  @override
+  $ImageUploadResponseCopyWith<$Res>? get imageUploadResponse;
 }
 
 /// @nodoc
@@ -118,6 +151,8 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? status = null,
     Object? failure = null,
     Object? profileResponse = freezed,
+    Object? imageUploadResponse = freezed,
+    Object? pickedImg = freezed,
   }) {
     return _then(_$_ProfileState(
       status: null == status
@@ -132,6 +167,14 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.profileResponse
           : profileResponse // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponseModel?,
+      imageUploadResponse: freezed == imageUploadResponse
+          ? _value.imageUploadResponse
+          : imageUploadResponse // ignore: cast_nullable_to_non_nullable
+              as ImageUploadResponse?,
+      pickedImg: freezed == pickedImg
+          ? _value.pickedImg
+          : pickedImg // ignore: cast_nullable_to_non_nullable
+              as PlatformFile?,
     ));
   }
 }
@@ -142,7 +185,9 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
   const _$_ProfileState(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
-      this.profileResponse});
+      this.profileResponse,
+      this.imageUploadResponse,
+      this.pickedImg});
 
   @override
   @JsonKey()
@@ -152,10 +197,14 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
   final Failure failure;
   @override
   final StudentInfoResponseModel? profileResponse;
+  @override
+  final ImageUploadResponse? imageUploadResponse;
+  @override
+  final PlatformFile? pickedImg;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileState(status: $status, failure: $failure, profileResponse: $profileResponse)';
+    return 'ProfileState(status: $status, failure: $failure, profileResponse: $profileResponse, imageUploadResponse: $imageUploadResponse, pickedImg: $pickedImg)';
   }
 
   @override
@@ -165,7 +214,9 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
       ..add(DiagnosticsProperty('type', 'ProfileState'))
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('failure', failure))
-      ..add(DiagnosticsProperty('profileResponse', profileResponse));
+      ..add(DiagnosticsProperty('profileResponse', profileResponse))
+      ..add(DiagnosticsProperty('imageUploadResponse', imageUploadResponse))
+      ..add(DiagnosticsProperty('pickedImg', pickedImg));
   }
 
   @override
@@ -176,12 +227,16 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.profileResponse, profileResponse) ||
-                other.profileResponse == profileResponse));
+                other.profileResponse == profileResponse) &&
+            (identical(other.imageUploadResponse, imageUploadResponse) ||
+                other.imageUploadResponse == imageUploadResponse) &&
+            (identical(other.pickedImg, pickedImg) ||
+                other.pickedImg == pickedImg));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, failure, profileResponse);
+  int get hashCode => Object.hash(runtimeType, status, failure, profileResponse,
+      imageUploadResponse, pickedImg);
 
   @JsonKey(ignore: true)
   @override
@@ -194,7 +249,9 @@ abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
       {final Status status,
       final Failure failure,
-      final StudentInfoResponseModel? profileResponse}) = _$_ProfileState;
+      final StudentInfoResponseModel? profileResponse,
+      final ImageUploadResponse? imageUploadResponse,
+      final PlatformFile? pickedImg}) = _$_ProfileState;
 
   @override
   Status get status;
@@ -202,6 +259,10 @@ abstract class _ProfileState implements ProfileState {
   Failure get failure;
   @override
   StudentInfoResponseModel? get profileResponse;
+  @override
+  ImageUploadResponse? get imageUploadResponse;
+  @override
+  PlatformFile? get pickedImg;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>

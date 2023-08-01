@@ -9,13 +9,11 @@ class AppIcons {
   static const String iconPay = 'assets/icons/ic_pay.svg';
   static const String iconPaymentDate = 'assets/icons/ic_payment_date.svg';
   static const String iconPouch = 'assets/icons/ic_pouch.svg';
-
+  static const String iconInQueue = 'assets/icons/ic_queue.svg';
   static const String iconArrowLeft = 'assets/icons/ic_arrow_left.svg';
   static const String iconArrowRight = 'assets/icons/ic_arrow_right.svg';
-
   static const iconBgRejected = "assets/icons/ic_bg_rejected.svg";
   static const iconSuccess = "assets/icons/ic_success.svg";
   static const iconExpertise = "assets/icons/ic_expertise.svg";
   static const iconWhiteLogo = "assets/icons/ic_white_logo.svg";
-
 }

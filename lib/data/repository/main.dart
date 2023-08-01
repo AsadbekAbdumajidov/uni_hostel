@@ -11,6 +11,7 @@ import 'package:uni_hostel/data/domain/repository/main.dart';
 import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
 import 'package:uni_hostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
 import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
+import 'package:uni_hostel/data/models/image_upload/image_upload_response.dart';
 import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
 import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
 import 'package:uni_hostel/data/models/statistic/statistic_response.dart';
@@ -175,6 +176,48 @@ class MainRepository implements IMainRepository {
     try {
       final response = await _apiClient.getProfile();
       return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? UserNotFound(null)
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, ImageUploadResponse>> imageUpload(
+      PlatformFile? file) async {
+    Dio dio = Dio();
+    try {
+      var image =
+          MultipartFile.fromBytes(file?.bytes ?? [], filename: file?.name);
+      debugPrint("File : ${image}");
+      FormData formData = FormData.fromMap({'image': image});
+
+      debugPrint(formData.fields.toString());
+      final response = await dio.patch(
+          '${BASE_URL}student/profile/image/update/',
+          data: formData,
+          options: Options(headers: {
+            "Authorization":
+                "Bearer ${_localDatasource.getString(ACCESS_TOKEN)}"
+          }));
+      debugPrint(response.data.toString());
+      dio.interceptors
+          .add(LogInterceptor(requestBody: true, responseBody: true));
+      return Right(ImageUploadResponse.fromJson(response.data));
     } on DioError catch (e) {
       if (kDebugMode) {
         debugPrint("$e");

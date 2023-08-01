@@ -13,10 +13,11 @@ class RequestMobileScreen extends StatelessWidget {
       {super.key,
       this.infoResponse,
       required this.fileOnTap,
-      required this.onTapNext});
+      required this.onTapNext,  required this.fileName});
   final BookingInfoResponse? infoResponse;
   final Function() fileOnTap;
   final Function() onTapNext;
+  final String fileName;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,15 +39,28 @@ class RequestMobileScreen extends StatelessWidget {
         ),
         FillerMobileWidget(response: infoResponse),
         CheckboxListWidget(),
-        CustomButton(
-          radius: 30,
-          width: 140,
-          text: AppStrings.strUploadFile,
-          style: Theme.of(context)
-              .textTheme
-              .displaySmall
-              ?.copyWith(color: AppColors.whiteColor),
-          onTap: fileOnTap,
+         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CustomButton(
+              radius: 30,
+              width: 180,
+              text: AppStrings.strUploadFile,
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall
+                  ?.copyWith(color: AppColors.whiteColor),
+              onTap: fileOnTap,
+            ),
+            SizedBox(width: 14),
+            Text(
+              fileName ,
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall
+                  ?.copyWith(color: AppColors.bodyTextColor),
+            ),
+          ],
         ).paddingSymmetric(vertical: 20),
         Divider(color: AppColors.bodyTextColor),
         DownButtonsWidget(

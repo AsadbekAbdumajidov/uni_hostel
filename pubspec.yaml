@@ -53,6 +53,10 @@ dependencies:
   url_launcher: ^6.1.12
   # for page animation
   animate_do: ^3.0.2
+  # for image upload
+  image_picker: ^1.0.1
+  #
+  cached_network_image: ^3.2.3
 
 
 dev_dependencies:
@@ -60,6 +64,8 @@ dev_dependencies:
   retrofit_generator: any
   flutter_test:
     sdk: flutter
+  
+ 
   
   
   
