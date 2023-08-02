@@ -8,7 +8,6 @@ import 'package:uni_hostel/core/extension/for_context.dart';
 import 'package:uni_hostel/core/themes/app_icons.dart';
 import 'package:uni_hostel/core/themes/app_text.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/presentation/components/flush_bars.dart';
 import 'package:uni_hostel/presentation/components/loading_widget.dart';
 import 'package:uni_hostel/presentation/components/responsiveness.dart';
 import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
@@ -27,9 +26,7 @@ class ApartmentScreen extends StatelessWidget {
       if (state.status == Status.LOADING) {
         return Container(height: context.h, child: LoadingWidget());
       }
-      if (state.status == Status.ERROR) {
-        showErrorMessage(context, state.failure.getLocalizedMessage(context));
-      }
+
       var lenght = state.responseModel?.results!.length ?? 0;
 
       return SingleChildScrollView(
@@ -64,8 +61,8 @@ class ApartmentScreen extends StatelessWidget {
                         ? StepStatusWidget(
                             img: AppIcons.iconBgRejected,
                             title: AppStrings.strBedroomsAreNotYetAvailable)
-                        :FadeInUp(
-                        child: GridView.builder(
+                        : FadeInUp(
+                            child: GridView.builder(
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
                             gridDelegate:
@@ -94,10 +91,10 @@ class ApartmentScreen extends StatelessWidget {
                                 subTitle: response?.description ?? "",
                                 img: response?.image ?? "",
                               ).paddingOnly(right: index.isEven ? 10 : 0);
-                            },)
-                          ).paddingOnly(bottom: 100)
+                            },
+                          )).paddingOnly(bottom: 100)
                     : FadeInUp(
-                        child:CardListWeb(
+                        child: CardListWeb(
                         isSelected: state.isSelected,
                         responseModel: state.responseModel,
                       ))

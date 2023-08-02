@@ -57,6 +57,8 @@ dependencies:
   image_picker: ^1.0.1
   #
   cached_network_image: ^3.2.3
+  # for check the internet
+  connectivity_plus: ^4.0.1
 
 
 dev_dependencies:

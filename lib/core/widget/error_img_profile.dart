@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uni_hostel/core/themes/app_colors.dart';
+import 'package:uni_hostel/presentation/components/responsiveness.dart';
 import 'package:uni_hostel/presentation/cubit/on_hover/on_hover_cubit.dart';
 
 class NetworkImageWidget extends StatelessWidget {
@@ -44,15 +45,17 @@ class NetworkImageWidget extends StatelessWidget {
                     errorWidget: (context, url, error) => ErrorImageProfile(
                       backgroundColor: backgroundColor,
                       lineColour: lineColour,
-                      errorIcon:isEdit == true && state.hover
+                      errorIcon: isEdit == true && state.hover
                           ? CupertinoIcons.add
                           : Icons.person_outline,
                     ),
                   )),
               Positioned.fill(
-                child: isEdit == true && state.hover
+                child:isEdit == true && ResponsiveWidget.isMobile(context)
                     ? Icon(CupertinoIcons.add, color: AppColors.whiteColor)
-                    : SizedBox.shrink(),
+                    : isEdit == true && state.hover
+                        ? Icon(CupertinoIcons.add, color: AppColors.whiteColor)
+                        : SizedBox.shrink(),
               )
             ]));
       }),

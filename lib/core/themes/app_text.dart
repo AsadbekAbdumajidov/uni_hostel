@@ -95,6 +95,7 @@ class AppStrings {
   static const strTgCanal = "Kanal";
   static const strPhoneNumber = "Telefon";
 
+
   static const strSupport = "qo'llab-quvvatlash";
   static const strOnTheSubject = "Mavzuga oid";
   static const strReturnBack = "Bosh sahifaga qaytish";
@@ -104,7 +105,7 @@ class AppStrings {
   static const strUserNotFoundFailure = "Id yoki passport seriyasi xato !";
   static const strCacheFailure = 'Kesh xatosi';
   static const strSubmittedFailure = "siz bu yil uchun ariza topshirgansiz";
-  static const strConnectionFailure = "Internetga ulanishni tekshiring";
+  static const strConnectionFailure = "Internet aloqasi topilmadi. Iltimos, ulanishingizni tekshiring";
   static const strUnknownFailure = "Noma'lum muvaffaqiyatsizlik";
   static const strServerFailure = "Server xatosi";
 }

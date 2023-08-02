@@ -1,8 +1,11 @@
 import 'dart:io';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uni_hostel/core/error/error.dart';
+import 'package:uni_hostel/core/network_client/retry.dart';
 import 'package:uni_hostel/core/routes/app_routes.dart';
 import 'package:uni_hostel/core/utils/utils.dart';
 import 'package:uni_hostel/data/models/refresh_token/response/refresh_token_response.dart';
@@ -26,6 +29,9 @@ class NetworkClient {
           options.headers['Access-Control-Allow-Origin'] = '*';
           options.headers['Access-Control-Allow-Methods'] =
               'POST, GET, OPTIONS, PUT, DELETE, HEAD';
+          options.headers['Access-Control-Allow-Headers'] =
+              'X-Requested-With,content-type';
+          options.headers['Access-Control-Allow-Credentials'] = true;
         }
         return handler.next(options);
       },
@@ -37,8 +43,13 @@ class NetworkClient {
       /// onError
       onError: (error, handler) async {
         print("ERROR: $error");
+        ConnectionFailure();
         if (_shouldRetry(error)) {
-          try {} catch (er) {
+          try {
+            DioConnectivityRequestRetrier(
+                    dio: api, connectivity: Connectivity())
+                .scheduleRequestRetry(error.requestOptions);
+          } catch (er) {
             return handler.next(error);
           }
         }
@@ -53,6 +64,9 @@ class NetworkClient {
           options.headers!['Access-Control-Allow-Origin'] = '*';
           options.headers!['Access-Control-Allow-Methods'] =
               'POST, GET, OPTIONS, PUT, DELETE, HEAD';
+          options.headers!['Access-Control-Allow-Headers'] =
+              'X-Requested-With,content-type';
+          options.headers!['Access-Control-Allow-Credentials'] = true;
 
           Response cloneReq = await Dio().request<dynamic>(
               BASE_URL + requestOptions.path,

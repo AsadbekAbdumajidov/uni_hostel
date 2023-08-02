@@ -31,7 +31,7 @@ class _AnimatedCircularProgressIndicatorState
           child: AspectRatio(
             aspectRatio: 1,
             child: TweenAnimationBuilder(
-              tween: Tween<double>(begin: 0, end: widget.percantage / 10),
+              tween: Tween<double>(begin: 0, end: widget.percantage / 100),
               duration: Duration(milliseconds: 1000),
               builder: (context, double value, child) => Stack(
                 fit: StackFit.expand,

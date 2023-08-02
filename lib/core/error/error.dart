@@ -66,18 +66,17 @@ class UserNotFoundFailure extends Failure {
 }
 
 class UserNotFound extends Failure {
-    final String? errorMessage;
+  final String? errorMessage;
 
   const UserNotFound(this.errorMessage) : super();
 
   @override
-  List<Object> get props => [errorMessage ?? AppStrings.strUserNotFound];
+  List<Object> get props =>
+      [errorMessage == null ? AppStrings.strUserNotFound : "$errorMessage"];
 
   @override
-  String getLocalizedMessage(BuildContext context ) =>
-      "$errorMessage";
+  String getLocalizedMessage(BuildContext context) => "$errorMessage";
 }
-
 
 class CacheFailure extends Failure {
   const CacheFailure() : super();
