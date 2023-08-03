@@ -45,6 +45,7 @@ final ApiClient _apiClient;
     try {
       final response = await _apiClient.login(requestModel);
       await _preferences.setString(ACCESS_TOKEN, response.access ?? "");
+      await _preferences.setString(REFRESH_TOKEN, response.refresh ?? "");
       return Right(response);
     } on DioError catch (e) {
       if (kDebugMode) {

@@ -84,6 +84,7 @@ class NetworkClient {
 
   Future<void> refreshToken(SharedPreferences preferences) async {
     String refreshToken = preferences.getString(REFRESH_TOKEN) ?? '';
+    
     Dio dio = Dio();
     try {
       debugPrint('AA: $refreshToken');
