@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
-import 'package:uni_hostel/presentation/view/tabs/request/widget/checkbox_item_widget.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/presentation/cubit/submit_application/submit_application_cubit.dart';
+import 'package:UniHostel/presentation/view/tabs/request/widget/checkbox_item_widget.dart';
 
 class CheckboxListWidget extends StatelessWidget {
   const CheckboxListWidget({super.key});
@@ -41,6 +41,13 @@ class CheckboxListWidget extends StatelessWidget {
                       context.read<SubmitApplicationCubit>().checkBox(4),
                   title: AppStrings.strFosterCareHome,
                   value: state.fosterHome,
+                ),
+                SizedBox(width: 20),
+                CheckboxItemWidget(
+                  onChange: (v) =>
+                      context.read<SubmitApplicationCubit>().checkBox(9),
+                  title: AppStrings.strHasManyChildrenFamily,
+                  value: state.hasManyChildrenFamily,
                 ),
                 ResponsiveWidget.isMobile(context)
                     ? Column(
@@ -110,7 +117,7 @@ class CheckboxListWidget extends StatelessWidget {
                         onChange: (v) =>
                             context.read<SubmitApplicationCubit>().checkBox(8),
                         title: AppStrings.strGiftedStudent,
-                        value: state.giftedStudent, 
+                        value: state.giftedStudent,
                       ),
                     ],
                   ),

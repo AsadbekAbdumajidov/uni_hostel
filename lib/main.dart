@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uni_hostel/core/routes/app_pages.dart';
-import 'package:uni_hostel/core/routes/app_routes.dart';
-import 'package:uni_hostel/core/themes/app_theme.dart';
-import 'package:uni_hostel/di.dart';
-import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/payment/payment_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
-import 'package:uni_hostel/presentation/view/404/error.dart';
-import 'package:uni_hostel/presentation/view/splash/splash_screen.dart';
+import 'package:UniHostel/core/routes/app_pages.dart';
+import 'package:UniHostel/core/routes/app_routes.dart';
+import 'package:UniHostel/core/themes/app_theme.dart';
+import 'package:UniHostel/di.dart';
+import 'package:UniHostel/presentation/cubit/auth/auth_cubit.dart';
+import 'package:UniHostel/presentation/cubit/dormitory/dormitory_cubit.dart';
+import 'package:UniHostel/presentation/cubit/payment/payment_cubit.dart';
+import 'package:UniHostel/presentation/cubit/profile/profile_cubit.dart';
+import 'package:UniHostel/presentation/cubit/submit_application/submit_application_cubit.dart';
+import 'package:UniHostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
+import 'package:UniHostel/presentation/view/404/error.dart';
+import 'package:UniHostel/presentation/view/splash/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => inject<TopNavBarCubit>()),
         BlocProvider(create: (context) => inject<PaymentCubit>()),
-        BlocProvider( 
+        BlocProvider(
             create: (context) => inject<AuthCubit>()..checkUserToAuth()),
         BlocProvider(
             create: (context) => inject<DormitoryCubit>()..getDormitory()),

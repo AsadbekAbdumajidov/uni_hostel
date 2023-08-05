@@ -9,6 +9,7 @@ class SubmitApplicationState with _$SubmitApplicationState {
     PetitionResponseModel? petitionResponse,
     PlatformFile? file,
     String? name,
+     @Default(1) int currentIndex,
     @Default(false)bool ironNotebook,
     @Default(false)bool womensBook,
     @Default(false)bool youthsNotebook,
@@ -17,6 +18,7 @@ class SubmitApplicationState with _$SubmitApplicationState {
     @Default(false)bool oneParentsIsDead,
     @Default(false)bool disabled,
     @Default(false)bool giftedStudent,
-    @Default(1) int currentIndex,
+    @Default(false)bool hasManyChildrenFamily,
+   
   }) = _SubmitApplicationState;
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:uni_hostel/core/extension/for_context.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/themes/app_icons.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/view/tabs/request/widget/step_item_widget.dart';
+import 'package:UniHostel/core/extension/for_context.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/themes/app_icons.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/presentation/view/tabs/request/widget/step_item_widget.dart';
 
 class StepWidget extends StatelessWidget {
   const StepWidget({super.key, required this.currentIndex});

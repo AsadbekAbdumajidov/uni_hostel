@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:uni_hostel/core/routes/app_routes.dart';
-import 'package:uni_hostel/core/themes/app_icons.dart';
-import 'package:uni_hostel/core/utils/size_konfig.dart';
-import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
+import 'package:UniHostel/core/routes/app_routes.dart';
+import 'package:UniHostel/core/themes/app_icons.dart';
+import 'package:UniHostel/core/utils/size_konfig.dart';
+import 'package:UniHostel/presentation/cubit/auth/auth_cubit.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});

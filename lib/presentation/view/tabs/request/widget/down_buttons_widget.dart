@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/core/widget/custom_button.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/core/widget/custom_button.dart';
 
 class DownButtonsWidget extends StatelessWidget {
-  const DownButtonsWidget({super.key, required this.onTapBack, required this.onTapNext });
+  const DownButtonsWidget(
+      {super.key, required this.onTapBack, required this.onTapNext});
   final Function() onTapBack;
   final Function() onTapNext;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 14,bottom: 50),
+      padding: const EdgeInsets.only(top: 14, bottom: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

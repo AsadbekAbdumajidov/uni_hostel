@@ -17,6 +17,7 @@ _$_PetitionRequestModel _$$_PetitionRequestModelFromJson(
       oneParentsIsDead: json['one_parents_is_dead'] as bool?,
       disabled: json['disabled'] as bool?,
       giftedStudent: json['gifted_student'] as bool?,
+      hasManyChildrenFamily: json['has_many_children_family'] as bool?,
     );
 
 Map<String, dynamic> _$$_PetitionRequestModelToJson(
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$_PetitionRequestModelToJson(
       'one_parents_is_dead': instance.oneParentsIsDead,
       'disabled': instance.disabled,
       'gifted_student': instance.giftedStudent,
+      'has_many_children_family': instance.hasManyChildrenFamily,
     };

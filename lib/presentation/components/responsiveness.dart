@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uni_hostel/core/constants/constants.dart';
-import 'package:uni_hostel/core/extension/for_context.dart';
+import 'package:UniHostel/core/constants/constants.dart';
+import 'package:UniHostel/core/extension/for_context.dart';
 
 // We will modify it once we have our final design
 
@@ -32,7 +32,7 @@ class ResponsiveWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (context.w >= mobileLargeSize ) {
+    if (context.w >= mobileLargeSize) {
       return desktop;
     } else if (context.w <= mobileSize && mobileLarge != null) {
       return mobileLarge!;

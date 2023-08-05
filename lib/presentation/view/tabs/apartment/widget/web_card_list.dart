@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/themes/app_icons.dart';
-import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
-import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
-import 'package:uni_hostel/presentation/view/tabs/apartment/widget/apartment_card_item.dart';
+import 'package:UniHostel/core/themes/app_icons.dart';
+import 'package:UniHostel/data/models/dormitorys/dormitorys_response_model.dart';
+import 'package:UniHostel/presentation/cubit/dormitory/dormitory_cubit.dart';
+import 'package:UniHostel/presentation/view/tabs/apartment/widget/apartment_card_item.dart';
 
 class CardListWeb extends StatelessWidget {
-  const CardListWeb({super.key, required this.responseModel, required this.isSelected});
+  const CardListWeb(
+      {super.key, required this.responseModel, required this.isSelected});
   final DormitorysResponseModel? responseModel;
   final bool isSelected;
   @override
@@ -36,16 +37,18 @@ class CardListWeb extends StatelessWidget {
                 children:
                     List.generate(responseModel?.results?.length ?? 0, (index) {
                   var response = responseModel?.results?[index];
-                  
+
                   return ApartmentCardItem(
                     width: 320,
                     height: 340,
-                    onTap:isSelected ? (){}: () {
-                      context
-                          .read<DormitoryCubit>()
-                          .getDormitorySelected(response?.id ?? 0);
-                      context.read<DormitoryCubit>().isSelected();
-                    },
+                    onTap: isSelected
+                        ? () {}
+                        : () {
+                            context
+                                .read<DormitoryCubit>()
+                                .getDormitorySelected(response?.id ?? 0);
+                            context.read<DormitoryCubit>().isSelected();
+                          },
                     title: response?.name ?? "",
                     subTitle: response?.description ?? "",
                     img: response?.image ?? "",

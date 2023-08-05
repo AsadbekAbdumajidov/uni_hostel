@@ -19,4 +19,14 @@ List<String> checkBoxList = [
   "gifted_student"
 ];
 
+     List<String> coursesList = [
+  "1-kurs",
+  "2-kurs",
+  "3-kurs",
+  "4-kurs",
+  "5-kurs",
+  "6-kurs",
+  "7-kurs",
+];
+
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();

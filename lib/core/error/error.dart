@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
 
 abstract class LocalizedMessage {
   String getLocalizedMessage(BuildContext context);

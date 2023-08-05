@@ -5,6 +5,7 @@ enum RouteName {
   payment(route: "/to'lov"),
   notification(route: "/bildirishnomalar"),
   request(route: "/to‘lov qilish"),
+  edit(route: "/tahrirlash"),
   login(route: "/kirish"),
   notFound(route: "/404"),
   splash(route: "/splash"),

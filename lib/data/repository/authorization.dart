@@ -4,16 +4,16 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/data/data_source/provider.dart';
-import 'package:uni_hostel/data/domain/repository/authorization.dart';
-import 'package:uni_hostel/data/models/login/request/login_request_model.dart';
-import 'package:uni_hostel/data/models/login/response/login_response_model.dart';
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/utils/utils.dart';
+import 'package:UniHostel/data/data_source/provider.dart';
+import 'package:UniHostel/data/domain/repository/authorization.dart';
+import 'package:UniHostel/data/models/login/request/login_request_model.dart';
+import 'package:UniHostel/data/models/login/response/login_response_model.dart';
 
 class AuthRepository implements IAuthRepository {
   final SharedPreferences _preferences;
-final ApiClient _apiClient;
+  final ApiClient _apiClient;
   AuthRepository(this._preferences, this._apiClient);
 
   @override
@@ -35,10 +35,7 @@ final ApiClient _apiClient;
       return const Left(CacheFailure());
     }
   }
-  
 
-
-  
   @override
   Future<Either<Failure, LoginResponseModel>> login(
       LoginRequestModel requestModel) async {
@@ -56,8 +53,8 @@ final ApiClient _apiClient;
       }
       return Left(
         (e.response?.statusCode == 400)
-            ? const UserNotFound(null) 
-            :  ServerFailure(e.response?.statusCode),
+            ? const UserNotFound(null)
+            : ServerFailure(e.response?.statusCode),
       );
     } on Object catch (e) {
       if (kDebugMode) {

@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/extension/for_context.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/core/widget/custom_button.dart';
-import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
+import 'package:UniHostel/core/extension/for_context.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/core/widget/custom_button.dart';
+import 'package:UniHostel/presentation/cubit/submit_application/submit_application_cubit.dart';
 
 class UploadFileAlertDialod extends StatelessWidget {
   @override
@@ -58,7 +58,11 @@ class UploadFileAlertDialod extends StatelessWidget {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(Icons.cloud_upload_outlined,color: AppColors.blackColor,size: 25,),
+                                    Icon(
+                                      Icons.cloud_upload_outlined,
+                                      color: AppColors.blackColor,
+                                      size: 25,
+                                    ),
                                     Text(
                                       "PDF",
                                       style: Theme.of(context)
@@ -72,7 +76,7 @@ class UploadFileAlertDialod extends StatelessWidget {
                                 ),
                               )
                             : Text(state.name ?? "",
-                            overflow: TextOverflow.ellipsis,
+                                overflow: TextOverflow.ellipsis,
                                 style:
                                     Theme.of(context).textTheme.displaySmall)),
                   ).paddingOnly(top: 30, bottom: 40),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
 
 class CheckItem extends StatelessWidget {
   const CheckItem({super.key, required this.title, required this.subTitle});

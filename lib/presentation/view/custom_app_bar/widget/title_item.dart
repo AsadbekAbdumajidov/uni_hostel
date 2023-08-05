@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/routes/app_routes.dart';
-import 'package:uni_hostel/core/themes/app_icons.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/presentation/components/flush_bars.dart';
+import 'package:UniHostel/core/routes/app_routes.dart';
+import 'package:UniHostel/core/themes/app_icons.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/presentation/components/flush_bars.dart';
 
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
-import 'package:uni_hostel/presentation/view/custom_app_bar/widget/hover_tab_bar.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/presentation/cubit/submit_application/submit_application_cubit.dart';
+import 'package:UniHostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
+import 'package:UniHostel/presentation/view/custom_app_bar/widget/hover_tab_bar.dart';
 
 class TitleItem extends StatelessWidget {
   const TitleItem({super.key, required this.currentIndex});
@@ -69,7 +69,6 @@ class TitleItem extends StatelessWidget {
               currentIndex: currentIndex,
               index: 3,
               onTap: () {
-                
                 if (currentIndex != 3) {
                   if (state.infoResponse == null) {
                     showErrorMessage(
@@ -77,6 +76,25 @@ class TitleItem extends StatelessWidget {
                   } else {
                     context.read<TopNavBarCubit>().changeIndex(3);
                     Navigator.pushNamed(context, RouteName.request.route);
+                  }
+                }
+              }),
+        ),
+        SizedBox(width: ResponsiveWidget.isTablet(context) ? 10 : 14),
+        Flexible(
+          flex: 5,
+          child: TopTabItem(
+              title: AppStrings.strEdit,
+              currentIndex: currentIndex,
+              index: 4,
+              onTap: () {
+                if (currentIndex != 4) {
+                  if (state.infoResponse == null) {
+                    showErrorMessage(
+                        context, state.failure.getLocalizedMessage(context));
+                  } else {
+                    context.read<TopNavBarCubit>().changeIndex(4);
+                    Navigator.pushNamed(context, RouteName.edit.route);
                   }
                 }
               }),

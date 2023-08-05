@@ -3,15 +3,15 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/usecase/usecase.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/data/domain/usecases/main/petition.dart';
-import 'package:uni_hostel/data/domain/usecases/main/student_info.dart';
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/usecase/usecase.dart';
+import 'package:UniHostel/core/utils/utils.dart';
+import 'package:UniHostel/data/domain/usecases/main/petition.dart';
+import 'package:UniHostel/data/domain/usecases/main/student_info.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
-import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
-import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
+import 'package:UniHostel/data/models/booking_information/booking_info_response_model.dart';
+import 'package:UniHostel/data/models/petition/request/petition_request.dart';
+import 'package:UniHostel/data/models/petition/response/petition_response.dart';
 part 'submit_application_state.dart';
 part 'submit_application_cubit.freezed.dart';
 
@@ -35,6 +35,7 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
           oneParentsIsDead: state.oneParentsIsDead,
           disabled: state.disabled,
           giftedStudent: state.giftedStudent,
+          hasManyChildrenFamily: state.hasManyChildrenFamily,
         ),
       ),
     );
@@ -106,6 +107,12 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
         emit(state.copyWith(
             giftedStudent: !state.giftedStudent, status: Status.UNKNOWN));
         break;
+      case 9:
+        emit(state.copyWith(
+            hasManyChildrenFamily: !state.hasManyChildrenFamily,
+            status: Status.UNKNOWN));
+        debugPrint(state.hasManyChildrenFamily.toString());
+        break;
       default:
     }
   }
@@ -118,7 +125,8 @@ class SubmitApplicationCubit extends Cubit<SubmitApplicationState> {
         state.noBreadWinner == false &&
         state.oneParentsIsDead == false &&
         state.disabled == false &&
-        state.giftedStudent == false) {
+        state.giftedStudent == false &&
+        state.hasManyChildrenFamily == false) {
       return false;
     } else {
       return true;

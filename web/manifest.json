@@ -1,11 +1,11 @@
 {
-    "name": "uni_hostel",
-    "short_name": "uni_hostel",
+    "name": "UniHostel",
+    "short_name": "UniHostel",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Har qanday qog'oz va hujjatlarga chek qo'ygan holda talabalar turar joyiga onlayn ariza yuboring",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

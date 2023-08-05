@@ -15,6 +15,8 @@ class PetitionRequestModel with _$PetitionRequestModel {
     @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
     bool? disabled,
     @JsonKey(name: 'gifted_student') bool? giftedStudent,
+    @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily,
+  
   }) = _PetitionRequestModel;
 
   factory PetitionRequestModel.fromJson(Map<String, dynamic> json) =>

@@ -1,4 +1,4 @@
-# uni_hostel
+# UniHostel
 
 A new Flutter project.
 

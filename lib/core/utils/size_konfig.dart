@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uni_hostel/core/constants/constants.dart';
+import 'package:UniHostel/core/constants/constants.dart';
 
 class SizeConfig {
   static MediaQueryData? _mediaQueryData;

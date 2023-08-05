@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uni_hostel/core/usecase/usecase.dart';
-import 'package:uni_hostel/data/domain/usecases/auth/logout.dart';
+import 'package:UniHostel/core/usecase/usecase.dart';
+import 'package:UniHostel/data/domain/usecases/auth/logout.dart';
 import '../../../data/domain/usecases/auth/check_user_auth.dart';
 part 'auth_state.dart';
 

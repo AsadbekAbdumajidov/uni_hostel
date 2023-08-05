@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/utils/size_konfig.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/utils/size_konfig.dart';
 
 class HoverButtonWidget extends StatelessWidget {
   const HoverButtonWidget(
@@ -11,10 +11,10 @@ class HoverButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      clipBehavior: Clip.none,
+        clipBehavior: Clip.none,
         style: ElevatedButton.styleFrom(
           shadowColor: AppColors.transparent,
-          padding:  EdgeInsets.symmetric(horizontal: wi(6)),
+          padding: EdgeInsets.symmetric(horizontal: wi(6)),
           backgroundColor: AppColors.primaryColor.withOpacity(0.2),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),

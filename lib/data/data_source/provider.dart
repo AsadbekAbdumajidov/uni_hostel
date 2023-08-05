@@ -1,18 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
-import 'package:uni_hostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
-import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
-import 'package:uni_hostel/data/models/image_upload/image_upload_response.dart';
-import 'package:uni_hostel/data/models/login/request/login_request_model.dart';
-import 'package:uni_hostel/data/models/login/response/login_response_model.dart';
-import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
-import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
-import 'package:uni_hostel/data/models/refresh_token/request/refresh_token_request.dart';
-import 'package:uni_hostel/data/models/refresh_token/response/refresh_token_response.dart';
-import 'package:uni_hostel/data/models/statistic/statistic_response.dart';
-import 'package:uni_hostel/data/models/student_information/student_info_response_model.dart';
+import 'package:UniHostel/core/utils/utils.dart';
+import 'package:UniHostel/data/models/booking_information/booking_info_response_model.dart';
+import 'package:UniHostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
+import 'package:UniHostel/data/models/dormitorys/dormitorys_response_model.dart';
+import 'package:UniHostel/data/models/image_upload/image_upload_response.dart';
+import 'package:UniHostel/data/models/login/request/login_request_model.dart';
+import 'package:UniHostel/data/models/login/response/login_response_model.dart';
+import 'package:UniHostel/data/models/petition/request/petition_request.dart';
+import 'package:UniHostel/data/models/petition/response/petition_response.dart';
+import 'package:UniHostel/data/models/refresh_token/request/refresh_token_request.dart';
+import 'package:UniHostel/data/models/refresh_token/response/refresh_token_response.dart';
+import 'package:UniHostel/data/models/statistic/statistic_response.dart';
+import 'package:UniHostel/data/models/student_information/student_info_response_model.dart';
 part 'provider.g.dart';
 
 //flutter packages pub run build_runner build --delete-conflicting-outputs

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/routes/app_routes.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/di.dart';
-import 'package:uni_hostel/presentation/components/flush_bars.dart';
-import 'package:uni_hostel/presentation/components/loading_widget.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
-import 'package:uni_hostel/presentation/view/profile_drawer/widget/full_name_information.dart';
-import 'package:uni_hostel/presentation/view/profile_drawer/widget/profile_driwer_item.dart';
+import 'package:UniHostel/core/routes/app_routes.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/core/utils/utils.dart';
+import 'package:UniHostel/di.dart';
+import 'package:UniHostel/presentation/components/flush_bars.dart';
+import 'package:UniHostel/presentation/components/loading_widget.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/presentation/cubit/auth/auth_cubit.dart';
+import 'package:UniHostel/presentation/cubit/profile/profile_cubit.dart';
+import 'package:UniHostel/presentation/view/profile_drawer/widget/full_name_information.dart';
+import 'package:UniHostel/presentation/view/profile_drawer/widget/profile_driwer_item.dart';
 
 class ProfileDrawer extends StatelessWidget {
   ProfileDrawer({Key? key}) : super(key: key);
@@ -28,9 +28,6 @@ class ProfileDrawer extends StatelessWidget {
         if (state.status == Status.ERROR) {
           showErrorMessage(context, state.failure.getLocalizedMessage(context));
         }
-        if (state.status == Status.SUCCESS) {
-          context.read<ProfileCubit>().getProfile();
-        }
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +38,7 @@ class ProfileDrawer extends StatelessWidget {
               subTitle: state.profileResponse?.passportSeries,
               img: state.profileResponse?.image ?? "",
             ),
-            SizedBox(height: 20),
+            Divider().paddingSymmetric(vertical: 10),
             ProfileDriwerItem(
               title: "${AppStrings.strResidenceAddress}:",
               subTitle:
@@ -50,6 +47,22 @@ class ProfileDrawer extends StatelessWidget {
             ProfileDriwerItem(
               title: "${AppStrings.strPhoneNumber}:",
               subTitle: "${state.profileResponse?.phoneNumber}",
+            ).paddingSymmetric(vertical: 20),
+            ProfileDriwerItem(
+              title: "${AppStrings.strDateOfBirth}:",
+              subTitle: state.profileResponse?.dateOfBirth,
+            ),
+            ProfileDriwerItem(
+              title: "${AppStrings.strRegion}:",
+              subTitle: state.profileResponse?.region,
+            ).paddingSymmetric(vertical: 20),
+            ProfileDriwerItem(
+              title: "${AppStrings.strDistrict}:",
+              subTitle: state.profileResponse?.district,
+            ),
+            ProfileDriwerItem(
+              title: "${AppStrings.strStreetAndHouseNumber}:",
+              subTitle: state.profileResponse?.neighborhood,
             ).paddingSymmetric(vertical: 20),
             ProfileDriwerItem(
               title: "${AppStrings.strFaculty}:",

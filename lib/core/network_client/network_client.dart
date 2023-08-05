@@ -4,13 +4,13 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/network_client/retry.dart';
-import 'package:uni_hostel/core/routes/app_routes.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/data/models/refresh_token/response/refresh_token_response.dart';
-import 'package:uni_hostel/di.dart';
-import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/network_client/retry.dart';
+import 'package:UniHostel/core/routes/app_routes.dart';
+import 'package:UniHostel/core/utils/utils.dart';
+import 'package:UniHostel/data/models/refresh_token/response/refresh_token_response.dart';
+import 'package:UniHostel/di.dart';
+import 'package:UniHostel/presentation/cubit/auth/auth_cubit.dart';
 
 class NetworkClient {
   String _token = '';
@@ -84,7 +84,7 @@ class NetworkClient {
 
   Future<void> refreshToken(SharedPreferences preferences) async {
     String refreshToken = preferences.getString(REFRESH_TOKEN) ?? '';
-    
+
     Dio dio = Dio();
     try {
       debugPrint('AA: $refreshToken');

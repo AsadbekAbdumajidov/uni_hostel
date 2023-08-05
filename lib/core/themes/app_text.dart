@@ -6,6 +6,10 @@ class AppStrings {
   static const strEnterPassportSeries = "Passport seriyangizni kiriting";
   static const strEnterStudentId = "id kiriting";
   static const strAcces = "Kirish";
+  static const strEdit = "Tahrirlash";
+  static const strNotEmoty = "maydon bo'sh bo'lishi mumkin emas";
+
+
   static const strHome = "Bosh sahifa";
   static const strPayment = "To'lov";
   static const strValidateStudentId = "Id bo'sh qoldirmang";
@@ -54,6 +58,8 @@ class AppStrings {
   static const strCancellation = "Bekor qilish";
   static const strDisabledGroup = "1-2 guruh nogironi";
   static const strGiftedStudent = "Iqtidorli talaba";
+  static const strHasManyChildrenFamily = "Uch va undan ortiq farzandi, to‘lov-shartnoma asosida o‘qiyotgan oila farzandi";
+ 
   static const strNames = "Nomi:";
   static const strTimes = "Vaqti:";
   static const strPaymentStory = "To‘lovlar tarixi";
@@ -93,7 +99,10 @@ class AppStrings {
 
   static const strTgGroup = "Guruh";
   static const strTgCanal = "Kanal";
-  static const strPhoneNumber = "Telefon";
+  static const strPhoneNumber = "Telefon raqam";
+  static const strSuccesfullyUpdated = "shaxsiy ma'lumotlar muvaffaqiyatli yangilandi";
+
+
 
 
   static const strSupport = "qo'llab-quvvatlash";

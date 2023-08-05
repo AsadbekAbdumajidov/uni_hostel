@@ -20,9 +20,13 @@ mixin _$ProfileState {
   Failure get failure => throw _privateConstructorUsedError;
   StudentInfoResponseModel? get profileResponse =>
       throw _privateConstructorUsedError;
-  ImageUploadResponse? get imageUploadResponse =>
-      throw _privateConstructorUsedError;
   PlatformFile? get pickedImg => throw _privateConstructorUsedError;
+  String get district => throw _privateConstructorUsedError;
+  String get neighborhood => throw _privateConstructorUsedError;
+  String get course => throw _privateConstructorUsedError;
+  String get region => throw _privateConstructorUsedError;
+  String get group => throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -39,11 +43,15 @@ abstract class $ProfileStateCopyWith<$Res> {
       {Status status,
       Failure failure,
       StudentInfoResponseModel? profileResponse,
-      ImageUploadResponse? imageUploadResponse,
-      PlatformFile? pickedImg});
+      PlatformFile? pickedImg,
+      String district,
+      String neighborhood,
+      String course,
+      String region,
+      String group,
+      String phoneNumber});
 
   $StudentInfoResponseModelCopyWith<$Res>? get profileResponse;
-  $ImageUploadResponseCopyWith<$Res>? get imageUploadResponse;
 }
 
 /// @nodoc
@@ -62,8 +70,13 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? status = null,
     Object? failure = null,
     Object? profileResponse = freezed,
-    Object? imageUploadResponse = freezed,
     Object? pickedImg = freezed,
+    Object? district = null,
+    Object? neighborhood = null,
+    Object? course = null,
+    Object? region = null,
+    Object? group = null,
+    Object? phoneNumber = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -78,14 +91,34 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.profileResponse
           : profileResponse // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponseModel?,
-      imageUploadResponse: freezed == imageUploadResponse
-          ? _value.imageUploadResponse
-          : imageUploadResponse // ignore: cast_nullable_to_non_nullable
-              as ImageUploadResponse?,
       pickedImg: freezed == pickedImg
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      district: null == district
+          ? _value.district
+          : district // ignore: cast_nullable_to_non_nullable
+              as String,
+      neighborhood: null == neighborhood
+          ? _value.neighborhood
+          : neighborhood // ignore: cast_nullable_to_non_nullable
+              as String,
+      course: null == course
+          ? _value.course
+          : course // ignore: cast_nullable_to_non_nullable
+              as String,
+      region: null == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String,
+      group: null == group
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -99,19 +132,6 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     return $StudentInfoResponseModelCopyWith<$Res>(_value.profileResponse!,
         (value) {
       return _then(_value.copyWith(profileResponse: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ImageUploadResponseCopyWith<$Res>? get imageUploadResponse {
-    if (_value.imageUploadResponse == null) {
-      return null;
-    }
-
-    return $ImageUploadResponseCopyWith<$Res>(_value.imageUploadResponse!,
-        (value) {
-      return _then(_value.copyWith(imageUploadResponse: value) as $Val);
     });
   }
 }
@@ -128,13 +148,16 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       {Status status,
       Failure failure,
       StudentInfoResponseModel? profileResponse,
-      ImageUploadResponse? imageUploadResponse,
-      PlatformFile? pickedImg});
+      PlatformFile? pickedImg,
+      String district,
+      String neighborhood,
+      String course,
+      String region,
+      String group,
+      String phoneNumber});
 
   @override
   $StudentInfoResponseModelCopyWith<$Res>? get profileResponse;
-  @override
-  $ImageUploadResponseCopyWith<$Res>? get imageUploadResponse;
 }
 
 /// @nodoc
@@ -151,8 +174,13 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? status = null,
     Object? failure = null,
     Object? profileResponse = freezed,
-    Object? imageUploadResponse = freezed,
     Object? pickedImg = freezed,
+    Object? district = null,
+    Object? neighborhood = null,
+    Object? course = null,
+    Object? region = null,
+    Object? group = null,
+    Object? phoneNumber = null,
   }) {
     return _then(_$_ProfileState(
       status: null == status
@@ -167,14 +195,34 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.profileResponse
           : profileResponse // ignore: cast_nullable_to_non_nullable
               as StudentInfoResponseModel?,
-      imageUploadResponse: freezed == imageUploadResponse
-          ? _value.imageUploadResponse
-          : imageUploadResponse // ignore: cast_nullable_to_non_nullable
-              as ImageUploadResponse?,
       pickedImg: freezed == pickedImg
           ? _value.pickedImg
           : pickedImg // ignore: cast_nullable_to_non_nullable
               as PlatformFile?,
+      district: null == district
+          ? _value.district
+          : district // ignore: cast_nullable_to_non_nullable
+              as String,
+      neighborhood: null == neighborhood
+          ? _value.neighborhood
+          : neighborhood // ignore: cast_nullable_to_non_nullable
+              as String,
+      course: null == course
+          ? _value.course
+          : course // ignore: cast_nullable_to_non_nullable
+              as String,
+      region: null == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String,
+      group: null == group
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -186,8 +234,13 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
       this.profileResponse,
-      this.imageUploadResponse,
-      this.pickedImg});
+      this.pickedImg,
+      this.district = "",
+      this.neighborhood = "",
+      this.course = "",
+      this.region = "",
+      this.group = "",
+      this.phoneNumber = ""});
 
   @override
   @JsonKey()
@@ -198,13 +251,29 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
   @override
   final StudentInfoResponseModel? profileResponse;
   @override
-  final ImageUploadResponse? imageUploadResponse;
-  @override
   final PlatformFile? pickedImg;
+  @override
+  @JsonKey()
+  final String district;
+  @override
+  @JsonKey()
+  final String neighborhood;
+  @override
+  @JsonKey()
+  final String course;
+  @override
+  @JsonKey()
+  final String region;
+  @override
+  @JsonKey()
+  final String group;
+  @override
+  @JsonKey()
+  final String phoneNumber;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileState(status: $status, failure: $failure, profileResponse: $profileResponse, imageUploadResponse: $imageUploadResponse, pickedImg: $pickedImg)';
+    return 'ProfileState(status: $status, failure: $failure, profileResponse: $profileResponse, pickedImg: $pickedImg, district: $district, neighborhood: $neighborhood, course: $course, region: $region, group: $group, phoneNumber: $phoneNumber)';
   }
 
   @override
@@ -215,8 +284,13 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
       ..add(DiagnosticsProperty('status', status))
       ..add(DiagnosticsProperty('failure', failure))
       ..add(DiagnosticsProperty('profileResponse', profileResponse))
-      ..add(DiagnosticsProperty('imageUploadResponse', imageUploadResponse))
-      ..add(DiagnosticsProperty('pickedImg', pickedImg));
+      ..add(DiagnosticsProperty('pickedImg', pickedImg))
+      ..add(DiagnosticsProperty('district', district))
+      ..add(DiagnosticsProperty('neighborhood', neighborhood))
+      ..add(DiagnosticsProperty('course', course))
+      ..add(DiagnosticsProperty('region', region))
+      ..add(DiagnosticsProperty('group', group))
+      ..add(DiagnosticsProperty('phoneNumber', phoneNumber));
   }
 
   @override
@@ -228,15 +302,22 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.profileResponse, profileResponse) ||
                 other.profileResponse == profileResponse) &&
-            (identical(other.imageUploadResponse, imageUploadResponse) ||
-                other.imageUploadResponse == imageUploadResponse) &&
             (identical(other.pickedImg, pickedImg) ||
-                other.pickedImg == pickedImg));
+                other.pickedImg == pickedImg) &&
+            (identical(other.district, district) ||
+                other.district == district) &&
+            (identical(other.neighborhood, neighborhood) ||
+                other.neighborhood == neighborhood) &&
+            (identical(other.course, course) || other.course == course) &&
+            (identical(other.region, region) || other.region == region) &&
+            (identical(other.group, group) || other.group == group) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status, failure, profileResponse,
-      imageUploadResponse, pickedImg);
+      pickedImg, district, neighborhood, course, region, group, phoneNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -250,8 +331,13 @@ abstract class _ProfileState implements ProfileState {
       {final Status status,
       final Failure failure,
       final StudentInfoResponseModel? profileResponse,
-      final ImageUploadResponse? imageUploadResponse,
-      final PlatformFile? pickedImg}) = _$_ProfileState;
+      final PlatformFile? pickedImg,
+      final String district,
+      final String neighborhood,
+      final String course,
+      final String region,
+      final String group,
+      final String phoneNumber}) = _$_ProfileState;
 
   @override
   Status get status;
@@ -260,9 +346,19 @@ abstract class _ProfileState implements ProfileState {
   @override
   StudentInfoResponseModel? get profileResponse;
   @override
-  ImageUploadResponse? get imageUploadResponse;
-  @override
   PlatformFile? get pickedImg;
+  @override
+  String get district;
+  @override
+  String get neighborhood;
+  @override
+  String get course;
+  @override
+  String get region;
+  @override
+  String get group;
+  @override
+  String get phoneNumber;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>

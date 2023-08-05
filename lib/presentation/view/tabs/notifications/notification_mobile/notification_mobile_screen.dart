@@ -2,7 +2,7 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
 
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_icons.dart';
@@ -58,7 +58,7 @@ class NotificationMobileScreen extends StatelessWidget {
                               .headlineMedium
                               ?.copyWith(fontSize: 18))),
                   DataColumn2(
-                    size: ColumnSize.S,
+                      size: ColumnSize.S,
                       label: Text(AppStrings.strTimes,
                           style: Theme.of(context)
                               .textTheme

@@ -1,4 +1,4 @@
-package com.example.uni_hostel
+package com.example.UniHostel
 
 import io.flutter.embedding.android.FlutterActivity
 

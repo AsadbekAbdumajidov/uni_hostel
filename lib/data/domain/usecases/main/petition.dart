@@ -1,20 +1,18 @@
 import 'package:dartz/dartz.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/usecase/usecase.dart';
-import 'package:uni_hostel/data/domain/repository/main.dart';
-import 'package:uni_hostel/data/models/petition/request/petition_request.dart';
-import 'package:uni_hostel/data/models/petition/response/petition_response.dart';
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/usecase/usecase.dart';
+import 'package:UniHostel/data/domain/repository/main.dart';
+import 'package:UniHostel/data/models/petition/request/petition_request.dart';
+import 'package:UniHostel/data/models/petition/response/petition_response.dart';
 
-class PetitionUseCase
-    extends UseCase<PetitionResponseModel, PetitionParams> {
+class PetitionUseCase extends UseCase<PetitionResponseModel, PetitionParams> {
   final IMainRepository _iMainRepository;
   PetitionUseCase(this._iMainRepository);
 
   @override
-  Future<Either<Failure, PetitionResponseModel>> call(
-          PetitionParams params) =>
-      _iMainRepository.petition(params.request,params.file);
+  Future<Either<Failure, PetitionResponseModel>> call(PetitionParams params) =>
+      _iMainRepository.petition(params.request, params.file);
 }
 
 class PetitionParams {

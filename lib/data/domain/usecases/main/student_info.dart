@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/usecase/usecase.dart';
-import 'package:uni_hostel/data/domain/repository/main.dart';
-import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/usecase/usecase.dart';
+import 'package:UniHostel/data/domain/repository/main.dart';
+import 'package:UniHostel/data/models/booking_information/booking_info_response_model.dart';
 
 class StudentInfoUseCase extends UseCase<BookingInfoResponse, NoParams> {
   final IMainRepository _iMainRepository;

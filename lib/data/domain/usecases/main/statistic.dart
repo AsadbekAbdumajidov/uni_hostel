@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/usecase/usecase.dart';
-import 'package:uni_hostel/data/domain/repository/main.dart';
-import 'package:uni_hostel/data/models/statistic/statistic_response.dart';
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/usecase/usecase.dart';
+import 'package:UniHostel/data/domain/repository/main.dart';
+import 'package:UniHostel/data/models/statistic/statistic_response.dart';
 
 class StatisticUseCase extends UseCase<StatisticResponse, NoParams> {
   final IMainRepository _iMainRepository;

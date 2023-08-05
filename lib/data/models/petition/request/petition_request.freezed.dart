@@ -35,6 +35,8 @@ mixin _$PetitionRequestModel {
   bool? get disabled => throw _privateConstructorUsedError;
   @JsonKey(name: 'gifted_student')
   bool? get giftedStudent => throw _privateConstructorUsedError;
+  @JsonKey(name: 'has_many_children_family')
+  bool? get hasManyChildrenFamily => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +58,8 @@ abstract class $PetitionRequestModelCopyWith<$Res> {
       @JsonKey(name: 'no_breadwinner') bool? noBreadWinner,
       @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
       bool? disabled,
-      @JsonKey(name: 'gifted_student') bool? giftedStudent});
+      @JsonKey(name: 'gifted_student') bool? giftedStudent,
+      @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily});
 }
 
 /// @nodoc
@@ -81,6 +84,7 @@ class _$PetitionRequestModelCopyWithImpl<$Res,
     Object? oneParentsIsDead = freezed,
     Object? disabled = freezed,
     Object? giftedStudent = freezed,
+    Object? hasManyChildrenFamily = freezed,
   }) {
     return _then(_value.copyWith(
       ironNotebook: freezed == ironNotebook
@@ -115,6 +119,10 @@ class _$PetitionRequestModelCopyWithImpl<$Res,
           ? _value.giftedStudent
           : giftedStudent // ignore: cast_nullable_to_non_nullable
               as bool?,
+      hasManyChildrenFamily: freezed == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -135,7 +143,8 @@ abstract class _$$_PetitionRequestModelCopyWith<$Res>
       @JsonKey(name: 'no_breadwinner') bool? noBreadWinner,
       @JsonKey(name: 'one_parents_is_dead') bool? oneParentsIsDead,
       bool? disabled,
-      @JsonKey(name: 'gifted_student') bool? giftedStudent});
+      @JsonKey(name: 'gifted_student') bool? giftedStudent,
+      @JsonKey(name: 'has_many_children_family') bool? hasManyChildrenFamily});
 }
 
 /// @nodoc
@@ -157,6 +166,7 @@ class __$$_PetitionRequestModelCopyWithImpl<$Res>
     Object? oneParentsIsDead = freezed,
     Object? disabled = freezed,
     Object? giftedStudent = freezed,
+    Object? hasManyChildrenFamily = freezed,
   }) {
     return _then(_$_PetitionRequestModel(
       ironNotebook: freezed == ironNotebook
@@ -191,6 +201,10 @@ class __$$_PetitionRequestModelCopyWithImpl<$Res>
           ? _value.giftedStudent
           : giftedStudent // ignore: cast_nullable_to_non_nullable
               as bool?,
+      hasManyChildrenFamily: freezed == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -206,7 +220,8 @@ class _$_PetitionRequestModel implements _PetitionRequestModel {
       @JsonKey(name: 'no_breadwinner') this.noBreadWinner,
       @JsonKey(name: 'one_parents_is_dead') this.oneParentsIsDead,
       this.disabled,
-      @JsonKey(name: 'gifted_student') this.giftedStudent});
+      @JsonKey(name: 'gifted_student') this.giftedStudent,
+      @JsonKey(name: 'has_many_children_family') this.hasManyChildrenFamily});
 
   factory _$_PetitionRequestModel.fromJson(Map<String, dynamic> json) =>
       _$$_PetitionRequestModelFromJson(json);
@@ -234,10 +249,13 @@ class _$_PetitionRequestModel implements _PetitionRequestModel {
   @override
   @JsonKey(name: 'gifted_student')
   final bool? giftedStudent;
+  @override
+  @JsonKey(name: 'has_many_children_family')
+  final bool? hasManyChildrenFamily;
 
   @override
   String toString() {
-    return 'PetitionRequestModel(ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadWinner: $noBreadWinner, oneParentsIsDead: $oneParentsIsDead, disabled: $disabled, giftedStudent: $giftedStudent)';
+    return 'PetitionRequestModel(ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadWinner: $noBreadWinner, oneParentsIsDead: $oneParentsIsDead, disabled: $disabled, giftedStudent: $giftedStudent, hasManyChildrenFamily: $hasManyChildrenFamily)';
   }
 
   @override
@@ -260,7 +278,9 @@ class _$_PetitionRequestModel implements _PetitionRequestModel {
             (identical(other.disabled, disabled) ||
                 other.disabled == disabled) &&
             (identical(other.giftedStudent, giftedStudent) ||
-                other.giftedStudent == giftedStudent));
+                other.giftedStudent == giftedStudent) &&
+            (identical(other.hasManyChildrenFamily, hasManyChildrenFamily) ||
+                other.hasManyChildrenFamily == hasManyChildrenFamily));
   }
 
   @JsonKey(ignore: true)
@@ -274,7 +294,8 @@ class _$_PetitionRequestModel implements _PetitionRequestModel {
       noBreadWinner,
       oneParentsIsDead,
       disabled,
-      giftedStudent);
+      giftedStudent,
+      hasManyChildrenFamily);
 
   @JsonKey(ignore: true)
   @override
@@ -293,15 +314,16 @@ class _$_PetitionRequestModel implements _PetitionRequestModel {
 
 abstract class _PetitionRequestModel implements PetitionRequestModel {
   const factory _PetitionRequestModel(
-          {@JsonKey(name: 'iron_notebook') final bool? ironNotebook,
-          @JsonKey(name: 'womens_book') final bool? womensBook,
-          @JsonKey(name: 'youths_notebook') final bool? youthsNotebook,
-          @JsonKey(name: 'foster_home') final bool? fosterHome,
-          @JsonKey(name: 'no_breadwinner') final bool? noBreadWinner,
-          @JsonKey(name: 'one_parents_is_dead') final bool? oneParentsIsDead,
-          final bool? disabled,
-          @JsonKey(name: 'gifted_student') final bool? giftedStudent}) =
-      _$_PetitionRequestModel;
+      {@JsonKey(name: 'iron_notebook') final bool? ironNotebook,
+      @JsonKey(name: 'womens_book') final bool? womensBook,
+      @JsonKey(name: 'youths_notebook') final bool? youthsNotebook,
+      @JsonKey(name: 'foster_home') final bool? fosterHome,
+      @JsonKey(name: 'no_breadwinner') final bool? noBreadWinner,
+      @JsonKey(name: 'one_parents_is_dead') final bool? oneParentsIsDead,
+      final bool? disabled,
+      @JsonKey(name: 'gifted_student') final bool? giftedStudent,
+      @JsonKey(name: 'has_many_children_family')
+      final bool? hasManyChildrenFamily}) = _$_PetitionRequestModel;
 
   factory _PetitionRequestModel.fromJson(Map<String, dynamic> json) =
       _$_PetitionRequestModel.fromJson;
@@ -329,6 +351,9 @@ abstract class _PetitionRequestModel implements PetitionRequestModel {
   @override
   @JsonKey(name: 'gifted_student')
   bool? get giftedStudent;
+  @override
+  @JsonKey(name: 'has_many_children_family')
+  bool? get hasManyChildrenFamily;
   @override
   @JsonKey(ignore: true)
   _$$_PetitionRequestModelCopyWith<_$_PetitionRequestModel> get copyWith =>

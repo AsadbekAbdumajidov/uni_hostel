@@ -6,7 +6,12 @@ class ProfileState with _$ProfileState {
     @Default(Status.UNKNOWN) Status status,
     @Default(UnknownFailure()) Failure failure,
     StudentInfoResponseModel? profileResponse,
-    ImageUploadResponse? imageUploadResponse,
     PlatformFile? pickedImg,
+    @Default("") String district,
+    @Default("") String neighborhood,
+    @Default("") String course,
+    @Default("") String region,
+    @Default("") String group,
+    @Default("") String phoneNumber,
   }) = _ProfileState;
 }

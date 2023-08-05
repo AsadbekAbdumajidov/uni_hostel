@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/core/widget/custom_button.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/core/widget/custom_button.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
 
 class StepStatusWidget extends StatelessWidget {
   const StepStatusWidget(
@@ -20,14 +20,12 @@ class StepStatusWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 40),
-            SvgPicture.asset(img, height: 300,fit: BoxFit.contain),
+            SvgPicture.asset(img, height: 300, fit: BoxFit.contain),
             SizedBox(height: 25),
             Text(title,
                 textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall
-                    ?.copyWith(fontSize: ResponsiveWidget.isTablet(context) ? 16 : 20)),
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontSize: ResponsiveWidget.isTablet(context) ? 16 : 20)),
             SizedBox(height: 30),
             onTap == null
                 ? SizedBox.shrink()

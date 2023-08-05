@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/core/utils/formater.dart';
-import 'package:uni_hostel/core/utils/validator.dart';
-import 'package:uni_hostel/core/widget/custom_button.dart';
-import 'package:uni_hostel/core/widget/custom_text_field.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/core/utils/formater.dart';
+import 'package:UniHostel/core/utils/validator.dart';
+import 'package:UniHostel/core/widget/custom_button.dart';
+import 'package:UniHostel/core/widget/custom_text_field.dart';
 
 class PaymentAlertDialog extends StatelessWidget {
   const PaymentAlertDialog(
@@ -38,7 +38,7 @@ class PaymentAlertDialog extends StatelessWidget {
                       ?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 GestureDetector(
-                  onTap: ()=>Navigator.pop(context),
+                  onTap: () => Navigator.pop(context),
                   child: Icon(CupertinoIcons.xmark),
                 )
               ],
@@ -79,7 +79,9 @@ class PaymentAlertDialog extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium
-                            ?.copyWith(fontWeight: FontWeight.w400,color: AppColors.bodyTextColor)),
+                            ?.copyWith(
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.bodyTextColor)),
                     SizedBox(width: 8),
                     Expanded(
                       flex: 5,
@@ -112,4 +114,3 @@ class PaymentAlertDialog extends StatelessWidget {
     );
   }
 }
-

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/core/widget/error_img_profile.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/core/widget/error_img_profile.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/presentation/cubit/profile/profile_cubit.dart';
 
 class ActionItems extends StatelessWidget {
   const ActionItems({super.key, this.onTapProfileDrawer});
@@ -16,14 +15,6 @@ class ActionItems extends StatelessWidget {
       return Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          TextButton(
-            onPressed: () {},
-            child: Text(AppStrings.strUzb,
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall
-                    ?.copyWith(color: AppColors.bodyTextColor)),
-          ),
           NetworkImageWidget(
                   onTap: onTapProfileDrawer,
                   size: 50,

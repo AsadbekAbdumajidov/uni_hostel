@@ -1,29 +1,29 @@
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:uni_hostel/core/network_client/network_client.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/data/data_source/provider.dart';
-import 'package:uni_hostel/data/domain/repository/authorization.dart';
-import 'package:uni_hostel/data/domain/repository/main.dart';
-import 'package:uni_hostel/data/domain/usecases/auth/check_user_auth.dart';
-import 'package:uni_hostel/data/domain/usecases/auth/login.dart';
-import 'package:uni_hostel/data/domain/usecases/auth/logout.dart';
-import 'package:uni_hostel/data/domain/usecases/main/dormitory.dart';
-import 'package:uni_hostel/data/domain/usecases/main/dormitory_selected.dart';
-import 'package:uni_hostel/data/domain/usecases/main/image_upload.dart';
-import 'package:uni_hostel/data/domain/usecases/main/petition.dart';
-import 'package:uni_hostel/data/domain/usecases/main/profile.dart';
-import 'package:uni_hostel/data/domain/usecases/main/statistic.dart';
-import 'package:uni_hostel/data/domain/usecases/main/student_info.dart';
-import 'package:uni_hostel/data/repository/authorization.dart';
-import 'package:uni_hostel/data/repository/main.dart';
-import 'package:uni_hostel/presentation/cubit/auth/auth_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/dormitory/dormitory_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/login/login_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/payment/payment_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/profile/profile_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/submit_application/submit_application_cubit.dart';
-import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
+import 'package:UniHostel/core/network_client/network_client.dart';
+import 'package:UniHostel/core/utils/utils.dart';
+import 'package:UniHostel/data/data_source/provider.dart';
+import 'package:UniHostel/data/domain/repository/authorization.dart';
+import 'package:UniHostel/data/domain/repository/main.dart';
+import 'package:UniHostel/data/domain/usecases/auth/check_user_auth.dart';
+import 'package:UniHostel/data/domain/usecases/auth/login.dart';
+import 'package:UniHostel/data/domain/usecases/auth/logout.dart';
+import 'package:UniHostel/data/domain/usecases/main/dormitory.dart';
+import 'package:UniHostel/data/domain/usecases/main/dormitory_selected.dart';
+import 'package:UniHostel/data/domain/usecases/main/image_upload.dart';
+import 'package:UniHostel/data/domain/usecases/main/petition.dart';
+import 'package:UniHostel/data/domain/usecases/main/profile.dart';
+import 'package:UniHostel/data/domain/usecases/main/statistic.dart';
+import 'package:UniHostel/data/domain/usecases/main/student_info.dart';
+import 'package:UniHostel/data/repository/authorization.dart';
+import 'package:UniHostel/data/repository/main.dart';
+import 'package:UniHostel/presentation/cubit/auth/auth_cubit.dart';
+import 'package:UniHostel/presentation/cubit/dormitory/dormitory_cubit.dart';
+import 'package:UniHostel/presentation/cubit/login/login_cubit.dart';
+import 'package:UniHostel/presentation/cubit/payment/payment_cubit.dart';
+import 'package:UniHostel/presentation/cubit/profile/profile_cubit.dart';
+import 'package:UniHostel/presentation/cubit/submit_application/submit_application_cubit.dart';
+import 'package:UniHostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
 
 final inject = GetIt.instance;
 
@@ -47,7 +47,7 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => DormitorySelectedUseCase(inject()));
   inject.registerLazySingleton(() => StatisticUseCase(inject()));
   inject.registerLazySingleton(() => ProfileInfoUseCase(inject()));
-  inject.registerLazySingleton(() => ImageUploadUseCase(inject()));
+  inject.registerLazySingleton(() => EditProfileUseCase(inject()));
 
   // repository init
   inject.registerLazySingleton<IAuthRepository>(

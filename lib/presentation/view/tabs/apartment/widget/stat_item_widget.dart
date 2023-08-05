@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/data/models/statistic/statistic_response.dart';
-import 'package:uni_hostel/presentation/components/animated_progress_indicator.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/data/models/statistic/statistic_response.dart';
+import 'package:UniHostel/presentation/components/animated_progress_indicator.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
 
 class StatItemWidget extends StatelessWidget {
   const StatItemWidget({super.key, required this.response});

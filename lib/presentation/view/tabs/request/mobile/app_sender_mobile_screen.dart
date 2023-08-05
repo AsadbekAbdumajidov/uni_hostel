@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/themes/app_icons.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
-import 'package:uni_hostel/presentation/view/tabs/request/mobile/widget/request_mobile_screen.dart';
-import 'package:uni_hostel/presentation/view/tabs/request/widget/status_widget.dart';
-import 'package:uni_hostel/presentation/view/tabs/request/widget/step_widget.dart';
+import 'package:UniHostel/core/themes/app_icons.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/data/models/booking_information/booking_info_response_model.dart';
+import 'package:UniHostel/presentation/view/tabs/request/mobile/widget/request_mobile_screen.dart';
+import 'package:UniHostel/presentation/view/tabs/request/widget/status_widget.dart';
+import 'package:UniHostel/presentation/view/tabs/request/widget/step_widget.dart';
 
 class AppSenderMobileScreen extends StatelessWidget {
   const AppSenderMobileScreen(
@@ -13,7 +13,8 @@ class AppSenderMobileScreen extends StatelessWidget {
       this.infoResponse,
       required this.currentIndex,
       required this.fileOnTap,
-      required this.onTapNext,  required this.fileName});
+      required this.onTapNext,
+      required this.fileName});
   final BookingInfoResponse? infoResponse;
   final int currentIndex;
   final Function() fileOnTap;
@@ -21,6 +22,7 @@ class AppSenderMobileScreen extends StatelessWidget {
   final String fileName;
   @override
   Widget build(BuildContext context) {
+    debugPrint("====${infoResponse?.isOrdered}====");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -1,7 +1,6 @@
-name: uni_hostel
-description: A new Flutter project.
+name: UniHostel
+description: Har qanday qog'oz va hujjatlarga chek qo'ygan holda talabalar turar joyiga onlayn ariza yuboring
 publish_to: 'none'
-
 
 version: 1.0.0+1
 
@@ -59,6 +58,9 @@ dependencies:
   cached_network_image: ^3.2.3
   # for check the internet
   connectivity_plus: ^4.0.1
+  intl: ^0.18.1
+  # drobdown for filter
+  dropdown_button2: ^2.3.7
 
 
 dev_dependencies:
@@ -66,11 +68,7 @@ dev_dependencies:
   retrofit_generator: any
   flutter_test:
     sdk: flutter
-  
- 
-  
-  
-  
+    
 flutter:
   uses-material-design: true
   

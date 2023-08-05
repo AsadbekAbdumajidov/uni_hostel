@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/Users/abrorsamurai/flutterProjects/TTA/uni_hostel/linux"
+    "cmake.sourceDirectory": "/Users/abrorsamurai/flutterProjects/TTA/UniHostel/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

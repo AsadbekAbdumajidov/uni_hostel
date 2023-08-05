@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:uni_hostel/core/themes/app_icons.dart';
-import 'package:uni_hostel/core/widget/custom_button.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/core/themes/app_icons.dart';
+import 'package:UniHostel/core/widget/custom_button.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
 import '../../../core/themes/app_text.dart';
 
 class NoInternetScreen extends StatelessWidget {
   const NoInternetScreen({super.key, required this.onTap});
-final Function() onTap;
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

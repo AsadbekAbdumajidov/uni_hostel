@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-
+import 'package:UniHostel/core/utils/utils.dart';
 
 class DioConnectivityRequestRetrier {
   final Dio dio;

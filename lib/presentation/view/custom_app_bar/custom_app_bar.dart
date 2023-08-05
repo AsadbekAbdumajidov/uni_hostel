@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uni_hostel/core/constants/constants.dart';
-import 'package:uni_hostel/core/themes/app_colors.dart';
-import 'package:uni_hostel/presentation/components/responsiveness.dart';
-import 'package:uni_hostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
-import 'package:uni_hostel/presentation/view/custom_app_bar/widget/action_item.dart';
-import 'package:uni_hostel/presentation/view/custom_app_bar/widget/title_item.dart';
+import 'package:UniHostel/core/constants/constants.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:UniHostel/presentation/components/responsiveness.dart';
+import 'package:UniHostel/presentation/cubit/tob_bar/top_nav_cubit.dart';
+import 'package:UniHostel/presentation/view/custom_app_bar/widget/action_item.dart';
+import 'package:UniHostel/presentation/view/custom_app_bar/widget/title_item.dart';
 
 class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomNavBar({Key? key, this.onTapDrawer, required this.buildContext})
@@ -24,7 +24,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
           automaticallyImplyLeading: false,
           toolbarHeight: 80,
           centerTitle: false,
-          leading: !ResponsiveWidget.isMobile(context)
+          leading: !ResponsiveWidget.isMobileLarge(context)
               ? null
               : Builder(
                   builder: (context) => GestureDetector(
@@ -38,7 +38,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
               onTapProfileDrawer: () => Scaffold.of(context).openEndDrawer(),
             )
           ],
-          title: ResponsiveWidget.isMobile(context)
+          title: ResponsiveWidget.isMobileLarge(context)
               ? const SizedBox.shrink()
               : TitleItem(currentIndex: state.currentIndex),
         ),

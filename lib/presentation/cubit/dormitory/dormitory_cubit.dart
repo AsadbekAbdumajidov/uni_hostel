@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/usecase/usecase.dart';
-import 'package:uni_hostel/core/utils/utils.dart';
-import 'package:uni_hostel/data/domain/usecases/main/dormitory.dart';
-import 'package:uni_hostel/data/domain/usecases/main/dormitory_selected.dart';
-import 'package:uni_hostel/data/domain/usecases/main/statistic.dart';
-import 'package:uni_hostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
-import 'package:uni_hostel/data/models/dormitorys/dormitorys_response_model.dart';
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/usecase/usecase.dart';
+import 'package:UniHostel/core/utils/utils.dart';
+import 'package:UniHostel/data/domain/usecases/main/dormitory.dart';
+import 'package:UniHostel/data/domain/usecases/main/dormitory_selected.dart';
+import 'package:UniHostel/data/domain/usecases/main/statistic.dart';
+import 'package:UniHostel/data/models/dormitory_selected/dormitory_selected_response_model.dart';
+import 'package:UniHostel/data/models/dormitorys/dormitorys_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:uni_hostel/data/models/statistic/statistic_response.dart';
+import 'package:UniHostel/data/models/statistic/statistic_response.dart';
 part 'dormitory_state.dart';
 part 'dormitory_cubit.freezed.dart';
 

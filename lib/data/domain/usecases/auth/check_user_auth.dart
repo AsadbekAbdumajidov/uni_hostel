@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:uni_hostel/core/error/error.dart';
-import 'package:uni_hostel/core/usecase/usecase.dart';
-import 'package:uni_hostel/data/domain/repository/authorization.dart';
-
+import 'package:UniHostel/core/error/error.dart';
+import 'package:UniHostel/core/usecase/usecase.dart';
+import 'package:UniHostel/data/domain/repository/authorization.dart';
 
 class CheckUserToAuthUseCase extends UseCase<bool, NoParams> {
   final IAuthRepository _authRepository;

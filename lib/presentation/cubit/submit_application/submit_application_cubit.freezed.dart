@@ -23,6 +23,7 @@ mixin _$SubmitApplicationState {
       throw _privateConstructorUsedError;
   PlatformFile? get file => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  int get currentIndex => throw _privateConstructorUsedError;
   bool get ironNotebook => throw _privateConstructorUsedError;
   bool get womensBook => throw _privateConstructorUsedError;
   bool get youthsNotebook => throw _privateConstructorUsedError;
@@ -31,7 +32,7 @@ mixin _$SubmitApplicationState {
   bool get oneParentsIsDead => throw _privateConstructorUsedError;
   bool get disabled => throw _privateConstructorUsedError;
   bool get giftedStudent => throw _privateConstructorUsedError;
-  int get currentIndex => throw _privateConstructorUsedError;
+  bool get hasManyChildrenFamily => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubmitApplicationStateCopyWith<SubmitApplicationState> get copyWith =>
@@ -51,6 +52,7 @@ abstract class $SubmitApplicationStateCopyWith<$Res> {
       PetitionResponseModel? petitionResponse,
       PlatformFile? file,
       String? name,
+      int currentIndex,
       bool ironNotebook,
       bool womensBook,
       bool youthsNotebook,
@@ -59,7 +61,7 @@ abstract class $SubmitApplicationStateCopyWith<$Res> {
       bool oneParentsIsDead,
       bool disabled,
       bool giftedStudent,
-      int currentIndex});
+      bool hasManyChildrenFamily});
 
   $BookingInfoResponseCopyWith<$Res>? get infoResponse;
   $PetitionResponseModelCopyWith<$Res>? get petitionResponse;
@@ -85,6 +87,7 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
     Object? petitionResponse = freezed,
     Object? file = freezed,
     Object? name = freezed,
+    Object? currentIndex = null,
     Object? ironNotebook = null,
     Object? womensBook = null,
     Object? youthsNotebook = null,
@@ -93,7 +96,7 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
     Object? oneParentsIsDead = null,
     Object? disabled = null,
     Object? giftedStudent = null,
-    Object? currentIndex = null,
+    Object? hasManyChildrenFamily = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -120,6 +123,10 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       ironNotebook: null == ironNotebook
           ? _value.ironNotebook
           : ironNotebook // ignore: cast_nullable_to_non_nullable
@@ -152,10 +159,10 @@ class _$SubmitApplicationStateCopyWithImpl<$Res,
           ? _value.giftedStudent
           : giftedStudent // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentIndex: null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      hasManyChildrenFamily: null == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -200,6 +207,7 @@ abstract class _$$_SubmitApplicationStateCopyWith<$Res>
       PetitionResponseModel? petitionResponse,
       PlatformFile? file,
       String? name,
+      int currentIndex,
       bool ironNotebook,
       bool womensBook,
       bool youthsNotebook,
@@ -208,7 +216,7 @@ abstract class _$$_SubmitApplicationStateCopyWith<$Res>
       bool oneParentsIsDead,
       bool disabled,
       bool giftedStudent,
-      int currentIndex});
+      bool hasManyChildrenFamily});
 
   @override
   $BookingInfoResponseCopyWith<$Res>? get infoResponse;
@@ -234,6 +242,7 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
     Object? petitionResponse = freezed,
     Object? file = freezed,
     Object? name = freezed,
+    Object? currentIndex = null,
     Object? ironNotebook = null,
     Object? womensBook = null,
     Object? youthsNotebook = null,
@@ -242,7 +251,7 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
     Object? oneParentsIsDead = null,
     Object? disabled = null,
     Object? giftedStudent = null,
-    Object? currentIndex = null,
+    Object? hasManyChildrenFamily = null,
   }) {
     return _then(_$_SubmitApplicationState(
       status: null == status
@@ -269,6 +278,10 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       ironNotebook: null == ironNotebook
           ? _value.ironNotebook
           : ironNotebook // ignore: cast_nullable_to_non_nullable
@@ -301,10 +314,10 @@ class __$$_SubmitApplicationStateCopyWithImpl<$Res>
           ? _value.giftedStudent
           : giftedStudent // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentIndex: null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      hasManyChildrenFamily: null == hasManyChildrenFamily
+          ? _value.hasManyChildrenFamily
+          : hasManyChildrenFamily // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -321,6 +334,7 @@ class _$_SubmitApplicationState
       this.petitionResponse,
       this.file,
       this.name,
+      this.currentIndex = 1,
       this.ironNotebook = false,
       this.womensBook = false,
       this.youthsNotebook = false,
@@ -329,7 +343,7 @@ class _$_SubmitApplicationState
       this.oneParentsIsDead = false,
       this.disabled = false,
       this.giftedStudent = false,
-      this.currentIndex = 1});
+      this.hasManyChildrenFamily = false});
 
   @override
   @JsonKey()
@@ -345,6 +359,9 @@ class _$_SubmitApplicationState
   final PlatformFile? file;
   @override
   final String? name;
+  @override
+  @JsonKey()
+  final int currentIndex;
   @override
   @JsonKey()
   final bool ironNotebook;
@@ -371,11 +388,11 @@ class _$_SubmitApplicationState
   final bool giftedStudent;
   @override
   @JsonKey()
-  final int currentIndex;
+  final bool hasManyChildrenFamily;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SubmitApplicationState(status: $status, failure: $failure, infoResponse: $infoResponse, petitionResponse: $petitionResponse, file: $file, name: $name, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadWinner: $noBreadWinner, oneParentsIsDead: $oneParentsIsDead, disabled: $disabled, giftedStudent: $giftedStudent, currentIndex: $currentIndex)';
+    return 'SubmitApplicationState(status: $status, failure: $failure, infoResponse: $infoResponse, petitionResponse: $petitionResponse, file: $file, name: $name, currentIndex: $currentIndex, ironNotebook: $ironNotebook, womensBook: $womensBook, youthsNotebook: $youthsNotebook, fosterHome: $fosterHome, noBreadWinner: $noBreadWinner, oneParentsIsDead: $oneParentsIsDead, disabled: $disabled, giftedStudent: $giftedStudent, hasManyChildrenFamily: $hasManyChildrenFamily)';
   }
 
   @override
@@ -389,6 +406,7 @@ class _$_SubmitApplicationState
       ..add(DiagnosticsProperty('petitionResponse', petitionResponse))
       ..add(DiagnosticsProperty('file', file))
       ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('currentIndex', currentIndex))
       ..add(DiagnosticsProperty('ironNotebook', ironNotebook))
       ..add(DiagnosticsProperty('womensBook', womensBook))
       ..add(DiagnosticsProperty('youthsNotebook', youthsNotebook))
@@ -397,7 +415,8 @@ class _$_SubmitApplicationState
       ..add(DiagnosticsProperty('oneParentsIsDead', oneParentsIsDead))
       ..add(DiagnosticsProperty('disabled', disabled))
       ..add(DiagnosticsProperty('giftedStudent', giftedStudent))
-      ..add(DiagnosticsProperty('currentIndex', currentIndex));
+      ..add(
+          DiagnosticsProperty('hasManyChildrenFamily', hasManyChildrenFamily));
   }
 
   @override
@@ -413,6 +432,8 @@ class _$_SubmitApplicationState
                 other.petitionResponse == petitionResponse) &&
             (identical(other.file, file) || other.file == file) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.currentIndex, currentIndex) ||
+                other.currentIndex == currentIndex) &&
             (identical(other.ironNotebook, ironNotebook) ||
                 other.ironNotebook == ironNotebook) &&
             (identical(other.womensBook, womensBook) ||
@@ -429,8 +450,8 @@ class _$_SubmitApplicationState
                 other.disabled == disabled) &&
             (identical(other.giftedStudent, giftedStudent) ||
                 other.giftedStudent == giftedStudent) &&
-            (identical(other.currentIndex, currentIndex) ||
-                other.currentIndex == currentIndex));
+            (identical(other.hasManyChildrenFamily, hasManyChildrenFamily) ||
+                other.hasManyChildrenFamily == hasManyChildrenFamily));
   }
 
   @override
@@ -442,6 +463,7 @@ class _$_SubmitApplicationState
       petitionResponse,
       file,
       name,
+      currentIndex,
       ironNotebook,
       womensBook,
       youthsNotebook,
@@ -450,7 +472,7 @@ class _$_SubmitApplicationState
       oneParentsIsDead,
       disabled,
       giftedStudent,
-      currentIndex);
+      hasManyChildrenFamily);
 
   @JsonKey(ignore: true)
   @override
@@ -468,6 +490,7 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
       final PetitionResponseModel? petitionResponse,
       final PlatformFile? file,
       final String? name,
+      final int currentIndex,
       final bool ironNotebook,
       final bool womensBook,
       final bool youthsNotebook,
@@ -476,7 +499,7 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
       final bool oneParentsIsDead,
       final bool disabled,
       final bool giftedStudent,
-      final int currentIndex}) = _$_SubmitApplicationState;
+      final bool hasManyChildrenFamily}) = _$_SubmitApplicationState;
 
   @override
   Status get status;
@@ -490,6 +513,8 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
   PlatformFile? get file;
   @override
   String? get name;
+  @override
+  int get currentIndex;
   @override
   bool get ironNotebook;
   @override
@@ -507,7 +532,7 @@ abstract class _SubmitApplicationState implements SubmitApplicationState {
   @override
   bool get giftedStudent;
   @override
-  int get currentIndex;
+  bool get hasManyChildrenFamily;
   @override
   @JsonKey(ignore: true)
   _$$_SubmitApplicationStateCopyWith<_$_SubmitApplicationState> get copyWith =>

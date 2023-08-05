@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
-import 'package:uni_hostel/core/themes/app_text.dart';
-import 'package:uni_hostel/data/models/booking_information/booking_info_response_model.dart';
-import 'package:uni_hostel/presentation/view/tabs/request/widget/text_item_widget.dart';
+import 'package:UniHostel/core/themes/app_text.dart';
+import 'package:UniHostel/data/models/booking_information/booking_info_response_model.dart';
+import 'package:UniHostel/presentation/view/tabs/request/widget/text_item_widget.dart';
 
 class FillerMobileWidget extends StatelessWidget {
   const FillerMobileWidget({super.key, required this.response});
@@ -21,7 +21,7 @@ class FillerMobileWidget extends StatelessWidget {
           ],
         ),
         SizedBox(height: 20),
-         Row(
+        Row(
           children: [
             TextItemWidget(
               flex: 5,
@@ -36,7 +36,6 @@ class FillerMobileWidget extends StatelessWidget {
               flex: 5,
               hintText: AppStrings.strPassportSeries,
               initialValue: response?.passportSeries ?? "-",
-
             ),
           ],
         ).paddingSymmetric(vertical: 20),
@@ -46,7 +45,6 @@ class FillerMobileWidget extends StatelessWidget {
               flex: 5,
               hintText: AppStrings.strJSH,
               initialValue: response?.jshir ?? "-",
-
             ),
           ],
         ),
@@ -56,7 +54,6 @@ class FillerMobileWidget extends StatelessWidget {
               flex: 4,
               hintText: AppStrings.strDateOfBirth,
               initialValue: response?.dateOfBirth ?? "-",
-
             ),
           ],
         ).paddingSymmetric(vertical: 20),
@@ -67,7 +64,6 @@ class FillerMobileWidget extends StatelessWidget {
               isReadOnly: true,
               hintText: AppStrings.strRegion,
               initialValue: response?.region ?? "-",
-
             ),
           ],
         ),
@@ -78,7 +74,6 @@ class FillerMobileWidget extends StatelessWidget {
               isReadOnly: true,
               hintText: AppStrings.strDistrict,
               initialValue: response?.district ?? "-",
-
             ),
           ],
         ).paddingSymmetric(vertical: 20),

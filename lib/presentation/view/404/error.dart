@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:uni_hostel/core/themes/app_images.dart';
-import 'package:uni_hostel/core/utils/size_konfig.dart';
+import 'package:UniHostel/core/themes/app_images.dart';
+import 'package:UniHostel/core/utils/size_konfig.dart';
 
 class PageNotFound extends StatelessWidget {
   @override

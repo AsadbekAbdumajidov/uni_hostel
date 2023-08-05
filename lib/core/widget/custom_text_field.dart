@@ -22,10 +22,12 @@ class CustomTextField extends StatelessWidget {
       this.initialValue,
       this.labelText,
       this.hintTextColor,
-      this.textColor,this.readOnly = false,
+      this.textColor,
+      this.readOnly = false,
       this.errorText,
       this.keyboardType,
-      this.textInputFormatter, this.maxLength})
+      this.textInputFormatter,
+      this.maxLength, this.onTap})
       : super(key: key);
 
   final TextEditingController? textEditingController;
@@ -33,7 +35,8 @@ class CustomTextField extends StatelessWidget {
   final String? hintText;
   final IconData? prefixIcon;
   final Widget? suffixIcon;
-  final bool? obscure;final bool readOnly;
+  final bool? obscure;
+  final bool readOnly;
   final TextInputAction? textInputAction;
   final Color? fillColor;
   final Color? preIconColor;
@@ -47,13 +50,14 @@ class CustomTextField extends StatelessWidget {
   final Color? textColor;
   final String? errorText;
   final int? maxLength;
-
+  final Function()? onTap;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? textInputFormatter;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       validator: validator,
       style:
           Theme.of(context).textTheme.displaySmall?.copyWith(color: textColor),
@@ -63,8 +67,7 @@ class CustomTextField extends StatelessWidget {
       focusNode: focusNode,
       readOnly: readOnly,
       maxLength: maxLength,
-      inputFormatters:
-          textInputFormatter != null ? textInputFormatter! : null,
+      inputFormatters: textInputFormatter != null ? textInputFormatter! : null,
       initialValue: initialValue,
       controller: textEditingController,
       keyboardType: keyboardType,
@@ -75,10 +78,8 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         errorText: errorText,
-        hintStyle: Theme.of(context)
-            .textTheme
-            .displaySmall
-            ?.copyWith(color: hintTextColor ?? AppColors.bodyTextColor.withOpacity(0.8)),
+        hintStyle: Theme.of(context).textTheme.displaySmall?.copyWith(
+            color: hintTextColor ?? AppColors.bodyTextColor.withOpacity(0.8)),
         hintText: hintText,
         filled: false,
         labelText: labelText,
@@ -89,25 +90,29 @@ class CustomTextField extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         fillColor: fillColor,
         contentPadding: const EdgeInsets.fromLTRB(16, 6, 6, 16),
-        border:  OutlineInputBorder(
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          borderSide: BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
+          borderSide:
+              BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
         ),
-        errorBorder:  OutlineInputBorder(
+        errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          borderSide: BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
+          borderSide:
+              BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
         ),
-        enabledBorder:  OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          borderSide: BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
+          borderSide:
+              BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
         ),
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
           borderSide: BorderSide(color: AppColors.primaryColor, width: 1.0),
         ),
-        disabledBorder:  OutlineInputBorder(
+        disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          borderSide: BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
+          borderSide:
+              BorderSide(color: AppColors.bodyTextColor.withOpacity(0.4)),
         ),
       ),
     );
