@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
               context, RouteName.home.route, (route) => false);
         }
         if (state.status == Status.ERROR) {
-          showErrorMessage(context, state.failure.getLocalizedMessage(context));
+          showErrorMessage(context, AppStrings.strUserNotFound);
         }
       }, builder: (context, state) {
         return Scaffold(

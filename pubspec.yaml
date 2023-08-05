@@ -1,7 +1,6 @@
 name: UniHostel
 description: Har qanday qog'oz va hujjatlarga chek qo'ygan holda talabalar turar joyiga onlayn ariza yuboring
 publish_to: 'none'
-
 version: 1.0.0+1
 
 environment:

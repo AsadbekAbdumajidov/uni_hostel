@@ -52,14 +52,7 @@ class ProfileDrawer extends StatelessWidget {
               title: "${AppStrings.strDateOfBirth}:",
               subTitle: state.profileResponse?.dateOfBirth,
             ),
-            ProfileDriwerItem(
-              title: "${AppStrings.strRegion}:",
-              subTitle: state.profileResponse?.region,
-            ).paddingSymmetric(vertical: 20),
-            ProfileDriwerItem(
-              title: "${AppStrings.strDistrict}:",
-              subTitle: state.profileResponse?.district,
-            ),
+            
             ProfileDriwerItem(
               title: "${AppStrings.strStreetAndHouseNumber}:",
               subTitle: state.profileResponse?.neighborhood,

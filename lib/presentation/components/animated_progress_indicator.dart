@@ -37,7 +37,6 @@ class _AnimatedCircularProgressIndicatorState
                 fit: StackFit.expand,
                 children: [
                   CircularProgressIndicator(
-                    strokeCap: StrokeCap.round,
                     value: value,
                     color: AppColors.primaryColor,
                     strokeWidth: 4,

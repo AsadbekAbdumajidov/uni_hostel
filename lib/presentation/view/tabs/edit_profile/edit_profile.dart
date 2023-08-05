@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
@@ -72,31 +73,38 @@ class _EditProfileState extends State<EditProfile> {
                           ? AppColors.whiteColor
                           : AppColors.primaryColor,
                     ).paddingOnly(bottom: 40, top: paddingSize),
-                    ResponsiveWidget.isMobileLarge(context)
-                        ? FormFieldsMobile(
-                            response: state.profileResponse,
-                            course: state.course,
-                          )
-                        : FormFieldsWeb(
-                            response: state.profileResponse,
-                            course: state.course,
-                          ),
-                    Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    FadeInUp(
+                      child: 
+                    
+                    Column(
                       children: [
-                        CustomOutlineButton(
-                          isLoading: state.status == Status.LOADING,
-                          text: AppStrings.strSave,
-                          onTap: () {
-                            if (formGlobalKey.currentState!.validate()) {
-                              context.read<ProfileCubit>().editProfile();
-                            }
-                          },
-                          width: 200,
-                        )
+                        ResponsiveWidget.isMobileLarge(context)
+                          ? FormFieldsMobile(
+                              response: state.profileResponse,
+                              course: state.course,
+                            )
+                          : FormFieldsWeb(
+                              response: state.profileResponse,
+                              course: state.course,
+                            ),
+                        Divider(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            CustomOutlineButton(
+                              isLoading: state.status == Status.LOADING,
+                              text: AppStrings.strSave,
+                              onTap: () {
+                                if (formGlobalKey.currentState!.validate()) {
+                                  context.read<ProfileCubit>().editProfile();
+                                }
+                              },
+                              width: 200,
+                            )
+                          ],
+                        ).paddingOnly(bottom: 110, top: 14)
                       ],
-                    ).paddingOnly(bottom: 110, top: 14)
+                    )),
                   ],
                 ).paddingSymmetric(horizontal: 20),
               );
