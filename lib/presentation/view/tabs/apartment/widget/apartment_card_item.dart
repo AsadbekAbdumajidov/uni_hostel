@@ -28,6 +28,11 @@ class ApartmentCardItem extends StatelessWidget {
     return BlocProvider(
       create: (context) => OnHoverCubit(),
       child: BlocBuilder<OnHoverCubit, OnHoverState>(builder: (context, state) {
+        double responsiveHeight = ResponsiveWidget.isMobileLarge(context)
+            ? 185
+            : state.hover
+                ? 250
+                : 235;
         return InkWell(
           splashFactory: NoSplash.splashFactory,
           highlightColor: AppColors.transparent,
@@ -60,20 +65,12 @@ class ApartmentCardItem extends StatelessWidget {
                       topRight: Radius.circular(20)),
                   child: Image.network(
                     img,
-                    height: ResponsiveWidget.isMobileLarge(context)
-                        ? 180
-                        : state.hover
-                            ? 245
-                            : 230,
+                    height: responsiveHeight,
                     width: context.w,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) => Image.asset(
                       AppImages.imgDeafult,
-                      height: ResponsiveWidget.isMobileLarge(context)
-                          ? 180
-                          : state.hover
-                              ? 245
-                              : 230,
+                      height: responsiveHeight,
                       fit: BoxFit.cover,
                       width: context.w,
                     ),
@@ -83,7 +80,7 @@ class ApartmentCardItem extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(title,
@@ -96,8 +93,9 @@ class ApartmentCardItem extends StatelessWidget {
                                       color: AppColors.whiteColor,
                                       fontSize: ResponsiveWidget.isMobileLarge(
                                               context)
-                                          ? 22
-                                          : 27)),
+                                          ? 20
+                                          : 24)),
+                                          SizedBox(height: 8),
                           Text(
                             "${subTitle.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), '')}",
                             maxLines: 2,
@@ -109,15 +107,15 @@ class ApartmentCardItem extends StatelessWidget {
                                   color: AppColors.whiteColor,
                                   fontSize:
                                       ResponsiveWidget.isMobileLarge(context)
-                                          ? 14
-                                          : 16,
+                                          ? 13
+                                          : 15,
                                 ),
                           ),
                         ],
                       ),
                     ),
                   ],
-                ).paddingAll(16),
+                ).paddingOnly(left: 16,right: 16,bottom: 16),
               ],
             ),
           ),

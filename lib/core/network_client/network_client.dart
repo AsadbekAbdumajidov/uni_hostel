@@ -32,6 +32,7 @@ class NetworkClient {
           options.headers['Access-Control-Allow-Headers'] =
               'X-Requested-With,content-type';
           options.headers['Access-Control-Allow-Credentials'] = true;
+          
         }
         return handler.next(options);
       },
@@ -67,6 +68,9 @@ class NetworkClient {
           options.headers!['Access-Control-Allow-Headers'] =
               'X-Requested-With,content-type';
           options.headers!['Access-Control-Allow-Credentials'] = true;
+          options.headers!['Accept'] = "application/json";
+          options.headers!['Content-Type'] = "application/json";
+
 
           Response cloneReq = await Dio().request<dynamic>(
               BASE_URL + requestOptions.path,

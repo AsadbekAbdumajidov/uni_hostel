@@ -14,6 +14,8 @@ import 'package:UniHostel/presentation/cubit/profile/profile_cubit.dart';
 import 'package:UniHostel/presentation/view/profile_drawer/widget/full_name_information.dart';
 import 'package:UniHostel/presentation/view/profile_drawer/widget/profile_driwer_item.dart';
 
+import '../../cubit/tob_bar/top_nav_cubit.dart';
+
 class ProfileDrawer extends StatelessWidget {
   ProfileDrawer({Key? key}) : super(key: key);
 
@@ -36,6 +38,7 @@ class ProfileDrawer extends StatelessWidget {
               onTap: () => context.read<ProfileCubit>().pickFile(),
               title: state.profileResponse?.fullName,
               subTitle: state.profileResponse?.passportSeries,
+
               img: state.profileResponse?.image ?? "",
             ),
             Divider().paddingSymmetric(vertical: 10),
@@ -52,7 +55,6 @@ class ProfileDrawer extends StatelessWidget {
               title: "${AppStrings.strDateOfBirth}:",
               subTitle: state.profileResponse?.dateOfBirth,
             ),
-            
             ProfileDriwerItem(
               title: "${AppStrings.strStreetAndHouseNumber}:",
               subTitle: state.profileResponse?.neighborhood,
@@ -87,8 +89,9 @@ class ProfileDrawer extends StatelessWidget {
   }
 
   Future<void> logout(BuildContext context) async {
-    await inject<AuthCubit>().logout();
-
+    context.read<TopNavBarCubit>().changeIndex(0);
+     inject<AuthCubit>().logout();
+     
     /// Navigate to Sign in Screen
     Navigator.of(context).pushNamedAndRemoveUntil(
         RouteName.login.route, (Route<dynamic> route) => false);

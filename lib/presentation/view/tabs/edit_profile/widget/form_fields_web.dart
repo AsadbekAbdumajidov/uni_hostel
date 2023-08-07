@@ -122,6 +122,7 @@ class FormFieldsWeb extends StatelessWidget {
               isReadOnly: false,
               hintText: AppStrings.strGroup,
               initialValue: response?.group ?? "-",
+               onchange: (v) => bloc.getGroup(v),
             ),
             Flexible(
               flex: 2,

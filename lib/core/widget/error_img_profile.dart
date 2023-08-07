@@ -49,9 +49,12 @@ class NetworkImageWidget extends StatelessWidget {
                       backgroundColor: backgroundColor,
                       lineColour: lineColour,
                       radius: radius ?? 20,
-                      errorIcon: isEdit == true && state.hover
-                          ? CupertinoIcons.add
-                          : Icons.person_outline,
+                      errorIcon:
+                          (isEdit == true && ResponsiveWidget.isMobile(context))
+                              ? CupertinoIcons.add
+                              : (isEdit == true && state.hover)
+                                  ? CupertinoIcons.add
+                                  : Icons.person_outline,
                     ),
                   )),
               Positioned.fill(

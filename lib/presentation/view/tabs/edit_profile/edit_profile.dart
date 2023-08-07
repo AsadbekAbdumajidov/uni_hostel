@@ -74,19 +74,17 @@ class _EditProfileState extends State<EditProfile> {
                           : AppColors.primaryColor,
                     ).paddingOnly(bottom: 40, top: paddingSize),
                     FadeInUp(
-                      child: 
-                    
-                    Column(
+                        child: Column(
                       children: [
                         ResponsiveWidget.isMobileLarge(context)
-                          ? FormFieldsMobile(
-                              response: state.profileResponse,
-                              course: state.course,
-                            )
-                          : FormFieldsWeb(
-                              response: state.profileResponse,
-                              course: state.course,
-                            ),
+                            ? FormFieldsMobile(
+                                response: state.profileResponse,
+                                course: state.course,
+                              )
+                            : FormFieldsWeb(
+                                response: state.profileResponse,
+                                course: state.course,
+                              ),
                         Divider(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
