@@ -1,3 +1,4 @@
+import 'package:UniHostel/presentation/components/responsiveness.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
@@ -77,8 +78,8 @@ class CheckAlertDialog extends StatelessWidget {
               ],
             ).paddingOnly(top: 14)
           ],
-        ).paddingAll(40),
+        ).paddingAll(ResponsiveWidget.isMobile(context) ? 16 : 40),
       ),
-    ).paddingSymmetric(vertical: 140);
+    ).paddingSymmetric(vertical: 60);
   }
 }

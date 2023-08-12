@@ -6,6 +6,6 @@ class PaymentState with _$PaymentState {
     @Default(Status.UNKNOWN) Status status,
     @Default(UnknownFailure()) Failure failure,
     @Default(1) int currentIndex,
-  
+    @Default([]) List<PaymentStory>? paymentStoryList,
   }) = _PaymentState;
 }

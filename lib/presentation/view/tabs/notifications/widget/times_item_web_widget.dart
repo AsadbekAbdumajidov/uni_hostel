@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:UniHostel/core/themes/app_icons.dart';
 import 'package:UniHostel/presentation/components/responsiveness.dart';
 
-class TimeItemWidget extends StatelessWidget {
-  const TimeItemWidget({super.key, required this.data, required this.time});
+class TimeItemWebWidget extends StatelessWidget {
+  const TimeItemWebWidget({super.key, required this.data, required this.time});
   final String data;
   final String time;
   @override

@@ -12,10 +12,10 @@ class AppIcons {
   static const String iconInQueue = 'assets/icons/ic_queue.svg';
   static const String iconArrowLeft = 'assets/icons/ic_arrow_left.svg';
   static const String iconArrowRight = 'assets/icons/ic_arrow_right.svg';
-  static const iconBgRejected = "assets/icons/ic_bg_rejected.svg";
-  static const iconSuccess = "assets/icons/ic_success.svg";
-  static const iconExpertise = "assets/icons/ic_expertise.svg";
-  static const iconWhiteLogo = "assets/icons/ic_white_logo.svg";
-  static const iconNoInternet = "assets/icons/ic_no_connection.png";
-
+  static const String iconBgRejected = "assets/icons/ic_bg_rejected.svg";
+  static const String iconSuccess = "assets/icons/ic_success.svg";
+  static const String iconExpertise = "assets/icons/ic_expertise.svg";
+  static const String iconWhiteLogo = "assets/icons/ic_white_logo.svg";
+  static const String iconNoInternet = "assets/icons/ic_no_connection.png";
+  static const String iconIsEmpty = "assets/icons/ic_rejected.svg";
 }

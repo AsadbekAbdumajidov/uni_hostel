@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:UniHostel/data/models/notifications.dart/notifications_response.dart';
+import 'package:UniHostel/data/models/payment_story.dart/payment_story_response.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
@@ -250,4 +252,55 @@ class MainRepository implements IMainRepository {
       rethrow;
     }
   }
+
+  @override
+  Future<Either<Failure, PaymentStoryResponse>> getPaymentStory() async{
+  try {
+      final response = await _apiClient.getPaymentStory();
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? UserNotFound(null)
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, NotificationsResponse>> getNotifications() async{
+   try {
+      final response = await _apiClient.getNotification();
+      return Right(response);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      if (e.error is SocketException) {
+        return const Left(ConnectionFailure());
+      }
+      return Left(
+        (e.response?.statusCode == 400)
+            ? UserNotFound(null)
+            : ServerFailure(e.response?.statusCode),
+      );
+    } on Object catch (e) {
+      if (kDebugMode) {
+        debugPrint("$e");
+      }
+      rethrow;
+    }
+  }
+
 }

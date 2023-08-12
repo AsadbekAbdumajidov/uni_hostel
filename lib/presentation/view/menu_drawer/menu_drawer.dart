@@ -54,11 +54,11 @@ class MenuDrawer extends StatelessWidget {
                   title: AppStrings.strNotification,
                   currentIndex: state.currentIndex,
                   onTap: () {
-                    // if (state.currentIndex != 2) {
-                    //   context.read<TopNavBarCubit>().changeIndex(2);
-                    // Navigator.pop(context);
-                    //   Navigator.pushNamed(context, RouteName.notification.route);
-                    // }
+                    if (state.currentIndex != 2) {
+                      context.read<TopNavBarCubit>().changeIndex(2);
+                    Navigator.pop(context);
+                      Navigator.pushNamed(context, RouteName.notification.route);
+                    }
                   }),
               SideMenuItem(
                 index: 3,

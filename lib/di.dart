@@ -1,3 +1,6 @@
+import 'package:UniHostel/data/domain/usecases/main/notifications.dart';
+import 'package:UniHostel/data/domain/usecases/main/payment_story.dart';
+import 'package:UniHostel/presentation/cubit/notifications/notifications_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:UniHostel/core/network_client/network_client.dart';
@@ -30,9 +33,10 @@ final inject = GetIt.instance;
 Future<void> initDi() async {
   // cubits need register
   inject.registerFactory(() => TopNavBarCubit());
-  inject.registerFactory(() => PaymentCubit());
+  inject.registerFactory(() => PaymentCubit(inject()));
   inject.registerFactory(() => AuthCubit(inject(), inject()));
   inject.registerFactory(() => LoginCubit(inject()));
+  inject.registerFactory(() => NotificationCubit(inject()));
   inject.registerFactory(() => DormitoryCubit(inject(), inject(), inject()));
   inject.registerFactory(() => SubmitApplicationCubit(inject(), inject()));
   inject.registerFactory(() => ProfileCubit(inject(), inject()));
@@ -48,6 +52,9 @@ Future<void> initDi() async {
   inject.registerLazySingleton(() => StatisticUseCase(inject()));
   inject.registerLazySingleton(() => ProfileInfoUseCase(inject()));
   inject.registerLazySingleton(() => EditProfileUseCase(inject()));
+  inject.registerLazySingleton(() => PaymentStoryUseCase(inject()));
+  inject.registerLazySingleton(() => NotificationsUseCase(inject()));
+
 
   // repository init
   inject.registerLazySingleton<IAuthRepository>(

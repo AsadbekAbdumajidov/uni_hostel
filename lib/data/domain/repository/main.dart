@@ -1,3 +1,5 @@
+import 'package:UniHostel/data/models/notifications.dart/notifications_response.dart';
+import 'package:UniHostel/data/models/payment_story.dart/payment_story_response.dart';
 import 'package:dartz/dartz.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:UniHostel/core/error/error.dart';
@@ -8,6 +10,7 @@ import 'package:UniHostel/data/models/petition/request/petition_request.dart';
 import 'package:UniHostel/data/models/petition/response/petition_response.dart';
 import 'package:UniHostel/data/models/statistic/statistic_response.dart';
 import 'package:UniHostel/data/models/student_information/student_info_response_model.dart';
+import 'package:flutter/material.dart';
 
 abstract class IMainRepository {
   Future<Either<Failure, BookingInfoResponse>> getInfo();
@@ -27,4 +30,10 @@ abstract class IMainRepository {
   Future<Either<Failure, DormitorySelected>> getDormitory(int id);
 
   Future<Either<Failure, StatisticResponse>> getStatistic();
+
+  Future<Either<Failure, PaymentStoryResponse>> getPaymentStory();
+  
+
+  Future<Either<Failure, NotificationsResponse>> getNotifications();
+
 }

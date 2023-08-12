@@ -55,10 +55,10 @@ class TitleItem extends StatelessWidget {
               currentIndex: currentIndex,
               index: 2,
               onTap: () {
-                // if (currentIndex != 2) {
-                //   context.read<TopNavBarCubit>().changeIndex(2);
-                //   Navigator.pushNamed(context, RouteName.notification.route);
-                // }
+                if (currentIndex != 2) {
+                  context.read<TopNavBarCubit>().changeIndex(2);
+                  Navigator.pushNamed(context, RouteName.notification.route);
+                }
               }),
         ),
         SizedBox(width: ResponsiveWidget.isTablet(context) ? 10 : 14),

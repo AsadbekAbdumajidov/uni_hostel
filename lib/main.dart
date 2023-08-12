@@ -1,3 +1,4 @@
+import 'package:UniHostel/presentation/cubit/notifications/notifications_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:UniHostel/core/routes/app_pages.dart';
@@ -29,7 +30,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => inject<TopNavBarCubit>()),
-        BlocProvider(create: (context) => inject<PaymentCubit>()),
+        BlocProvider(
+            create: (context) => inject<PaymentCubit>()..getPaymentStory()),
+        BlocProvider(
+            create: (context) =>
+                inject<NotificationCubit>()..getNotifications()),
         BlocProvider(
             create: (context) => inject<AuthCubit>()..checkUserToAuth()),
         BlocProvider(
@@ -38,6 +43,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 inject<SubmitApplicationCubit>()..getStudentInfo()),
+                BlocProvider(
+            create: (context) =>
+                inject<NotificationCubit>()..getNotifications()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

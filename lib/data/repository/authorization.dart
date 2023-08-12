@@ -19,7 +19,7 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<Failure, bool>> checkUserToAuth() async {
     try {
-      String token = _preferences.getString(ACCESS_TOKEN) ?? '';
+      String token = _preferences.getString(ACCESS_TOKEN) ?? "";
       return Right(token.isNotEmpty);
     } catch (e) {
       return const Left(CacheFailure());
@@ -30,6 +30,8 @@ class AuthRepository implements IAuthRepository {
   Future<Either<Failure, bool>> logout() async {
     try {
       await _preferences.setString(ACCESS_TOKEN, '');
+      await _preferences.setString(REFRESH_TOKEN, '');
+
       return const Right(true);
     } catch (e) {
       return const Left(CacheFailure());

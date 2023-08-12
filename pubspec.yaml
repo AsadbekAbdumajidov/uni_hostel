@@ -60,6 +60,8 @@ dependencies:
   intl: ^0.18.1
   # drobdown for filter
   dropdown_button2: ^2.3.7
+  # for text scrolling
+  text_scroll: ^0.2.0
 
 
 dev_dependencies:

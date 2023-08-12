@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 
-void localDateFormat(BuildContext context,
+void showDate(BuildContext context,
     TextEditingController? textEditingController) async {
   DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -19,4 +19,26 @@ void localDateFormat(BuildContext context,
   } else {
     print("Date is not selected");
   }
+}
+
+String localDateFormat(String? date, {String format = "yyyy-MM-dd"}) {
+  if (date == null || date.isEmpty) {
+    return '';
+  }
+  var dateValue = DateFormat(
+          date.contains('T') ? 'yyyy-MM-ddTHH:mm:ssZ' : "yyyy-MM-dd HH:mm:ssZ")
+      .parse(date, true)
+      .toLocal();
+  return DateFormat(format).format(dateValue);
+}
+
+String localTimeFormat(String? date, {String format = "HH:mm"}) {
+  if (date == null || date.isEmpty) {
+    return '';
+  }
+  var dateValue = DateFormat(
+          date.contains('T') ? 'yyyy-MM-ddTHH:mm:ssZ' : "yyyy-MM-dd HH:mm:ssZ")
+      .parse(date, true)
+      .toLocal();
+  return DateFormat(format).format(dateValue);
 }

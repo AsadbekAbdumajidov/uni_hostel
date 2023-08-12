@@ -8,6 +8,8 @@ class AppStrings {
   static const strAcces = "Kirish";
   static const strEdit = "Tahrirlash";
   static const strNotEmoty = "maydon bo'sh bo'lishi mumkin emas";
+  static const strIsEmptyNotifications = "Sizda bildirishnomalar mavjud emas";
+
 
 
   static const strHome = "Bosh sahifa";
@@ -66,6 +68,10 @@ class AppStrings {
   static const strNoCheck = "Sizda cheklar mavjud emas";
   static const strPaymentIs = "To‘lov qilish";
   static const strThreeMonthPay = "Uch oylik uchun to’lash";
+  static const strMonth = "oy";
+  static const strMony = "so'm";
+
+
   static const strOneYearPay = "Bir yillik uchun to’lash";
   static const strCheackPayDate = "To‘lov muddatini tanlash";
   static const strPay = "To'lash";

@@ -19,6 +19,8 @@ mixin _$PaymentState {
   Status get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
+  List<PaymentStory>? get paymentStoryList =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaymentStateCopyWith<PaymentState> get copyWith =>
@@ -31,7 +33,11 @@ abstract class $PaymentStateCopyWith<$Res> {
           PaymentState value, $Res Function(PaymentState) then) =
       _$PaymentStateCopyWithImpl<$Res, PaymentState>;
   @useResult
-  $Res call({Status status, Failure failure, int currentIndex});
+  $Res call(
+      {Status status,
+      Failure failure,
+      int currentIndex,
+      List<PaymentStory>? paymentStoryList});
 }
 
 /// @nodoc
@@ -50,6 +56,7 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
     Object? status = null,
     Object? failure = null,
     Object? currentIndex = null,
+    Object? paymentStoryList = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -64,6 +71,10 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      paymentStoryList: freezed == paymentStoryList
+          ? _value.paymentStoryList
+          : paymentStoryList // ignore: cast_nullable_to_non_nullable
+              as List<PaymentStory>?,
     ) as $Val);
   }
 }
@@ -76,7 +87,11 @@ abstract class _$$_PaymentStateCopyWith<$Res>
       __$$_PaymentStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Failure failure, int currentIndex});
+  $Res call(
+      {Status status,
+      Failure failure,
+      int currentIndex,
+      List<PaymentStory>? paymentStoryList});
 }
 
 /// @nodoc
@@ -93,6 +108,7 @@ class __$$_PaymentStateCopyWithImpl<$Res>
     Object? status = null,
     Object? failure = null,
     Object? currentIndex = null,
+    Object? paymentStoryList = freezed,
   }) {
     return _then(_$_PaymentState(
       status: null == status
@@ -107,6 +123,10 @@ class __$$_PaymentStateCopyWithImpl<$Res>
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      paymentStoryList: freezed == paymentStoryList
+          ? _value._paymentStoryList
+          : paymentStoryList // ignore: cast_nullable_to_non_nullable
+              as List<PaymentStory>?,
     ));
   }
 }
@@ -117,7 +137,9 @@ class _$_PaymentState implements _PaymentState {
   const _$_PaymentState(
       {this.status = Status.UNKNOWN,
       this.failure = const UnknownFailure(),
-      this.currentIndex = 1});
+      this.currentIndex = 1,
+      final List<PaymentStory>? paymentStoryList = const []})
+      : _paymentStoryList = paymentStoryList;
 
   @override
   @JsonKey()
@@ -128,10 +150,21 @@ class _$_PaymentState implements _PaymentState {
   @override
   @JsonKey()
   final int currentIndex;
+  final List<PaymentStory>? _paymentStoryList;
+  @override
+  @JsonKey()
+  List<PaymentStory>? get paymentStoryList {
+    final value = _paymentStoryList;
+    if (value == null) return null;
+    if (_paymentStoryList is EqualUnmodifiableListView)
+      return _paymentStoryList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'PaymentState(status: $status, failure: $failure, currentIndex: $currentIndex)';
+    return 'PaymentState(status: $status, failure: $failure, currentIndex: $currentIndex, paymentStoryList: $paymentStoryList)';
   }
 
   @override
@@ -142,11 +175,14 @@ class _$_PaymentState implements _PaymentState {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.currentIndex, currentIndex) ||
-                other.currentIndex == currentIndex));
+                other.currentIndex == currentIndex) &&
+            const DeepCollectionEquality()
+                .equals(other._paymentStoryList, _paymentStoryList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, failure, currentIndex);
+  int get hashCode => Object.hash(runtimeType, status, failure, currentIndex,
+      const DeepCollectionEquality().hash(_paymentStoryList));
 
   @JsonKey(ignore: true)
   @override
@@ -159,7 +195,8 @@ abstract class _PaymentState implements PaymentState {
   const factory _PaymentState(
       {final Status status,
       final Failure failure,
-      final int currentIndex}) = _$_PaymentState;
+      final int currentIndex,
+      final List<PaymentStory>? paymentStoryList}) = _$_PaymentState;
 
   @override
   Status get status;
@@ -167,6 +204,8 @@ abstract class _PaymentState implements PaymentState {
   Failure get failure;
   @override
   int get currentIndex;
+  @override
+  List<PaymentStory>? get paymentStoryList;
   @override
   @JsonKey(ignore: true)
   _$$_PaymentStateCopyWith<_$_PaymentState> get copyWith =>

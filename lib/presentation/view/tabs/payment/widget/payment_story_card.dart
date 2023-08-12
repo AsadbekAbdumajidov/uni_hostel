@@ -1,3 +1,4 @@
+import 'package:UniHostel/data/models/payment_story.dart/payment_story_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
@@ -8,8 +9,8 @@ import 'package:UniHostel/presentation/components/responsiveness.dart';
 import 'package:UniHostel/presentation/view/tabs/payment/widget/check_alert_dialog.dart';
 
 class PaymentStoryCard extends StatelessWidget {
-  const PaymentStoryCard({super.key});
-
+  const PaymentStoryCard({super.key, required this.paymentStory});
+  final List<PaymentStory> paymentStory;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -57,7 +58,7 @@ class PaymentStoryCard extends StatelessWidget {
                 ).paddingOnly(bottom: 20),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: 6,
+                    itemCount: paymentStory.length,
                     itemBuilder: (_, __) {
                       return InkWell(
                         onTap: () {
@@ -81,7 +82,7 @@ class PaymentStoryCard extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "1-oy",
+                                    "${__ + 1}-${AppStrings.strMonth}",
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineMedium
@@ -89,7 +90,7 @@ class PaymentStoryCard extends StatelessWidget {
                                   ),
                                   SizedBox(height: 4),
                                   Text(
-                                    "06.07.2023",
+                                    paymentStory[__].paymentDate ?? "-",
                                     style: Theme.of(context)
                                         .textTheme
                                         .displaySmall
@@ -104,7 +105,7 @@ class PaymentStoryCard extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    "200 000 so'm",
+                                    "${paymentStory[__].monthlyPaymentPrice} ${AppStrings.strMony}",
                                     style: Theme.of(context)
                                         .textTheme
                                         .displaySmall

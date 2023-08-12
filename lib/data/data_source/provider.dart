@@ -1,3 +1,5 @@
+import 'package:UniHostel/data/models/notifications.dart/notifications_response.dart';
+import 'package:UniHostel/data/models/payment_story.dart/payment_story_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:UniHostel/core/utils/utils.dart';
@@ -51,4 +53,10 @@ abstract class ApiClient {
 
   @POST('student/profile/image/update/')
   Future<ImageUploadResponse> imageUpload();
+
+  @GET('student/get/payment/schedules/')
+  Future<PaymentStoryResponse> getPaymentStory();
+
+   @GET('student/notifications/')
+  Future<NotificationsResponse> getNotification();
 }

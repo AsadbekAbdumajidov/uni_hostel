@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
@@ -17,6 +16,8 @@ import 'package:UniHostel/presentation/view/tabs/apartment/widget/main_text.dart
 import 'package:UniHostel/presentation/view/tabs/apartment/widget/stat_item_widget.dart';
 import 'package:UniHostel/presentation/view/tabs/apartment/widget/web_card_list.dart';
 import 'package:UniHostel/presentation/view/tabs/request/widget/status_widget.dart';
+import 'package:UniHostel/core/themes/app_colors.dart';
+import 'package:text_scroll/text_scroll.dart';
 
 class ApartmentScreen extends StatelessWidget {
   @override
@@ -35,6 +36,17 @@ class ApartmentScreen extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: maxWidth),
             child: Column(
               children: [
+                TextScroll(
+                  "sayt test rejimda ishlamoqda. Sayt ustida texnik ishlar olib borilmoqda",
+                  velocity: Velocity(pixelsPerSecond: Offset(50, 0)),
+                  pauseBetween: Duration(milliseconds: 1000),
+                  mode: TextScrollMode.bouncing,
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      color: AppColors.redColour,
+                      fontSize: ResponsiveWidget.isTablet(context) ? 14 : 16),
+                  textAlign: TextAlign.right,
+                  selectable: true,
+                ).paddingOnly(left: 5),
                 state.isSelected
                     ? DormiotryDescriptionWidget(
                         name: state.dormitory?.name,

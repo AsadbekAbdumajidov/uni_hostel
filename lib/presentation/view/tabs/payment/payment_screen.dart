@@ -36,17 +36,23 @@ class PaymentScreen extends StatelessWidget {
                       children: [
                         PaymentToCard(currentIndex: state.currentIndex),
                         SizedBox(height: 30),
-                        PaymentStoryCard(),
+                        PaymentStoryCard(
+                            paymentStory: state.paymentStoryList ?? []),
                         SizedBox(height: 20),
                       ],
                     )
-                  : Row(
-                      children: [
-                        PaymentStoryCard(),
-                        SizedBox(width: 30),
-                        PaymentToCard(currentIndex: state.currentIndex),
-                      ],
-                    ),
+                  : ListView(
+                    children: [
+                      Row(
+                          children: [
+                            PaymentStoryCard(
+                                paymentStory: state.paymentStoryList ?? []),
+                            SizedBox(width: 30),
+                            PaymentToCard(currentIndex: state.currentIndex),
+                          ],
+                        ),
+                    ],
+                  ),
             ),
           ),
         );
