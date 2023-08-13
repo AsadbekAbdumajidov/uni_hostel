@@ -181,6 +181,8 @@ mixin _$NotificationModel {
   String? get title => throw _privateConstructorUsedError;
   String? get text => throw _privateConstructorUsedError;
   bool? get readed => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  String? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -195,7 +197,12 @@ abstract class $NotificationModelCopyWith<$Res> {
       _$NotificationModelCopyWithImpl<$Res, NotificationModel>;
   @useResult
   $Res call(
-      {int? id, bool? readOnly, String? title, String? text, bool? readed});
+      {int? id,
+      bool? readOnly,
+      String? title,
+      String? text,
+      bool? readed,
+      @JsonKey(name: 'created_at') String? createdAt});
 }
 
 /// @nodoc
@@ -216,6 +223,7 @@ class _$NotificationModelCopyWithImpl<$Res, $Val extends NotificationModel>
     Object? title = freezed,
     Object? text = freezed,
     Object? readed = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -238,6 +246,10 @@ class _$NotificationModelCopyWithImpl<$Res, $Val extends NotificationModel>
           ? _value.readed
           : readed // ignore: cast_nullable_to_non_nullable
               as bool?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -251,7 +263,12 @@ abstract class _$$_NotificationModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id, bool? readOnly, String? title, String? text, bool? readed});
+      {int? id,
+      bool? readOnly,
+      String? title,
+      String? text,
+      bool? readed,
+      @JsonKey(name: 'created_at') String? createdAt});
 }
 
 /// @nodoc
@@ -270,6 +287,7 @@ class __$$_NotificationModelCopyWithImpl<$Res>
     Object? title = freezed,
     Object? text = freezed,
     Object? readed = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_$_NotificationModel(
       id: freezed == id
@@ -292,6 +310,10 @@ class __$$_NotificationModelCopyWithImpl<$Res>
           ? _value.readed
           : readed // ignore: cast_nullable_to_non_nullable
               as bool?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -300,7 +322,12 @@ class __$$_NotificationModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NotificationModel implements _NotificationModel {
   const _$_NotificationModel(
-      {this.id, this.readOnly, this.title, this.text, this.readed});
+      {this.id,
+      this.readOnly,
+      this.title,
+      this.text,
+      this.readed,
+      @JsonKey(name: 'created_at') this.createdAt});
 
   factory _$_NotificationModel.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationModelFromJson(json);
@@ -315,10 +342,13 @@ class _$_NotificationModel implements _NotificationModel {
   final String? text;
   @override
   final bool? readed;
+  @override
+  @JsonKey(name: 'created_at')
+  final String? createdAt;
 
   @override
   String toString() {
-    return 'NotificationModel(id: $id, readOnly: $readOnly, title: $title, text: $text, readed: $readed)';
+    return 'NotificationModel(id: $id, readOnly: $readOnly, title: $title, text: $text, readed: $readed, createdAt: $createdAt)';
   }
 
   @override
@@ -331,13 +361,15 @@ class _$_NotificationModel implements _NotificationModel {
                 other.readOnly == readOnly) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.readed, readed) || other.readed == readed));
+            (identical(other.readed, readed) || other.readed == readed) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, readOnly, title, text, readed);
+      Object.hash(runtimeType, id, readOnly, title, text, readed, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -356,11 +388,13 @@ class _$_NotificationModel implements _NotificationModel {
 
 abstract class _NotificationModel implements NotificationModel {
   const factory _NotificationModel(
-      {final int? id,
-      final bool? readOnly,
-      final String? title,
-      final String? text,
-      final bool? readed}) = _$_NotificationModel;
+          {final int? id,
+          final bool? readOnly,
+          final String? title,
+          final String? text,
+          final bool? readed,
+          @JsonKey(name: 'created_at') final String? createdAt}) =
+      _$_NotificationModel;
 
   factory _NotificationModel.fromJson(Map<String, dynamic> json) =
       _$_NotificationModel.fromJson;
@@ -375,6 +409,9 @@ abstract class _NotificationModel implements NotificationModel {
   String? get text;
   @override
   bool? get readed;
+  @override
+  @JsonKey(name: 'created_at')
+  String? get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationModelCopyWith<_$_NotificationModel> get copyWith =>

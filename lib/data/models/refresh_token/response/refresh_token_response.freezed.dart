@@ -20,7 +20,7 @@ RefreshTokenResponse _$RefreshTokenResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RefreshTokenResponse {
-  String get refresh => throw _privateConstructorUsedError;
+  String? get refresh => throw _privateConstructorUsedError;
   String? get access => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $RefreshTokenResponseCopyWith<$Res> {
           $Res Function(RefreshTokenResponse) then) =
       _$RefreshTokenResponseCopyWithImpl<$Res, RefreshTokenResponse>;
   @useResult
-  $Res call({String refresh, String? access});
+  $Res call({String? refresh, String? access});
 }
 
 /// @nodoc
@@ -52,14 +52,14 @@ class _$RefreshTokenResponseCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? refresh = null,
+    Object? refresh = freezed,
     Object? access = freezed,
   }) {
     return _then(_value.copyWith(
-      refresh: null == refresh
+      refresh: freezed == refresh
           ? _value.refresh
           : refresh // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       access: freezed == access
           ? _value.access
           : access // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ abstract class _$$_RefreshTokenResponseCopyWith<$Res>
       __$$_RefreshTokenResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String refresh, String? access});
+  $Res call({String? refresh, String? access});
 }
 
 /// @nodoc
@@ -90,14 +90,14 @@ class __$$_RefreshTokenResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? refresh = null,
+    Object? refresh = freezed,
     Object? access = freezed,
   }) {
     return _then(_$_RefreshTokenResponse(
-      refresh: null == refresh
+      refresh: freezed == refresh
           ? _value.refresh
           : refresh // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       access: freezed == access
           ? _value.access
           : access // ignore: cast_nullable_to_non_nullable
@@ -109,13 +109,13 @@ class __$$_RefreshTokenResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RefreshTokenResponse implements _RefreshTokenResponse {
-  const _$_RefreshTokenResponse({required this.refresh, this.access});
+  const _$_RefreshTokenResponse({this.refresh, this.access});
 
   factory _$_RefreshTokenResponse.fromJson(Map<String, dynamic> json) =>
       _$$_RefreshTokenResponseFromJson(json);
 
   @override
-  final String refresh;
+  final String? refresh;
   @override
   final String? access;
 
@@ -154,14 +154,13 @@ class _$_RefreshTokenResponse implements _RefreshTokenResponse {
 
 abstract class _RefreshTokenResponse implements RefreshTokenResponse {
   const factory _RefreshTokenResponse(
-      {required final String refresh,
-      final String? access}) = _$_RefreshTokenResponse;
+      {final String? refresh, final String? access}) = _$_RefreshTokenResponse;
 
   factory _RefreshTokenResponse.fromJson(Map<String, dynamic> json) =
       _$_RefreshTokenResponse.fromJson;
 
   @override
-  String get refresh;
+  String? get refresh;
   @override
   String? get access;
   @override

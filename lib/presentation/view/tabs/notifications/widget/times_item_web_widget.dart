@@ -14,14 +14,14 @@ class TimeItemWebWidget extends StatelessWidget {
       SizedBox(width: 5),
       Text(data,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-              fontSize: ResponsiveWidget.isMobileLarge(context) ? 16 : 18)),
+              fontSize: ResponsiveWidget.isMobileLarge(context) ? 15 : 16)),
       SizedBox(width: 20),
       SvgPicture.asset(AppIcons.iconTime),
       SizedBox(width: 5),
       Text(
         time,
         style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            fontSize: ResponsiveWidget.isMobileLarge(context) ? 16 : 18),
+            fontSize: ResponsiveWidget.isMobileLarge(context) ? 15 : 16),
       ),
     ]);
   }

@@ -93,3 +93,12 @@ class SubmittedFailure extends Failure {
   String getLocalizedMessage(BuildContext context) =>
       AppStrings.strSubmittedFailure;
 }
+
+class UnAuthorizationFailure extends Failure {
+  const UnAuthorizationFailure() : super();
+
+  @override
+  String getLocalizedMessage(BuildContext context) =>
+      "";
+}
+

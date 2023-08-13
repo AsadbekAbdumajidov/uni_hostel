@@ -123,4 +123,6 @@ class AppStrings {
   static const strConnectionFailure = "Internet aloqasi topilmadi. Iltimos, ulanishingizni tekshiring";
   static const strUnknownFailure = "Noma'lum muvaffaqiyatsizlik";
   static const strServerFailure = "Server xatosi";
+  static const strUnAuthorizationFailure= "Avtorizatsiya xatosi";
+
 }

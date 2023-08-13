@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:UniHostel/core/error/error.dart';
 import 'package:UniHostel/core/network_client/retry.dart';
 import 'package:UniHostel/core/routes/app_routes.dart';
 import 'package:UniHostel/core/utils/utils.dart';
@@ -32,19 +30,15 @@ class NetworkClient {
           options.headers['Access-Control-Allow-Headers'] =
               'X-Requested-With,content-type';
           options.headers['Access-Control-Allow-Credentials'] = true;
-          
         }
         return handler.next(options);
       },
       onResponse: (response, handler) {
-        print("RESPONSE: $response");
         return handler.next(response);
       },
 
       /// onError
       onError: (error, handler) async {
-        print("ERROR: $error");
-        ConnectionFailure();
         if (_shouldRetry(error)) {
           try {
             DioConnectivityRequestRetrier(
@@ -56,11 +50,13 @@ class NetworkClient {
         }
 
         if (error.response?.statusCode == 401) {
+          await refreshToken(preferences);
           RequestOptions requestOptions = error.requestOptions;
           final options = Options(
             method: requestOptions.method,
             headers: requestOptions.headers,
           );
+
           options.headers!['Authorization'] = 'Bearer $_token';
           options.headers!['Access-Control-Allow-Origin'] = '*';
           options.headers!['Access-Control-Allow-Methods'] =
@@ -70,7 +66,6 @@ class NetworkClient {
           options.headers!['Access-Control-Allow-Credentials'] = true;
           options.headers!['Accept'] = "application/json";
           options.headers!['Content-Type'] = "application/json";
-
 
           Response cloneReq = await Dio().request<dynamic>(
               BASE_URL + requestOptions.path,
@@ -88,19 +83,19 @@ class NetworkClient {
 
   Future<void> refreshToken(SharedPreferences preferences) async {
     String refreshToken = preferences.getString(REFRESH_TOKEN) ?? '';
-
     Dio dio = Dio();
     try {
-      debugPrint('AA: $refreshToken');
+      // debugPrint('AA: $refreshToken');
       final response = await dio
           .post('${BASE_URL}token/refresh/', data: {'refresh': refreshToken});
       if (response.statusCode == 200) {
         RefreshTokenResponse token =
             RefreshTokenResponse.fromJson(response.data);
-        debugPrint('TTTTT: ${token.access}');
-        await preferences.setString(ACCESS_TOKEN, token.access ?? "");
-        await preferences.setString(REFRESH_TOKEN, token.refresh);
-        _token = token.access ?? "";
+        // debugPrint('TTTTT: ${token.access}');
+        await preferences.setString(ACCESS_TOKEN, token.access ?? '');
+        await preferences.setString(
+            REFRESH_TOKEN, token.refresh ?? refreshToken);
+        _token = token.access ?? '';
       }
     } catch (err) {
       _goToLoginScreen();

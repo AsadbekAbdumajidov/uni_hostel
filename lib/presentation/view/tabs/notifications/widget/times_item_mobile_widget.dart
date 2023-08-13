@@ -17,7 +17,7 @@ class TimesItemMobileWidget extends StatelessWidget {
           SizedBox(width: 5),
           Text("06.07.2023",
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontSize: ResponsiveWidget.isMobileLarge(context) ? 15 : 18)),
+                  fontSize: ResponsiveWidget.isMobileLarge(context) ? 15 : 16)),
         ],
       ),
       SizedBox(height: 6),
@@ -29,7 +29,7 @@ class TimesItemMobileWidget extends StatelessWidget {
           Text(
             "16:48",
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontSize: ResponsiveWidget.isMobileLarge(context) ? 15 : 18),
+                fontSize: ResponsiveWidget.isMobileLarge(context) ? 15 : 16),
           ),
         ],
       )

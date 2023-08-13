@@ -22,6 +22,7 @@ class NotificationModel with _$NotificationModel {
     String? title,
     String? text,
     bool? readed,
+    @JsonKey(name: 'created_at') String? createdAt
   }) = _NotificationModel;
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) =>

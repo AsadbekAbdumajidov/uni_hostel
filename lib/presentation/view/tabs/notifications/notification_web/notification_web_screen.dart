@@ -1,4 +1,5 @@
 import 'package:UniHostel/core/themes/app_icons.dart';
+import 'package:UniHostel/core/utils/general_functions.dart';
 import 'package:UniHostel/core/utils/utils.dart';
 import 'package:UniHostel/presentation/components/loading_widget.dart';
 import 'package:UniHostel/presentation/components/responsiveness.dart';
@@ -37,19 +38,23 @@ class NotificationWebScreen extends StatelessWidget {
           if (state.status == Status.LOADING) {
             return LoadingWidget();
           }
+          
           return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: Text(AppStrings.strNotification,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(fontWeight: FontWeight.w500)),
-                ).paddingOnly(bottom: 30),
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(fontWeight: FontWeight.w500))
+                      .paddingOnly(bottom: 20),
+                ),
                 (state.responseList!.isEmpty)
-                    ? StepStatusWidget(img: AppIcons.iconBgRejected, title: AppStrings.strIsEmptyNotifications)
+                    ? StepStatusWidget(
+                        img: AppIcons.iconBgRejected,
+                        title: AppStrings.strIsEmptyNotifications)
                     : Expanded(
                         flex: 13,
                         child: DataTable2(
@@ -103,8 +108,12 @@ class NotificationWebScreen extends StatelessWidget {
                                               context)
                                           ? TimesItemMobileWidget()
                                           : TimeItemWebWidget(
-                                              data: "06.07.2023",
-                                              time: "16:48")),
+                                              data: localDateFormat(state
+                                                  .responseList?[index]
+                                                  .createdAt),
+                                              time: localTimeFormat(state
+                                                  .responseList?[index]
+                                                  .createdAt))),
                                     ],
                                   )),
                         ),

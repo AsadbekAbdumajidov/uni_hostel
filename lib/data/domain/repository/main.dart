@@ -10,7 +10,6 @@ import 'package:UniHostel/data/models/petition/request/petition_request.dart';
 import 'package:UniHostel/data/models/petition/response/petition_response.dart';
 import 'package:UniHostel/data/models/statistic/statistic_response.dart';
 import 'package:UniHostel/data/models/student_information/student_info_response_model.dart';
-import 'package:flutter/material.dart';
 
 abstract class IMainRepository {
   Future<Either<Failure, BookingInfoResponse>> getInfo();

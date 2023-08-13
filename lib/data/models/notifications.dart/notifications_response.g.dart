@@ -27,6 +27,7 @@ _$_NotificationModel _$$_NotificationModelFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String?,
       text: json['text'] as String?,
       readed: json['readed'] as bool?,
+      createdAt: json['created_at'] as String?,
     );
 
 Map<String, dynamic> _$$_NotificationModelToJson(
@@ -37,4 +38,5 @@ Map<String, dynamic> _$$_NotificationModelToJson(
       'title': instance.title,
       'text': instance.text,
       'readed': instance.readed,
+      'created_at': instance.createdAt,
     };
